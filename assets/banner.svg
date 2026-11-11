@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="风林火山 · 学习成长记录">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="55%" stop-color="#101a38"/>
+      <stop offset="100%" stop-color="#1c1038"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#36d1dc"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.12" cy="0.15" r="0.75">
+      <stop offset="0%" stop-color="#36d1dc" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#36d1dc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.92" cy="0.9" r="0.8">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#bg)"/>
+  <rect width="1200" height="360" fill="url(#glow1)"/>
+  <rect width="1200" height="360" fill="url(#glow2)"/>
+
+  <!-- 网格 -->
+  <g stroke="#7dd3fc" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 40H1200M0 80H1200M0 120H1200M0 160H1200M0 200H1200M0 240H1200M0 280H1200M0 320H1200"/>
+    <path d="M40 0V360M80 0V360M120 0V360M160 0V360M200 0V360M240 0V360M280 0V360M320 0V360M360 0V360M400 0V360M440 0V360M480 0V360M520 0V360M560 0V360M600 0V360M640 0V360M680 0V360M720 0V360M760 0V360M800 0V360M840 0V360M880 0V360M920 0V360M960 0V360M1000 0V360M1040 0V360M1080 0V360M1120 0V360M1160 0V360"/>
+  </g>
+
+  <!-- 装饰 -->
+  <circle cx="1010" cy="96" r="132" fill="none" stroke="url(#accent)" stroke-opacity="0.32" stroke-width="1.5"/>
+  <circle cx="1070" cy="170" r="74" fill="none" stroke="url(#accent)" stroke-opacity="0.22" stroke-width="1.5"/>
+  <circle cx="1070" cy="170" r="6" fill="#a78bfa" fill-opacity="0.9"/>
+  <circle cx="930" cy="250" r="3" fill="#36d1dc" fill-opacity="0.8"/>
+  <circle cx="1150" cy="60" r="4" fill="#a78bfa" fill-opacity="0.7"/>
+
+  <!-- 标题 -->
+  <text x="80" y="148" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',sans-serif" font-size="66" font-weight="700" fill="#f8fafc" letter-spacing="2">风林火山</text>
+  <text x="82" y="200" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',sans-serif" font-size="21" fill="#94a3b8">学习成长记录 · 用代码把每天钉在时间线上</text>
+
+  <!-- 标签 -->
+  <g font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',sans-serif" font-size="15">
+    <rect x="82" y="234" width="132" height="36" rx="18" fill="#0ea5e9" fill-opacity="0.14" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <text x="148" y="258" text-anchor="middle" fill="#7dd3fc">C++ / Qt</text>
+
+    <rect x="228" y="234" width="132" height="36" rx="18" fill="#8b5cf6" fill-opacity="0.14" stroke="#a78bfa" stroke-opacity="0.45"/>
+    <text x="294" y="258" text-anchor="middle" fill="#c4b5fd">OpenCV</text>
+
+    <rect x="374" y="234" width="152" height="36" rx="18" fill="#22c55e" fill-opacity="0.12" stroke="#4ade80" stroke-opacity="0.4"/>
+    <text x="450" y="258" text-anchor="middle" fill="#86efac">工业视觉</text>
+
+    <rect x="540" y="234" width="128" height="36" rx="18" fill="#f59e0b" fill-opacity="0.12" stroke="#fbbf24" stroke-opacity="0.4"/>
+    <text x="604" y="258" text-anchor="middle" fill="#fcd34d">Linux</text>
+  </g>
+
+  <text x="82" y="318" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',sans-serif" font-size="14" fill="#64748b">since 2026.11 · 每天手写 30 分钟 · 每天至少 1 个 commit</text>
+</svg>

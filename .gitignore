@@ -1,0 +1,39 @@
+# === C/C++ 构建产物 ===
+build/
+build-*/
+debug/
+release/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+*.ilk
+*.pdb
+
+# === Qt ===
+*.pro.user
+*.pro.user.*
+*.qmlc
+*.jsc
+.qmake.stash
+Makefile.*
+.qmake.cache
+
+# === IDE / 系统 ===
+.vs/
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store
+
+# === 大文件（视频/安装包放网盘，README 里给链接）===
+*.mp4
+*.avi
+*.mov
+*.zip
+*.7z
+*.iso
