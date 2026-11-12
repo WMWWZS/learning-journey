@@ -49,6 +49,7 @@
 ├── notes/        # 每日笔记、八股卡片（notes/bagu/）
 ├── docs/         # GitHub Pages 个人主页
 ├── profile/      # GitHub 个人主页 README 模板
+├── archive/      # 2026 上半年旧练习归档（只含源码）
 └── assets/       # 横幅与图片
 ```
 

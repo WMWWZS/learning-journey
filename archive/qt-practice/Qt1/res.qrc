@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imge/BG3.jpg</file>
+        <file>qss/login_reg.qss</file>
+    </qresource>
+</RCC>

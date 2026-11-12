@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/huifang.png</file>
+        <file>image/jiankong.png</file>
+        <file>image/rizhi.png</file>
+        <file>image/seting.png</file>
+        <file>image/user.png</file>
+        <file>qss/mian.qss</file>
+        <file>qss/Monitor.qss</file>
+        <file>image/camara.png</file>
+    </qresource>
+</RCC>

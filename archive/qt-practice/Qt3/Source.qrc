@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qss/login_reg.qss</file>
+        <file>imge/BG3.jpg</file>
+        <file>qss/mian.qss</file>
+        <file>qss/Monitor.qss</file>
+        <file>imge/camara.png</file>
+        <file>imge/huifang.png</file>
+        <file>imge/jiankong.png</file>
+        <file>imge/rizhi.png</file>
+        <file>imge/seting.png</file>
+        <file>imge/user.png</file>
+        <file>imge/1.png</file>
+        <file>imge/4.png</file>
+        <file>imge/map_video_qiangji_fault.png</file>
+        <file>imge/nav_scrap_normal.png</file>
+        <file>imge/2.png</file>
+    </qresource>
+</RCC>
