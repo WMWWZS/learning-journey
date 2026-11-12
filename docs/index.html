@@ -446,6 +446,19 @@
 @media (prefers-reduced-motion: reduce) {
   .skip, .toTop { display: none; }
 }
+
+/* ===== 技能编辑器 ===== */
+.skill-edit { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0 24px; font-size: 12px; color: var(--dim); }
+.skill-edit .se-hint { flex: 1 1 320px; line-height: 1.8; }
+.skill-edit .se-hint b { color: #fb923c; font-weight: 600; }
+.skill-edit .draft { color: #f59e0b; font-size: 11px; letter-spacing: 1px; }
+.skill-edit button { cursor: pointer; padding: 7px 14px; border-radius: 999px; font-size: 12px; color: #1a0a05; font-weight: 600; border: 0; background: linear-gradient(100deg, #fbbf24, #f97316 60%, #dc2626); transition: transform .15s, box-shadow .15s; }
+.skill-edit button:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(249, 115, 22, .3); }
+.skill-edit button:last-child { background: transparent; color: #f5e6d3; border: 1px solid rgba(249, 115, 22, .35); }
+.skill-edit button:last-child:hover { box-shadow: none; }
+.skills .track { cursor: ew-resize; touch-action: none; }
+.skills .track .fill { transition: width .08s linear; }
+.skills .subs span { cursor: pointer; user-select: none; }
 </style>
 </head>
 <body>
@@ -704,6 +717,12 @@
   <section id="skills" class="reveal">
     <div class="head"><span class="no">02</span><h2>技能温度</h2><span class="en">SKILL HEAT</span><span class="file">status.log</span></div>
     <p class="desc">进度按"岩浆温度"算：冷岩 → 升温 → 熔融 → 喷发。实心点是已经搞懂的子项。</p>
+    <div class="skill-edit" id="skillEdit">
+      <span class="se-hint">拖动进度条、点下面的子项 → 模拟进度；<b>这里只是预览，不会自动同步</b>。确认后点「复制 progress.json」粘贴到仓库提交。</span>
+      <span class="draft" id="draftHint"></span>
+      <button type="button" id="copyProgress">复制 progress.json</button>
+      <button type="button" id="resetProgress">重置</button>
+    </div>
     <div class="skills">
       <div class="bars" id="bars"></div>
       <div class="side">
@@ -912,17 +931,111 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
   (function next() { if (done) return; pre.innerHTML += (i ? '\n' : '') + lines[i++]; if (i < lines.length) setTimeout(next, 120); else setTimeout(close, 380); })();
 })();
 
-/* ---------- 渲染：技能 ---------- */
+/* ---------- 渲染：技能（可拖动模拟 + 导出） ---------- */
 (function () {
   var bars = document.getElementById('bars');
+  var DRAFT_KEY = 'progressDraftV1';
+  var draft = {};
+  try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || '{}') || {}; } catch (e) { draft = {}; }
+
+  function pctOf(s) { return s.subs.length ? Math.round(s.subs.filter(function (x) { return x[1]; }).length / s.subs.length * 100) : 0; }
+  function degOf(p) { return Math.round(200 + p * 10); }
+
+  /* 恢复本机草稿（只影响显示，不写仓库） */
   SKILLS.forEach(function (s) {
-    var w = heatWord(s.pct), deg = Math.round(200 + s.pct * 10);
+    if (typeof draft[s.name] === 'number') {
+      var n = Math.max(0, Math.min(s.subs.length, draft[s.name]));
+      s.subs.forEach(function (x, i) { x[1] = i < n ? 1 : 0; });
+    }
+    s.pct = pctOf(s);
+  });
+
+  SKILLS.forEach(function (s) {
     bars.insertAdjacentHTML('beforeend',
-      '<div class="bar"><div class="top"><span class="name">' + s.name + '<em class="' + (s.pct < 20 ? 'cold' : '') + '">' + w + '</em></span>' +
-      '<span class="pct"><span class="deg">' + deg + ' °C</span>' + s.pct + '<small>%</small></span></div>' +
-      '<div class="track"><div class="fill" data-w="' + s.pct + '"></div></div>' +
+      '<div class="bar" data-skill="' + s.name + '">' +
+      '<div class="top"><span class="name">' + s.name + '<em class="' + (s.pct < 20 ? 'cold' : '') + '">' + heatWord(s.pct) + '</em></span>' +
+      '<span class="pct"><span class="deg">' + degOf(s.pct) + ' °C</span>' + s.pct + '<small>%</small></span></div>' +
+      '<div class="track" title="拖动模拟已掌握的子项数"><div class="fill" style="width:' + s.pct + '%"></div></div>' +
       '<div class="scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>' +
       '<div class="subs">' + s.subs.map(function (x) { return '<span class="' + (x[1] ? 'ok' : '') + '">' + x[0] + '</span>'; }).join('') + '</div></div>');
+  });
+
+  function saveDraft() {
+    SKILLS.forEach(function (s) { draft[s.name] = s.subs.filter(function (x) { return x[1]; }).length; });
+    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(draft)); } catch (e) {}
+    var hint = document.getElementById('draftHint');
+    if (hint) hint.textContent = '● 有未提交草稿（只存在本机）';
+  }
+
+  Array.prototype.forEach.call(bars.querySelectorAll('.bar'), function (bar) {
+    var name = bar.getAttribute('data-skill');
+    var s = SKILLS.filter(function (x) { return x.name === name; })[0];
+    if (!s) return;
+    var track = bar.querySelector('.track');
+    var fill = bar.querySelector('.fill');
+    var pctEl = bar.querySelector('.pct');
+    var wordEl = bar.querySelector('.name em');
+    var subEls = bar.querySelectorAll('.subs span');
+
+    function paint() {
+      s.pct = pctOf(s);
+      fill.style.width = s.pct + '%';
+      pctEl.innerHTML = '<span class="deg">' + degOf(s.pct) + ' °C</span>' + s.pct + '<small>%</small>';
+      wordEl.textContent = heatWord(s.pct);
+      wordEl.className = s.pct < 20 ? 'cold' : '';
+      Array.prototype.forEach.call(subEls, function (el, i) { el.className = s.subs[i][1] ? 'ok' : ''; });
+      saveDraft();
+    }
+    function setCount(n) {
+      n = Math.max(0, Math.min(s.subs.length, n));
+      s.subs.forEach(function (x, i) { x[1] = i < n ? 1 : 0; });
+      paint();
+    }
+    function fromEvent(e) {
+      var r = track.getBoundingClientRect();
+      var ratio = (e.clientX - r.left) / Math.max(1, r.width);
+      setCount(Math.round(ratio * s.subs.length));
+    }
+    track.addEventListener('pointerdown', function (e) {
+      e.preventDefault();
+      try { track.setPointerCapture(e.pointerId); } catch (err) {}
+      fromEvent(e);
+      var move = function (ev) { fromEvent(ev); };
+      var up = function () { track.removeEventListener('pointermove', move); track.removeEventListener('pointerup', up); track.removeEventListener('pointercancel', up); };
+      track.addEventListener('pointermove', move);
+      track.addEventListener('pointerup', up);
+      track.addEventListener('pointercancel', up);
+    });
+    Array.prototype.forEach.call(subEls, function (el, i) {
+      el.addEventListener('click', function () { s.subs[i][1] = s.subs[i][1] ? 0 : 1; paint(); });
+    });
+  });
+
+  /* 导出 progress.json */
+  var copyBtn = document.getElementById('copyProgress');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var out = JSON.parse(JSON.stringify(window.PROGRESS || {}));
+    out.skills = SKILLS.map(function (s) {
+      return { name: s.name, subs: s.subs.map(function (x) { return [x[0], x[1] ? 1 : 0]; }) };
+    });
+    var text = JSON.stringify(out, null, 2) + '\n';
+    function done() { if (typeof toast === 'function') toast('已复制 progress.json，粘贴到 docs/data/progress.json 再提交'); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta); done();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  });
+
+  var resetBtn = document.getElementById('resetProgress');
+  if (resetBtn) resetBtn.addEventListener('click', function () {
+    try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+    location.reload();
   });
 })();
 
