@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T15:28:25.644Z",
-  "total": 45,
+  "updated": "2026-11-12T15:31:14.204Z",
+  "total": 47,
   "commits": [
+    {
+      "sha": "3fd23553cdb09498d062d42d2d27ab67d4b4f86a",
+      "msg": "fix(actions): 串行化三个工作流并先 rebase 再 push，修复生成任务推送撞车；同步技能进度图",
+      "date": "2026-11-12T15:30:49Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/3fd23553cdb09498d062d42d2d27ab67d4b4f86a",
+      "author": "WMWWZS"
+    },
     {
       "sha": "9210d39962902e2003ccebbcb88ed49ed25685a5",
       "msg": "Update progress.json",
