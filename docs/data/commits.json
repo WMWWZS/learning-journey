@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T07:59:01.652Z",
-  "total": 25,
+  "updated": "2026-11-12T08:10:24.982Z",
+  "total": 27,
   "commits": [
+    {
+      "sha": "482767bc6f59a2594cd349103b0506eaf4ac9f8c",
+      "msg": "chore: P3 收尾（404 页、gitattributes、清理冗余资源、技能百分比自动计算）",
+      "date": "2026-11-12T08:10:14Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/482767bc6f59a2594cd349103b0506eaf4ac9f8c",
+      "author": "WMWWZS"
+    },
     {
       "sha": "ad2e776d22549eef1663a574cabbb360726b0f1e",
       "msg": "feat(readme): 技能徽章改为可点击链接，新增自动同步的当前进度行",
