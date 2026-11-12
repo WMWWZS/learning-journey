@@ -67,6 +67,8 @@
 └── assets/       # 横幅、数据面板、路线图、页脚
 ```
 
+**每个文件干嘛的、要不要手改 → [docs/STRUCTURE.md](docs/STRUCTURE.md)**
+
 </details>
 
 <details>
