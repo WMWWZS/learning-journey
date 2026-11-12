@@ -55,53 +55,53 @@
   </g>
 
   <g font-family="'JetBrains Mono','Cascadia Code','Consolas',monospace">
-    <!-- C++ 45% -->
+    <!-- C++ 33% -->
     <text x="64" y="149" font-size="19" font-weight="600" fill="#fde68a">C++</text>
     <rect x="196" y="139" width="400" height="12" rx="6" fill="#2a120b"/>
-    <rect x="196" y="139" width="180" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
-      <animate attributeName="width" values="0;180" dur="1.6s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <rect x="196" y="139" width="132" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
+      <animate attributeName="width" values="0;132" dur="1.6s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
     </rect>
-    <circle cx="376" cy="144" r="4" fill="#fffbeb" filter="url(#glow)">
-      <animate attributeName="cx" values="196;376" dur="1.6s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <circle cx="328" cy="144" r="4" fill="#fffbeb" filter="url(#glow)">
+      <animate attributeName="cx" values="196;328" dur="1.6s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
       <animate attributeName="r" values="3.4;5;3.4" dur="1.8s" begin="1.6s" repeatCount="indefinite"/>
     </circle>
-    <text x="616" y="151" font-size="28" font-weight="700" fill="#fb923c">45<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
+    <text x="616" y="151" font-size="28" font-weight="700" fill="#fb923c">33<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
 
-    <!-- Qt 35% -->
+    <!-- Qt 40% -->
     <text x="64" y="197" font-size="19" font-weight="600" fill="#fde68a">Qt</text>
     <rect x="196" y="187" width="400" height="12" rx="6" fill="#2a120b"/>
-    <rect x="196" y="187" width="140" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
-      <animate attributeName="width" values="0;140" dur="1.8s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <rect x="196" y="187" width="160" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
+      <animate attributeName="width" values="0;160" dur="1.8s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
     </rect>
-    <circle cx="336" cy="192" r="4" fill="#fffbeb" filter="url(#glow)">
-      <animate attributeName="cx" values="196;336" dur="1.8s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <circle cx="356" cy="192" r="4" fill="#fffbeb" filter="url(#glow)">
+      <animate attributeName="cx" values="196;356" dur="1.8s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
       <animate attributeName="r" values="3.4;5;3.4" dur="2s" begin="1.8s" repeatCount="indefinite"/>
     </circle>
-    <text x="616" y="199" font-size="28" font-weight="700" fill="#fb923c">35<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
+    <text x="616" y="199" font-size="28" font-weight="700" fill="#fb923c">40<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
 
-    <!-- OpenCV 15% -->
+    <!-- OpenCV 25% -->
     <text x="64" y="245" font-size="19" font-weight="600" fill="#fde68a">OpenCV</text>
     <rect x="196" y="235" width="400" height="12" rx="6" fill="#2a120b"/>
-    <rect x="196" y="235" width="60" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
-      <animate attributeName="width" values="0;60" dur="2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <rect x="196" y="235" width="100" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
+      <animate attributeName="width" values="0;100" dur="2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
     </rect>
-    <circle cx="256" cy="240" r="4" fill="#fffbeb" filter="url(#glow)">
-      <animate attributeName="cx" values="196;256" dur="2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <circle cx="296" cy="240" r="4" fill="#fffbeb" filter="url(#glow)">
+      <animate attributeName="cx" values="196;296" dur="2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
       <animate attributeName="r" values="3.4;5;3.4" dur="2.2s" begin="2s" repeatCount="indefinite"/>
     </circle>
-    <text x="616" y="247" font-size="28" font-weight="700" fill="#fb923c">15<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
+    <text x="616" y="247" font-size="28" font-weight="700" fill="#fb923c">25<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
 
-    <!-- Linux 5% -->
+    <!-- Linux 0% -->
     <text x="64" y="293" font-size="19" font-weight="600" fill="#fde68a">Linux</text>
     <rect x="196" y="283" width="400" height="12" rx="6" fill="#2a120b"/>
-    <rect x="196" y="283" width="20" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
-      <animate attributeName="width" values="0;20" dur="2.2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <rect x="196" y="283" width="0" height="12" rx="6" fill="url(#magma)" filter="url(#glow)">
+      <animate attributeName="width" values="0;0" dur="2.2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
     </rect>
-    <circle cx="216" cy="288" r="4" fill="#fffbeb" filter="url(#glow)">
-      <animate attributeName="cx" values="196;216" dur="2.2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
+    <circle cx="196" cy="288" r="4" fill="#fffbeb" filter="url(#glow)">
+      <animate attributeName="cx" values="196;196" dur="2.2s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>
       <animate attributeName="r" values="3.4;5;3.4" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
     </circle>
-    <text x="616" y="295" font-size="28" font-weight="700" fill="#fb923c">5<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
+    <text x="616" y="295" font-size="28" font-weight="700" fill="#fb923c">0<tspan font-size="15" fill="#a86a4a" dx="2">%</tspan></text>
   </g>
 
   <!-- 分隔 -->

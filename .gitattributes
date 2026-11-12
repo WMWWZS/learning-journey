@@ -1,0 +1,19 @@
+# 统一换行符，避免 Windows 下反复出现 CRLF 警告
+* text=auto eol=lf
+
+# 二进制文件不做文本处理
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.pdf binary
+*.ai binary
+*.psd binary
+*.zip binary
+*.mp4 binary
+*.avi binary

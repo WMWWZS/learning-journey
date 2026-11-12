@@ -10,7 +10,7 @@ learning-journey/
 ├── .github/workflows/          # GitHub Actions 自动化
 │   ├── snake.yml               # ⚙️ 每天生成贡献蛇
 │   ├── sync-commits.yml        # ⚙️ 每天同步提交数据
-│   └── gen-assets.yml          # ⚙️ progress.json 变动后重新生成页面数据和 README 图
+│   └── gen-assets.yml          # ⚙️ progress.json 变动后重新生成页面数据、README 图、README 进度行
 │
 ├── archive/                    # 2026 上半年旧练习（29 个工程，只保留源码）
 │   ├── cpp-homework/           #   C++ 作业（Cplus_homework_1~6、QThomeWork 7/8/16~19）
@@ -22,9 +22,7 @@ learning-journey/
 │   ├── dashboard.svg           # ⚙️ 技能温度图（由 progress.json 生成）
 │   ├── dashboard.template.svg  #    技能温度图模板（占位符，一般不动）
 │   ├── roadmap.svg             # ✅ README 路线图
-│   ├── footer.svg              # ✅ README 页脚
-│   ├── hero.svg                #    旧横幅（历史保留）
-│   └── banner.svg              #    更早的横幅（历史保留）
+│   └── footer.svg              # ✅ README 页脚
 │
 ├── cpp/                        # ✅ C++ 练习代码（按 年-月/日期-主题 建子目录）
 ├── qt/                         # ✅ Qt 小项目（计算器、登录界面…）
@@ -32,6 +30,7 @@ learning-journey/
 │
 ├── docs/                       # GitHub Pages 站点（发布目录：/docs）
 │   ├── index.html              # ✅ 个人主页（HTML + Canvas 火山实时渲染）
+│   ├── 404.html                # ✅ 自定义 404 页面
 │   ├── og.png                  # ✅ 社交分享缩略图（1200×630）
 │   ├── favicon.svg             # ✅ 网站标签页图标
 │   ├── snake-dark.svg          # ⚙️ 贡献蛇（深色）
@@ -48,7 +47,8 @@ learning-journey/
 │   └── bagu/                   #    八股卡片（目前空）
 │
 ├── profile/README.md           # ✅ GitHub 个人主页 README 模板（复制到同名仓库）
-├── scripts/gen-assets.mjs      #    progress.json → progress.js + dashboard.svg 的生成器
+├── scripts/gen-assets.mjs      #    progress.json → progress.js + dashboard.svg + README 进度行
+├── .gitattributes              #    统一换行符（避免 CRLF 警告）
 ├── .gitignore                  #    忽略构建产物、视频、大文件
 └── README.md                   # ✅ 仓库首页
 ```
@@ -57,7 +57,7 @@ learning-journey/
 
 | 想改的东西 | 改这个文件 | 生效方式 |
 | :-- | :-- | :-- |
-| **技能进度**（百分比、子项勾选） | `docs/data/progress.json` → `skills` | Actions 自动生成，约 1 分钟上线 |
+| **技能进度**（勾选子项，百分比自动算） | `docs/data/progress.json` → `skills` 的 `subs` | Actions 自动生成，约 1 分钟上线 |
 | **当前阶段 / 阶段进度** | `docs/data/progress.json` → `stages` | 同上 |
 | **4 周计划** | `docs/data/progress.json` → `weeks` | 同上 |
 | **项目功能清单** | `docs/data/progress.json` → `features` | 同上 |
@@ -75,19 +75,23 @@ learning-journey/
 | :-- | :-- | :-- |
 | `snake.yml` | 每天 UTC 2:00 + 手动 | `docs/snake-dark.svg`、`docs/snake-light.svg` |
 | `sync-commits.yml` | 每次 push + 每天 UTC 3:00 | `docs/data/commits.json` |
-| `gen-assets.yml` | `progress.json` / 模板 / 生成器变动时 | `docs/data/progress.js`、`assets/dashboard.svg` |
+| `gen-assets.yml` | `progress.json` / 模板 / 生成器变动时 | `docs/data/progress.js`、`assets/dashboard.svg`、README 里的「当前进度」行 |
 
 ## 数据流（为什么改一处就够）
 
 ```text
-docs/data/progress.json  （唯一数据源）
+docs/data/progress.json  （唯一数据源：只勾子项，百分比自动算）
         │
         ├── gen-assets.mjs ──→ docs/data/progress.js   ──→ 个人主页读取
-        └── gen-assets.mjs ──→ assets/dashboard.svg    ──→ README 显示
+        ├── gen-assets.mjs ──→ assets/dashboard.svg    ──→ README 显示
+        └── gen-assets.mjs ──→ README.md「当前进度」行  ──→ README 显示
 ```
 
 ## 小知识
 
 - `.gitkeep`：Git 不能提交空目录，这个小文件只是用来占位，让 `cpp/`、`qt/` 这类空文件夹能出现在仓库里
 - `⚙️` 标记的文件都由 Actions 生成并自动提交，**手改会在下次运行时被覆盖**
+- 技能百分比不再手填：`pct = 已勾选子项数 / 子项总数 × 100`
 - 本地改完想立刻预览：在仓库根目录运行 `node scripts/gen-assets.mjs`，再刷新本地页面即可
+- 404 页面：`docs/404.html`，访问不存在的路径时 GitHub Pages 会自动使用它
+- `.gitattributes`：统一 LF 换行，Windows 下提交不再刷 CRLF 警告

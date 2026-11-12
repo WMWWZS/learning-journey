@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<title>404 · 这座火山还没喷发</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(80% 70% at 60% 100%, #2a0d05 0%, #0c0605 60%, #050302 100%);
+    color: #f5e6d3; text-align: center; padding: 24px;
+    font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  }
+  .card { max-width: 560px; }
+  .code {
+    font-family: Consolas, monospace; font-size: 13px; color: #a16207;
+    letter-spacing: 4px; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(64px, 16vw, 120px); line-height: 1; font-weight: 800;
+    background: linear-gradient(110deg, #fff7ed, #fdba74 40%, #f97316 75%, #dc2626);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 24px rgba(249, 115, 22, .35));
+  }
+  p { margin-top: 14px; color: #c9a88c; font-size: 15px; letter-spacing: 1px; }
+  .btns { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  a {
+    padding: 12px 22px; border-radius: 999px; font-size: 14px; text-decoration: none;
+    color: #1a0a05; font-weight: 600;
+    background: linear-gradient(100deg, #fbbf24, #f97316 60%, #dc2626);
+    transition: transform .2s, box-shadow .2s;
+  }
+  a.ghost { color: #f5e6d3; background: transparent; border: 1px solid rgba(249, 115, 22, .35); }
+  a:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(249, 115, 22, .3); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="code">ERROR 404 · PAGE NOT FOUND</div>
+    <h1>404</h1>
+    <p>这座火山还没喷发——你要找的页面不存在。</p>
+    <div class="btns">
+      <a href="/learning-journey/">回到主页</a>
+      <a class="ghost" href="https://github.com/WMWWZS/learning-journey">去仓库看看</a>
+    </div>
+  </div>
+</body>
+</html>

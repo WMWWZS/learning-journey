@@ -434,6 +434,18 @@
   .hero .wrap { padding-top: 152px; }
 }
 :root { --dim: #8f6d54; }
+
+/* ===== a11y / mobile polish ===== */
+:focus-visible { outline: 2px solid #f97316; outline-offset: 2px; border-radius: 4px; }
+@media (max-width: 720px) {
+  nav .links {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skip, .toTop { display: none; }
+}
 </style>
 </head>
 <body>
@@ -895,9 +907,9 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
     '<em>&gt;&gt; ERUPTION IMMINENT</em>'
   ];
   var pre = document.getElementById('bootText'), i = 0, done = false;
-  function close() { if (done) return; done = true; boot.classList.add('out'); setTimeout(function () { boot.remove(); }, 700); }
+  function close() { if (done) return; done = true; boot.classList.add('out'); setTimeout(function () { boot.remove(); }, 500); }
   boot.addEventListener('click', close);
-  (function next() { if (done) return; pre.innerHTML += (i ? '\n' : '') + lines[i++]; if (i < lines.length) setTimeout(next, 190); else setTimeout(close, 520); })();
+  (function next() { if (done) return; pre.innerHTML += (i ? '\n' : '') + lines[i++]; if (i < lines.length) setTimeout(next, 120); else setTimeout(close, 380); })();
 })();
 
 /* ---------- 渲染：技能 ---------- */

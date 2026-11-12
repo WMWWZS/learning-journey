@@ -13,7 +13,6 @@ window.PROGRESS = {
   "skills": [
     {
       "name": "C++",
-      "pct": 45,
       "subs": [
         [
           "类与对象",
@@ -39,11 +38,11 @@ window.PROGRESS = {
           "STL",
           0
         ]
-      ]
+      ],
+      "pct": 33
     },
     {
       "name": "Qt",
-      "pct": 35,
       "subs": [
         [
           "控件",
@@ -65,11 +64,11 @@ window.PROGRESS = {
           "QSS",
           0
         ]
-      ]
+      ],
+      "pct": 40
     },
     {
       "name": "OpenCV",
-      "pct": 15,
       "subs": [
         [
           "图像读写",
@@ -87,11 +86,11 @@ window.PROGRESS = {
           "轮廓",
           0
         ]
-      ]
+      ],
+      "pct": 25
     },
     {
       "name": "Linux",
-      "pct": 5,
       "subs": [
         [
           "常用命令",
@@ -105,7 +104,8 @@ window.PROGRESS = {
           "Shell",
           0
         ]
-      ]
+      ],
+      "pct": 0
     }
   ],
   "stages": [

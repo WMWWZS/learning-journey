@@ -14,6 +14,14 @@ const write = (p, s) => fs.writeFileSync(`${ROOT}/${p}`, s, "utf8");
 
 const progress = JSON.parse(read("docs/data/progress.json"));
 
+// 技能百分比 = 已勾选子项 / 子项总数（不再手填）
+for (const skill of progress.skills || []) {
+  const subs = skill.subs || [];
+  if (subs.length) {
+    skill.pct = Math.round(subs.filter(x => x[1]).length / subs.length * 100);
+  }
+}
+
 // 1) progress.js —— 页面优先加载这份
 write("docs/data/progress.js", "window.PROGRESS = " + JSON.stringify(progress, null, 2) + ";\n");
 
