@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 330" width="1280" height="330" role="img" aria-label="路线图：地基、核心、项目、冲刺">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c0605"/>
+      <stop offset="100%" stop-color="#140806"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="200" cy="180" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c2410c" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="35%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="200" y1="0" x2="493" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="60%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="big" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffaf0"/>
+      <stop offset="55%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-200%" width="200%" height="500%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="b10" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 0.7  0 0 0 0 0.5  0 0 0 0.5 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="330" fill="url(#bg)"/>
+  <rect width="1280" height="330" fill="url(#warm)"/>
+  <rect width="1280" height="2" fill="url(#edge)" filter="url(#glow)"/>
+
+  <g font-family="'JetBrains Mono','Cascadia Code','Consolas',monospace">
+    <text x="64" y="58" font-size="16" letter-spacing="1" fill="#a86a4a"><tspan fill="#f97316" font-weight="700">$</tspan> cat roadmap.md</text>
+    <text x="1216" y="58" font-size="13" letter-spacing="4" fill="#8a5a42" text-anchor="end">2026 → 2028</text>
+  </g>
+
+  <!-- 冷却岩层（未到达的路段） -->
+  <path d="M200 180 H 1080" stroke="#2e140c" stroke-width="6" stroke-linecap="round"/>
+  <path d="M200 180 H 1080" stroke="#4a2516" stroke-width="1" stroke-dasharray="2 8"/>
+
+  <!-- 已流过的熔岩：每周日复盘时，把 x2 / H 的终点往右推 -->
+  <path d="M200 180 H 290" stroke="#dc2626" stroke-width="14" stroke-linecap="round" opacity="0.35" filter="url(#b10)"/>
+  <path d="M200 180 H 290" stroke="url(#flow)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M200 180 H 290" stroke="#fff7d6" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="5 16" opacity="0.85">
+    <animate attributeName="stroke-dashoffset" values="0;-42" dur="1.8s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- ===== 01 地基 · 进行中 ===== -->
+  <circle cx="200" cy="180" r="22" fill="#f97316" opacity="0.3" filter="url(#b10)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="180" r="11" fill="none" stroke="#fdba74" stroke-width="1">
+    <animate attributeName="r" values="11;28" dur="2.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="180" r="9" fill="#1a0a06" stroke="#f97316" stroke-width="2"/>
+  <circle cx="200" cy="180" r="4" fill="#fffbeb" filter="url(#glow)"/>
+
+  <!-- ===== 02 / 03 / 04 · 休眠 ===== -->
+  <g fill="#120806" stroke="#4a2516" stroke-width="2">
+    <circle cx="493" cy="180" r="8"/>
+    <circle cx="787" cy="180" r="8"/>
+    <circle cx="1080" cy="180" r="8"/>
+  </g>
+
+  <!-- 标签 -->
+  <g text-anchor="middle">
+    <g font-family="'JetBrains Mono','Cascadia Code','Consolas',monospace" font-size="14" letter-spacing="3">
+      <text x="200" y="98" fill="#f97316">01 · NOW</text>
+      <text x="493" y="98" fill="#8a5a42">02</text>
+      <text x="787" y="98" fill="#8a5a42">03</text>
+      <text x="1080" y="98" fill="#8a5a42">04</text>
+    </g>
+    <g font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="34" font-weight="800" letter-spacing="4">
+      <text x="200" y="142" fill="url(#big)">地基</text>
+      <text x="493" y="142" fill="#b08068">核心</text>
+      <text x="787" y="142" fill="#b08068">项目</text>
+      <text x="1080" y="142" fill="#b08068">冲刺</text>
+    </g>
+    <g font-family="'JetBrains Mono','Cascadia Code','Consolas',monospace" font-size="16" letter-spacing="1">
+      <text x="200" y="230" fill="#fdba74">2026.11 – 2026.12</text>
+      <text x="493" y="230" fill="#a06a50">2027.01 – 2027.06</text>
+      <text x="787" y="230" fill="#a06a50">2027.07 – 2027.08</text>
+      <text x="1080" y="230" fill="#a06a50">2027.09 – 2028.12</text>
+    </g>
+    <g font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="17" letter-spacing="1">
+      <text x="200" y="266" fill="#f0d4bf">C++ 语法 · Qt 控件与信号槽</text>
+      <text x="200" y="292" fill="#f0d4bf">OpenCV 入门</text>
+      <text x="493" y="266" fill="#b0907c">多线程 · MySQL · Linux</text>
+      <text x="493" y="292" fill="#b0907c">网络 · 工业视觉补丁</text>
+      <text x="787" y="266" fill="#b0907c">工业检测系统 v1.0</text>
+      <text x="787" y="292" fill="#b0907c">暑期实习</text>
+      <text x="1080" y="266" fill="#b0907c">实习积累</text>
+      <text x="1080" y="292" fill="#b0907c">秋招</text>
+    </g>
+  </g>
+
+  <rect width="1280" height="330" filter="url(#grain)" opacity="0.05"/>
+</svg>

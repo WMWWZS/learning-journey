@@ -1,25 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="150" viewBox="0 0 1200 150" role="img" aria-label="页脚">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 200" width="1280" height="200" role="img" aria-label="Stay hungry. Stay foolish.">
   <defs>
-    <linearGradient id="fbg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#05060d"/>
-      <stop offset="50%" stop-color="#0d0b1f"/>
-      <stop offset="100%" stop-color="#1a0b2e"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c0605"/>
+      <stop offset="70%" stop-color="#1a0a06"/>
+      <stop offset="100%" stop-color="#2a0f07"/>
     </linearGradient>
-    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#22d3ee"/>
-      <stop offset="70%" stop-color="#a78bfa"/>
-      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    <radialGradient id="warm" cx="640" cy="220" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7f1d1d" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="txt" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f8fafc"/>
-      <stop offset="100%" stop-color="#94a3b8"/>
+    <linearGradient id="txt" x1="0" y1="56" x2="0" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fffaf0"/>
+      <stop offset="60%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#ea580c"/>
     </linearGradient>
+    <filter id="glow" x="-20%" y="-200%" width="140%" height="500%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 0.7  0 0 0 0 0.5  0 0 0 0.5 0"/>
+    </filter>
   </defs>
 
-  <rect width="1200" height="150" fill="url(#fbg)"/>
-  <path d="M0 20H1200" stroke="url(#line)" stroke-width="1.5" opacity="0.8"/>
-  <text x="600" y="72" text-anchor="middle" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="26" font-weight="700" fill="url(#txt)" letter-spacing="4">Stay hungry. Stay foolish.</text>
-  <text x="600" y="106" text-anchor="middle" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="13" fill="#64748b" letter-spacing="2">2026.11 起 · 从今天开始，每天都算数</text>
-  <path d="M0 130H1200" stroke="#ffffff" stroke-opacity="0.06"/>
+  <rect width="1280" height="200" fill="url(#bg)"/>
+  <rect width="1280" height="200" fill="url(#warm)"/>
+  <rect width="1280" height="1.5" fill="url(#edge)" opacity="0.8"/>
+
+  <!-- 地表裂缝 -->
+  <g fill="none" stroke="#f97316" stroke-width="1.2" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M0 186 L 60 180 L 96 188 L 150 178 L 210 184 L 262 176 L 300 182"/>
+    <path d="M150 178 L 158 168"/>
+    <path d="M420 192 L 470 184 L 504 190 L 560 182"/>
+    <path d="M720 190 L 770 182 L 806 188 L 860 180 L 900 186"/>
+    <path d="M806 188 L 812 198"/>
+    <path d="M1000 184 L 1050 190 L 1100 180 L 1160 186 L 1220 178 L 1280 184"/>
+    <path d="M1100 180 L 1094 170"/>
+    <animate attributeName="opacity" values="0.35;0.9;0.35" dur="4s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- 上升火星 -->
+  <g fill="#fbbf24">
+    <circle cx="150" cy="178" r="1.4"><animateTransform attributeName="transform" type="translate" values="0,0;-8,-90;-18,-170" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.5;0" dur="5s" repeatCount="indefinite"/></circle>
+    <circle cx="490" cy="188" r="1.1"><animateTransform attributeName="transform" type="translate" values="0,0;10,-80;14,-170" dur="6s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.5;0" dur="6s" begin="1.2s" repeatCount="indefinite"/></circle>
+    <circle cx="806" cy="188" r="1.3"><animateTransform attributeName="transform" type="translate" values="0,0;-12,-84;-20,-170" dur="5.4s" begin="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.5;0" dur="5.4s" begin="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="1100" cy="180" r="1.2"><animateTransform attributeName="transform" type="translate" values="0,0;8,-90;6,-170" dur="6.4s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.5;0" dur="6.4s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="640" cy="196" r="1"><animateTransform attributeName="transform" type="translate" values="0,0;-4,-100;-10,-180" dur="7s" begin="3.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.4;0" dur="7s" begin="3.4s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <text x="640" y="90" text-anchor="middle" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" letter-spacing="2" fill="url(#txt)">Stay hungry. Stay foolish.</text>
+  <text x="640" y="128" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="17" letter-spacing="3" fill="#c2744a">2026.11 起 · 每一个 commit，都是一次小喷发</text>
+  <text x="640" y="158" text-anchor="middle" font-family="'JetBrains Mono','Cascadia Code','Consolas',monospace" font-size="13" letter-spacing="5" fill="#7c4a32">WMWWZS / LEARNING-JOURNEY</text>
+
+  <rect width="1280" height="200" filter="url(#grain)" opacity="0.05"/>
 </svg>
