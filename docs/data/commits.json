@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T07:14:31.591Z",
-  "total": 18,
+  "updated": "2026-11-12T07:36:36.897Z",
+  "total": 20,
   "commits": [
+    {
+      "sha": "dac73d1c3a5ab1d42d7f3c2d4f25106146f88f80",
+      "msg": "feat(data): 进度数据收敛到 docs/data/progress.json，自动生成页面数据和 README 图",
+      "date": "2026-11-12T07:36:25Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/dac73d1c3a5ab1d42d7f3c2d4f25106146f88f80",
+      "author": "WMWWZS"
+    },
     {
       "sha": "8fae843ec6d9605204b20ce3821c7d1b35642e03",
       "msg": "docs(pages): 更新日志区块说明文案",
