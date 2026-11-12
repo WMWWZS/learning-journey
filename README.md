@@ -12,7 +12,7 @@
 [![Git](https://img.shields.io/badge/Git-1a0c08?style=for-the-badge&logo=git&logoColor=f97316)](https://github.com/WMWWZS/learning-journey/commits/main)
 
 <!-- PROGRESS:BEGIN -->
-**当前进度**：C++ 33% · Qt 40% · OpenCV 25% · Linux 0% · [看详情 →](https://wmwwzs.github.io/learning-journey/#skills)
+**当前进度**：C++ 100% · Qt 100% · OpenCV 50% · Linux 0% · [看详情 →](https://wmwwzs.github.io/learning-journey/#skills)
 <!-- PROGRESS:END -->
 
 [![个人主页](https://img.shields.io/badge/个人主页-GitHub%20Pages-c2410c?style=flat-square&labelColor=1a0c08)](https://wmwwzs.github.io/learning-journey/)

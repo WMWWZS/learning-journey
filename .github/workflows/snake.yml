@@ -9,6 +9,10 @@ on:
     paths:
       - ".github/workflows/snake.yml"
 
+concurrency:
+  group: repo-data-writes
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
