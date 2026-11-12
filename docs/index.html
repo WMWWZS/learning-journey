@@ -464,6 +464,17 @@
 .skill-edit button.ghost:hover { box-shadow: none; }
 .road .mini.editable { cursor: ew-resize; touch-action: none; }
 .skills [data-feat] li { cursor: pointer; user-select: none; }
+
+.skills .bar { user-select: none; -webkit-user-drag: none; }
+.skills .bar .track { position: relative; cursor: ew-resize; touch-action: none; }
+.skills .bar .knob {
+  position: absolute; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px;
+  border-radius: 50%; background: #ffedd5; pointer-events: none;
+  box-shadow: 0 0 12px #f97316, 0 0 24px rgba(249, 115, 22, .55);
+  transition: left .06s linear;
+}
+.skills .track:hover .knob { transform: scale(1.15); }
+.skills .bar.active .knob { transform: scale(1.25); }
 </style>
 </head>
 <body>
@@ -1041,7 +1052,7 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
   (function next() { if (done) return; pre.innerHTML += (i ? '\n' : '') + lines[i++]; if (i < lines.length) setTimeout(next, 120); else setTimeout(close, 380); })();
 })();
 
-/* ---------- 渲染：技能（可拖动编辑） ---------- */
+/* ---------- 渲染：技能（整行可拖 + 手柄） ---------- */
 (function () {
   var bars = document.getElementById('bars');
   function pctOf(s) { return s.subs.length ? Math.round(s.subs.filter(function (x) { return x[1]; }).length / s.subs.length * 100) : 0; }
@@ -1054,7 +1065,7 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
       '<div class="bar" data-skill="' + s.name + '">' +
       '<div class="top"><span class="name">' + s.name + '<em class="' + (s.pct < 20 ? 'cold' : '') + '">' + heatWord(s.pct) + '</em></span>' +
       '<span class="pct"><span class="deg">' + degOf(s.pct) + ' °C</span>' + s.pct + '<small>%</small></span></div>' +
-      '<div class="track" title="拖动模拟已掌握的子项数"><div class="fill" style="width:' + s.pct + '%"></div></div>' +
+      '<div class="track" title="按住横向拖动调整"><div class="fill" style="width:' + s.pct + '%"></div><i class="knob" style="left:' + s.pct + '%"></i></div>' +
       '<div class="scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>' +
       '<div class="subs">' + s.subs.map(function (x) { return '<span class="' + (x[1] ? 'ok' : '') + '">' + x[0] + '</span>'; }).join('') + '</div></div>');
   });
@@ -1065,6 +1076,7 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
     if (!s) return;
     var track = bar.querySelector('.track');
     var fill = bar.querySelector('.fill');
+    var knob = bar.querySelector('.knob');
     var pctEl = bar.querySelector('.pct');
     var wordEl = bar.querySelector('.name em');
     var subEls = bar.querySelectorAll('.subs span');
@@ -1072,6 +1084,7 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
     function paint() {
       s.pct = pctOf(s);
       fill.style.width = s.pct + '%';
+      knob.style.left = s.pct + '%';
       pctEl.innerHTML = '<span class="deg">' + degOf(s.pct) + ' °C</span>' + s.pct + '<small>%</small>';
       wordEl.textContent = heatWord(s.pct);
       wordEl.className = s.pct < 20 ? 'cold' : '';
@@ -1088,15 +1101,18 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
       var ratio = (e.clientX - r.left) / Math.max(1, r.width);
       setCount(Math.round(ratio * s.subs.length));
     }
-    track.addEventListener('pointerdown', function (e) {
+    /* 整行都可拖（子项区域除外，那里是点击切换） */
+    bar.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('.subs')) return;
+      if (e.button !== undefined && e.button !== 0) return;
       e.preventDefault();
-      try { track.setPointerCapture(e.pointerId); } catch (err) {}
+      try { bar.setPointerCapture(e.pointerId); } catch (err) {}
       fromEvent(e);
       var move = function (ev) { fromEvent(ev); };
-      var up = function () { track.removeEventListener('pointermove', move); track.removeEventListener('pointerup', up); track.removeEventListener('pointercancel', up); };
-      track.addEventListener('pointermove', move);
-      track.addEventListener('pointerup', up);
-      track.addEventListener('pointercancel', up);
+      var up = function () { bar.removeEventListener('pointermove', move); bar.removeEventListener('pointerup', up); bar.removeEventListener('pointercancel', up); };
+      bar.addEventListener('pointermove', move);
+      bar.addEventListener('pointerup', up);
+      bar.addEventListener('pointercancel', up);
     });
     Array.prototype.forEach.call(subEls, function (el, i) {
       el.addEventListener('click', function () { s.subs[i][1] = s.subs[i][1] ? 0 : 1; paint(); });
