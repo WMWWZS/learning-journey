@@ -1,56 +1,59 @@
-﻿# 涓汉涓婚〉 README 妯℃澘
+# 个人主页 README 模板
 
-> **鐢ㄦ硶**锛氬湪 GitHub 鏂板缓涓€涓粨搴擄紝鍚嶅瓧**蹇呴』鍜屼綘鐨勭敤鎴峰悕瀹屽叏涓€鏍?*锛堜緥濡傜敤鎴峰悕鏄?`WMWWZS`锛屼粨搴撳氨鍙?`WMWWZS`锛夛紝
-> 鍕鹃€?Add a README锛岀劧鍚庢妸鏈枃浠跺唴瀹瑰鍒惰繘鍘汇€傝繖涓粨搴撶殑 README 浼氭樉绀哄湪浣犵殑 GitHub 涓汉涓婚〉椤堕儴銆?
+> **用法**：在 GitHub 新建一个仓库，名字**必须和你的用户名完全一样**（例如用户名是 `WMWWZS`，仓库就叫 `WMWWZS`），
+> 勾选 Add a README，然后把本文件内容复制进去。这个仓库的 README 会显示在你的 GitHub 个人主页顶部。
+
 ---
 
 <div align="center">
 
-# 椋庢灄鐏北 WMWWZS
+# 风林火山 WMWWZS
 
-**C++ / Qt / OpenCV 路 宸ヤ笟瑙嗚鏂瑰悜**
+**C++ / Qt / OpenCV · 工业视觉方向**
 
-[![瀛︿範浠撳簱](https://img.shields.io/badge/瀛︿範鎴愰暱璁板綍-learning--journey-2ea44f?style=for-the-badge)](https://github.com/WMWWZS/learning-journey)
-[![涓汉涓婚〉](https://img.shields.io/badge/涓汉涓婚〉-GitHub%20Pages-8b5cf6?style=for-the-badge)](https://wmwwzs.github.io/learning-journey/)
+[![学习仓库](https://img.shields.io/badge/学习成长记录-learning--journey-2ea44f?style=for-the-badge)](https://github.com/WMWWZS/learning-journey)
+[![个人主页](https://img.shields.io/badge/个人主页-GitHub%20Pages-8b5cf6?style=for-the-badge)](https://wmwwzs.github.io/learning-journey/)
 
 </div>
 
-## 馃鈥嶐煉?鍏充簬鎴?
-- 澶т簩鍦ㄨ锛?026.11 寮€濮嬬郴缁熷涔?C++ / Qt / 宸ヤ笟瑙嗚
-- 鐩爣锛?027 骞存殤鍋囨嬁鍒扮涓€浠藉伐涓氳瑙夋柟鍚戝疄涔?- 姝ｅ湪鍋氾細Qt + OpenCV 瑙嗚宸ュ叿锛岄€愭杩涘寲鎴愬伐涓氭娴嬬郴缁?
-## 馃洜 鎶€鑳?
+## 关于我
+
+- 2026.11 开始系统学习 C++ / Qt / 工业视觉
+- 目标：2027 年暑假拿到第一份工业视觉方向的实习
+- 正在做：Qt + OpenCV 视觉工具，逐步进化成工业检测系统
+
+## 技能
+
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Qt](https://img.shields.io/badge/Qt-41CD52?style=flat-square&logo=qt&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
-## 馃搱 GitHub 鏁版嵁
+## GitHub 数据
 
 <div align="center">
 
-<img height="160" src="https://github-readme-stats.vercel.app/api?username=WMWWZS&show_icons=true&theme=tokyonight&hide_border=true&locale=cn" alt="GitHub 缁熻" />
-<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=WMWWZS&layout=compact&theme=tokyonight&hide_border=true&locale=cn" alt="甯哥敤璇█" />
+<img src="https://streak-stats.demolab.com?user=WMWWZS&theme=tokyonight&hide_border=true&locale=zh" alt="连续提交" />
 
 </div>
 
-## 馃幆 2026 鈥?2029
+## 目标
 
-| 鏃堕棿 | 鐩爣 |
+| 时间 | 目标 |
 | :-- | :-- |
-| 2026.11 鈥?2026.12 | C++ / Qt 鍩虹 + OpenCV 鍏ラ棬 |
-| 2027 涓婂崐骞?| 澶氱嚎绋?/ MySQL / Linux / 缃戠粶 |
-| 2027 鏆戝亣 | 宸ヤ笟妫€娴嬬郴缁?v1.0 + 瀹炰範 |
-| 2028 | 瀹炰範 + 绉嬫嫑 |
+| 2026.11 – 2026.12 | C++ / Qt 基础 + OpenCV 入门 |
+| 2027 上半年 | 多线程 / MySQL / Linux / 网络 |
+| 2027 暑假 | 工业检测系统 v1.0 + 实习 |
+| 2028 | 实习 + 秋招 |
 
-## 馃敆 甯哥敤閾炬帴
+## 常用链接
 
-- 馃Л [瀛︿範鎴愰暱浠撳簱](https://github.com/WMWWZS/learning-journey)
-- 馃寪 [涓汉涓婚〉](https://wmwwzs.github.io/learning-journey/)
+- 🧭 [学习成长仓库](https://github.com/WMWWZS/learning-journey)
+- 🌐 [个人主页](https://wmwwzs.github.io/learning-journey/)
 
 ---
 
 <div align="center">
-  <sub>姣忓ぉ鎵嬪啓 30 鍒嗛挓 路 姣忓ぉ鑷冲皯 1 涓?commit</sub>
+  <sub>每天手写 30 分钟 · 每天至少 1 个 commit</sub>
 </div>
-

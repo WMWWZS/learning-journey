@@ -15,7 +15,7 @@
 ![状态](https://img.shields.io/badge/STATUS-每天进步一点点-2ea44f?style=for-the-badge)
 ![目标](https://img.shields.io/badge/GOAL-2027%20暑期实习-8b5cf6?style=for-the-badge)
 
-**大二上 · 2026.11 起 · C++ / Qt / OpenCV 工业视觉方向**
+**2026.11 起 · C++ / Qt / OpenCV 工业视觉方向**
 
 </div>
 
