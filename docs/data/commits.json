@@ -1,7 +1,21 @@
 {
-  "updated": "2026-11-12T07:36:36.897Z",
-  "total": 20,
+  "updated": "2026-11-12T07:54:18.927Z",
+  "total": 23,
   "commits": [
+    {
+      "sha": "6c35f7b49591f636989611220863e23d9294a7ce",
+      "msg": "fix(assets): 阶段标签改用 short 短名，修复 dashboard.svg 文字重合",
+      "date": "2026-11-12T07:54:08Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/6c35f7b49591f636989611220863e23d9294a7ce",
+      "author": "WMWWZS"
+    },
+    {
+      "sha": "7d1ca8a7e8d68987e9dd6bab8d8423cda55efce7",
+      "msg": "docs: 新增仓库结构说明（每个文件的作用与修改指引）",
+      "date": "2026-11-12T07:53:16Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/7d1ca8a7e8d68987e9dd6bab8d8423cda55efce7",
+      "author": "WMWWZS"
+    },
     {
       "sha": "dac73d1c3a5ab1d42d7f3c2d4f25106146f88f80",
       "msg": "feat(data): 进度数据收敛到 docs/data/progress.json，自动生成页面数据和 README 图",
