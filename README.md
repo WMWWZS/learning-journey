@@ -57,18 +57,15 @@
 
 <div align="center">
 
-<a href="https://github.com/WMWWZS">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=WMWWZS&show_icons=true&theme=tokyonight&hide_border=true&locale=cn" alt="GitHub 统计" />
-</a>
-<a href="https://github.com/WMWWZS">
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=WMWWZS&layout=compact&theme=tokyonight&hide_border=true&locale=cn" alt="常用语言" />
-</a>
+<img src="https://streak-stats.demolab.com?user=WMWWZS&theme=tokyonight&hide_border=true&locale=zh" alt="连续提交" />
 
-<img src="https://github-readme-streak-stats.herokuapp.com?user=WMWWZS&theme=tokyonight&hide_border=true&locale=zh" alt="连续提交" />
+<br/>
+
+[📊 查看完整贡献图](https://github.com/WMWWZS)
 
 </div>
 
-<!-- 如果你的 GitHub 用户名不是 WMWWZS，把上面三处 WMWWZS 全部替换成你的用户名 -->
+<!-- 原 github-readme-stats 卡片部署在 vercel.app，国内网络访问不稳定，已移除 -->
 
 ## 🧭 这个仓库怎么用
 
