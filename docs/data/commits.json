@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T08:10:24.982Z",
-  "total": 27,
+  "updated": "2026-11-12T08:17:34.451Z",
+  "total": 29,
   "commits": [
+    {
+      "sha": "861a9c52589cd8204728bb6eef1d39e4dc2995e7",
+      "msg": "content: 11.13 练习骨架与笔记模板，新增 og.jpg 备用分享图",
+      "date": "2026-11-12T08:17:20Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/861a9c52589cd8204728bb6eef1d39e4dc2995e7",
+      "author": "WMWWZS"
+    },
     {
       "sha": "482767bc6f59a2594cd349103b0506eaf4ac9f8c",
       "msg": "chore: P3 收尾（404 页、gitattributes、清理冗余资源、技能百分比自动计算）",
