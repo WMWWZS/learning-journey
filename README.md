@@ -4,12 +4,16 @@
 
 <div align="center">
 
-![C++](https://img.shields.io/badge/C%2B%2B-1a0c08?style=for-the-badge&logo=cplusplus&logoColor=f97316)
-![Qt](https://img.shields.io/badge/Qt-1a0c08?style=for-the-badge&logo=qt&logoColor=f97316)
-![OpenCV](https://img.shields.io/badge/OpenCV-1a0c08?style=for-the-badge&logo=opencv&logoColor=f97316)
-![CMake](https://img.shields.io/badge/CMake-1a0c08?style=for-the-badge&logo=cmake&logoColor=f97316)
-![Linux](https://img.shields.io/badge/Linux-1a0c08?style=for-the-badge&logo=linux&logoColor=f97316)
-![Git](https://img.shields.io/badge/Git-1a0c08?style=for-the-badge&logo=git&logoColor=f97316)
+[![C++](https://img.shields.io/badge/C%2B%2B-1a0c08?style=for-the-badge&logo=cplusplus&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
+[![Qt](https://img.shields.io/badge/Qt-1a0c08?style=for-the-badge&logo=qt&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
+[![OpenCV](https://img.shields.io/badge/OpenCV-1a0c08?style=for-the-badge&logo=opencv&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
+[![CMake](https://img.shields.io/badge/CMake-1a0c08?style=for-the-badge&logo=cmake&logoColor=f97316)](docs/STRUCTURE.md)
+[![Linux](https://img.shields.io/badge/Linux-1a0c08?style=for-the-badge&logo=linux&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
+[![Git](https://img.shields.io/badge/Git-1a0c08?style=for-the-badge&logo=git&logoColor=f97316)](https://github.com/WMWWZS/learning-journey/commits/main)
+
+<!-- PROGRESS:BEGIN -->
+**当前进度**：C++ 45% · Qt 35% · OpenCV 15% · Linux 5% · [看详情 →](https://wmwwzs.github.io/learning-journey/#skills)
+<!-- PROGRESS:END -->
 
 [![个人主页](https://img.shields.io/badge/个人主页-GitHub%20Pages-c2410c?style=flat-square&labelColor=1a0c08)](https://wmwwzs.github.io/learning-journey/)
 [![学习计划](https://img.shields.io/badge/学习计划-4%20周逐日-c2410c?style=flat-square&labelColor=1a0c08)](notes/PLAN.md)

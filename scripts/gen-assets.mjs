@@ -48,4 +48,17 @@ if (left && left.length) {
 }
 
 write("assets/dashboard.svg", svg);
-console.log("generated docs/data/progress.js + assets/dashboard.svg");
+
+// 3) README 里的"当前进度"一行（放在 PROGRESS 标记之间）
+let readme = read("README.md");
+const progressLine =
+  "**当前进度**：" +
+  progress.skills.map(s => `${s.name} ${s.pct}%`).join(" · ") +
+  " · [看详情 →](https://wmwwzs.github.io/learning-journey/#skills)";
+readme = readme.replace(
+  /<!-- PROGRESS:BEGIN -->[\s\S]*?<!-- PROGRESS:END -->/,
+  "<!-- PROGRESS:BEGIN -->\n" + progressLine + "\n<!-- PROGRESS:END -->",
+);
+write("README.md", readme);
+
+console.log("generated docs/data/progress.js + assets/dashboard.svg + README progress line");
