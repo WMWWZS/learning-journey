@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T13:05:19.367Z",
-  "total": 35,
+  "updated": "2026-11-12T13:10:02.877Z",
+  "total": 37,
   "commits": [
+    {
+      "sha": "1723670859c324b27f197c39613dede455bda92a",
+      "msg": "feat(pages): 技能百分比改为 1% 连续拖动，生成器优先使用手填 pct",
+      "date": "2026-11-12T13:09:49Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/1723670859c324b27f197c39613dede455bda92a",
+      "author": "WMWWZS"
+    },
     {
       "sha": "e8655b77351dda0861dad37d48b5bf354a6105b7",
       "msg": "fix(pages): 技能条改为整行可拖 + 可视手柄，提升拖动成功率",
