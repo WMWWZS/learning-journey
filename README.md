@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg" width="100%" alt="风林火山 · 学习成长记录" />
+  <img src="assets/eruption.svg" width="100%" alt="Lin · C++ / Qt / OpenCV · Still Erupting" />
 </div>
 
 <div align="center">
