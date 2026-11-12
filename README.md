@@ -82,7 +82,7 @@
 - 📅 [学习计划（4 周逐日）](notes/PLAN.md)
 - 🃏 [八股卡片](notes/bagu/)
 - 🏠 [我的 GitHub 主页](https://github.com/WMWWZS)
-- 🌐 个人主页：开启 GitHub Pages 后访问 `https://<你的用户名>.github.io/<仓库名>/`
+- 🌐 [线上个人主页](https://wmwwzs.github.io/learning-journey/) · 粒子星河动态版（开启 GitHub Pages 后生效）
 
 ---
 
