@@ -1,333 +1,342 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>风林火山 · 学习成长记录</title>
-  <meta name="description" content="C++ / Qt / OpenCV 工业视觉方向 · 个人学习成长记录" />
-  <style>
-    :root {
-      --bg: #0b1020;
-      --bg2: #101a38;
-      --card: rgba(255, 255, 255, 0.04);
-      --line: rgba(148, 163, 184, 0.16);
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --cyan: #36d1dc;
-      --violet: #a78bfa;
-      --green: #4ade80;
-      --amber: #fbbf24;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>风林火山 · 粒子星河</title>
+<style>
+  :root { --ink: #eef2ff; --muted: #94a3b8; --glass: rgba(255,255,255,.05); --line: rgba(255,255,255,.11); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #04050c; color: var(--ink); overflow-x: hidden; min-height: 100vh;
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; line-height: 1.75;
+  }
+  a { color: inherit; text-decoration: none; }
 
-    /* 背景光斑 */
-    .glow {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .glow.a { width: 520px; height: 520px; background: #0ea5e9; top: -180px; left: -120px; }
-    .glow.b { width: 480px; height: 480px; background: #7c3aed; bottom: -160px; right: -120px; }
+  /* 渐变底色（canvas 透明，叠加在它上面） */
+  .bg {
+    position: fixed; inset: -20%; z-index: -3;
+    background:
+      radial-gradient(36% 40% at 20% 20%, rgba(34,211,238,.30) 0%, transparent 62%),
+      radial-gradient(34% 38% at 80% 18%, rgba(139,92,246,.34) 0%, transparent 62%),
+      radial-gradient(38% 42% at 72% 80%, rgba(236,72,153,.22) 0%, transparent 64%),
+      radial-gradient(30% 34% at 24% 84%, rgba(245,158,11,.16) 0%, transparent 60%);
+    filter: blur(40px);
+    animation: breathe 18s ease-in-out infinite alternate;
+  }
+  @keyframes breathe {
+    0% { transform: scale(1) translate3d(0,0,0); opacity: .85; }
+    100% { transform: scale(1.08) translate3d(1%,2%,0); opacity: 1; }
+  }
 
-    .wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  #stars { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+  .noise {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.9'/></svg>");
+  }
 
-    /* 顶部导航 */
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 28px 0;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 2px; }
-    .brand .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--cyan), var(--violet));
-    }
-    nav .links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
-    nav .links a:hover { color: var(--text); }
+  .wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-    /* Hero */
-    .hero { padding: 56px 0 40px; }
-    .eyebrow {
-      font-size: 13px; letter-spacing: 4px; color: var(--muted);
-      text-transform: uppercase; margin-bottom: 18px;
-    }
-    h1 {
-      font-size: clamp(40px, 8vw, 76px);
-      line-height: 1.1;
-      letter-spacing: 2px;
-      background: linear-gradient(120deg, #f8fafc 20%, var(--cyan) 55%, var(--violet) 90%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .sub { font-size: clamp(18px, 2.6vw, 24px); color: var(--muted); margin-top: 14px; }
-    .desc { color: var(--muted); max-width: 640px; margin-top: 20px; font-size: 15px; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 26px 0; }
+  .brand { font-weight: 800; letter-spacing: 3px; font-size: 15px; }
+  .brand span {
+    background: linear-gradient(120deg,#67e8f9,#c4b5fd,#f9a8d4);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  nav .links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); }
+  nav .links a:hover { color: #fff; }
 
-    .btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 22px; border-radius: 999px; font-size: 14px; font-weight: 600;
-      background: linear-gradient(135deg, var(--cyan), var(--violet));
-      color: #0b1020; transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25); }
-    .btn.ghost {
-      background: transparent; color: var(--text);
-      border: 1px solid var(--line);
-    }
-    .btn.ghost:hover { border-color: var(--cyan); box-shadow: none; }
+  .hero { padding: 66px 0 26px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 3px;
+    color: #a5b4fc; padding: 7px 16px; border-radius: 999px;
+    background: rgba(167,139,250,.10); border: 1px solid rgba(167,139,250,.28);
+  }
+  .eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: #67e8f9; box-shadow: 0 0 12px #67e8f9; animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1 } 50% { transform: scale(1.7); opacity: .5 } }
 
-    /* 数据卡 */
-    .stats {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 16px; margin-top: 56px;
-    }
-    .stat {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 22px 20px;
-      backdrop-filter: blur(8px);
-    }
-    .stat .num {
-      font-size: 34px; font-weight: 800; letter-spacing: 1px;
-      background: linear-gradient(135deg, var(--cyan), var(--violet));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .stat .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  h1 {
+    font-size: clamp(48px, 9vw, 96px); line-height: 1.08; letter-spacing: 4px; font-weight: 800;
+    margin: 22px 0 10px;
+    background: linear-gradient(115deg,#ffffff 8%,#a5f3fc 34%,#c4b5fd 62%,#f9a8d4 92%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    background-size: 220% 220%; animation: shine 5s ease-in-out infinite;
+  }
+  @keyframes shine { 0%,100% { background-position: 0% 50% } 50% { background-position: 100% 50% } }
+  .sub { font-size: clamp(17px,2.4vw,21px); color: #c7d2fe; min-height: 1.9em; }
+  .sub .cursor { display: inline-block; width: 2px; height: 1em; background: #67e8f9; vertical-align: -2px; animation: blink .9s steps infinite; }
+  @keyframes blink { 50% { opacity: 0 } }
+  .desc { color: var(--muted); max-width: 620px; margin-top: 14px; font-size: 15px; }
 
-    /* 通用 section */
-    section { padding: 56px 0; border-top: 1px solid var(--line); }
-    .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 26px; }
-    .sec-head h2 { font-size: 24px; letter-spacing: 1px; }
-    .sec-head span { font-size: 13px; color: var(--muted); letter-spacing: 2px; }
+  .btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .btn { padding: 13px 26px; border-radius: 999px; font-size: 14px; font-weight: 600; transition: transform .2s, box-shadow .2s; }
+  .btn.grad {
+    color: #05060d; background: linear-gradient(120deg,#67e8f9,#c4b5fd,#f9a8d4); background-size: 200% 200%;
+    box-shadow: 0 12px 34px rgba(139,92,246,.35); animation: bgmove 4s ease infinite;
+  }
+  @keyframes bgmove { 0%,100% { background-position: 0% 50% } 50% { background-position: 100% 50% } }
+  .btn.grad:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(139,92,246,.55); }
+  .btn.ghost { color: #e2e8f0; background: rgba(255,255,255,.04); border: 1px solid var(--line); backdrop-filter: blur(14px); }
+  .btn.ghost:hover { border-color: rgba(167,139,250,.6); transform: translateY(-2px); }
 
-    /* 技能 */
-    .chips { display: flex; flex-wrap: wrap; gap: 12px; }
-    .chip {
-      padding: 9px 18px; border-radius: 999px; font-size: 14px;
-      background: var(--card); border: 1px solid var(--line); color: var(--text);
-    }
-    .chip .lvl { color: var(--muted); font-size: 12px; margin-left: 6px; }
-    .chip.cyan { border-color: rgba(54, 209, 220, 0.45); color: #7dd3fc; }
-    .chip.violet { border-color: rgba(167, 139, 250, 0.45); color: #c4b5fd; }
-    .chip.green { border-color: rgba(74, 222, 128, 0.4); color: #86efac; }
-    .chip.amber { border-color: rgba(251, 191, 36, 0.4); color: #fcd34d; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 46px; }
+  .stat {
+    background: var(--glass); border: 1px solid var(--line); border-radius: 20px; padding: 22px;
+    backdrop-filter: blur(18px); transition: transform .25s, border-color .25s;
+  }
+  .stat:hover { transform: translateY(-4px); border-color: rgba(167,139,250,.45); }
+  .stat .num {
+    font-size: 34px; font-weight: 800;
+    background: linear-gradient(120deg,#67e8f9,#c4b5fd);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .stat .label { font-size: 13px; color: var(--muted); margin-top: 2px; }
 
-    /* 时间线 */
-    .timeline { display: grid; gap: 14px; }
-    .tl-item {
-      display: grid; grid-template-columns: 130px 1fr auto;
-      gap: 18px; align-items: center;
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 16px; padding: 18px 22px;
-    }
-    .tl-item .time { color: var(--muted); font-size: 13px; letter-spacing: 1px; }
-    .tl-item .title { font-weight: 600; }
-    .tl-item .desc { color: var(--muted); font-size: 13px; margin-top: 2px; }
-    .tag { font-size: 12px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
-    .tag.doing { background: rgba(74, 222, 128, 0.12); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.35); }
-    .tag.todo { background: rgba(148, 163, 184, 0.1); color: var(--muted); border: 1px solid var(--line); }
+  section { padding: 54px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; }
+  .sec-head h2 { font-size: 23px; letter-spacing: 1px; }
+  .sec-head span { font-size: 12px; color: var(--muted); letter-spacing: 3px; }
+  .sec-head::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(167,139,250,.5), transparent); }
 
-    /* 项目卡 */
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .card {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 18px; padding: 24px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .card:hover { transform: translateY(-3px); border-color: rgba(54, 209, 220, 0.45); }
-    .card h3 { font-size: 17px; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 14px; }
-    .card .meta { margin-top: 14px; font-size: 12px; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; }
-    .card .meta span { padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    padding: 8px 18px; border-radius: 999px; font-size: 13px; color: #dbeafe;
+    background: rgba(255,255,255,.045); border: 1px solid var(--line); backdrop-filter: blur(12px);
+    transition: transform .2s;
+  }
+  .chip:hover { transform: translateY(-2px); }
+  .chip.hot { color: #f5d0fe; border-color: rgba(244,114,182,.45); background: rgba(244,114,182,.10); }
 
-    /* 笔记列表 */
-    .notes { display: grid; gap: 10px; }
-    .note {
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-      padding: 14px 18px; border-radius: 12px;
-      background: var(--card); border: 1px solid var(--line);
-      font-size: 14px;
-    }
-    .note .date { color: var(--muted); font-size: 13px; }
+  .timeline { display: grid; gap: 14px; }
+  .tl {
+    display: grid; grid-template-columns: 150px 1fr auto; gap: 18px; align-items: center;
+    background: var(--glass); border: 1px solid var(--line); border-radius: 18px; padding: 18px 22px;
+    backdrop-filter: blur(16px); transition: transform .25s, border-color .25s;
+  }
+  .tl:hover { transform: translateX(4px); border-color: rgba(103,232,249,.4); }
+  .tl .t { font-size: 13px; color: var(--muted); letter-spacing: 1px; }
+  .tl .title { font-weight: 650; }
+  .tl .desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .tag { font-size: 12px; padding: 4px 13px; border-radius: 999px; white-space: nowrap; }
+  .tag.doing { color: #67e8f9; border: 1px solid rgba(103,232,249,.45); background: rgba(34,211,238,.10); }
+  .tag.todo { color: var(--muted); border: 1px solid var(--line); }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 40px 0 60px;
-      color: var(--muted); font-size: 13px;
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card {
+    position: relative; border-radius: 22px; padding: 26px;
+    background: rgba(8,9,20,.55); border: 1px solid var(--line); backdrop-filter: blur(18px);
+    transition: transform .28s, box-shadow .28s, border-color .28s;
+  }
+  .card:hover { transform: translateY(-5px); border-color: rgba(103,232,249,.4); box-shadow: 0 22px 60px rgba(2,6,23,.6); }
+  .card h3 { font-size: 17px; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 14px; }
+  .card .meta { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; font-size: 11px; color: #c7d2fe; }
+  .card .meta span { padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); }
 
-    @media (max-width: 720px) {
-      nav .links { display: none; }
-      .stats { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .tl-item { grid-template-columns: 1fr; gap: 8px; }
-      .tl-item .tag { justify-self: start; }
-    }
-  </style>
+  footer {
+    padding: 34px 0 70px; border-top: 1px solid rgba(255,255,255,.08);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    color: var(--muted); font-size: 12px;
+  }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 720px) {
+    nav .links { display: none; }
+    .stats { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr; }
+    .tl { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
 </head>
 <body>
-  <div class="glow a"></div>
-  <div class="glow b"></div>
+<div class="bg"></div>
+<canvas id="stars"></canvas>
+<div class="noise"></div>
 
-  <div class="wrap">
-    <nav>
-      <div class="brand"><span class="dot"></span>风林火山</div>
-      <div class="links">
-        <a href="#skills">技能</a>
-        <a href="#roadmap">路线</a>
-        <a href="#projects">项目</a>
-        <a href="#notes">记录</a>
-        <a href="https://github.com/WMWWZS">GitHub ↗</a>
-      </div>
-    </nav>
+<div class="wrap">
+  <nav>
+    <div class="brand"><span>风林火山</span></div>
+    <div class="links">
+      <a href="#stats">数据</a><a href="#skills">技能</a><a href="#roadmap">路线</a>
+      <a href="#projects">项目</a><a href="https://github.com/WMWWZS">GitHub ↗</a>
+    </div>
+  </nav>
 
-    <header class="hero">
-      <p class="eyebrow">Learning Journey · Since 2026.11</p>
-      <h1>风林火山</h1>
-      <p class="sub">学习成长记录 · C++ / Qt / OpenCV 工业视觉</p>
-      <p class="desc">
-        把每天写的代码、踩过的坑、想明白的事，钉在时间线上。
-        目标是 2027 年暑假拿到第一份工业视觉方向的实习。
-      </p>
-      <div class="btns">
-        <a class="btn" href="https://github.com/WMWWZS">GitHub 主页</a>
-        <a class="btn ghost" href="https://github.com/WMWWZS/learning-journey">仓库源码</a>
-      </div>
+  <header class="hero">
+    <p class="eyebrow"><i></i>LEARNING JOURNEY · SINCE 2026.11</p>
+    <h1>风林火山</h1>
+    <p class="sub"><span id="typed"></span><span class="cursor"></span></p>
+    <p class="desc">把每天写的代码、踩过的坑、想明白的事，钉在时间线上。目标：2027 年暑假，第一份工业视觉方向的实习。</p>
+    <div class="btns">
+      <a class="btn grad" href="https://github.com/WMWWZS">GitHub 主页</a>
+      <a class="btn ghost" href="https://github.com/WMWWZS/learning-journey">查看仓库</a>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="num" data-count="days">0</div><div class="label">学习天数（自 2026.11.12）</div></div>
+      <div class="stat"><div class="num" data-count="30">0</div><div class="label">每天手写分钟数</div></div>
+      <div class="stat"><div class="num" data-count="2027">0</div><div class="label">目标年份</div></div>
+    </div>
+  </header>
 
-      <div class="stats">
-        <div class="stat">
-          <div class="num" id="days">1</div>
-          <div class="label">学习天数（自 2026.11.12）</div>
-        </div>
-        <div class="stat">
-          <div class="num">30<small style="font-size:16px">min</small></div>
-          <div class="label">每天雷打不动的手写时间</div>
-        </div>
-        <div class="stat">
-          <div class="num">2027<small style="font-size:16px">暑假</small></div>
-          <div class="label">目标：第一份工业视觉实习</div>
-        </div>
-      </div>
-    </header>
+  <section id="skills" class="reveal">
+    <div class="sec-head"><h2>技能栈</h2><span>SKILLS</span></div>
+    <div class="chips">
+      <span class="chip">C++</span><span class="chip">Qt Widgets</span><span class="chip">OpenCV</span>
+      <span class="chip">Git</span><span class="chip">CMake</span><span class="chip hot">工业视觉 · 学习中</span>
+    </div>
+  </section>
 
-    <section id="skills">
-      <div class="sec-head"><h2>技能栈</h2><span>SKILLS</span></div>
-      <div class="chips">
-        <span class="chip cyan">C++<em class="lvl">学习中</em></span>
-        <span class="chip cyan">Qt Widgets<em class="lvl">学习中</em></span>
-        <span class="chip violet">OpenCV<em class="lvl">入门</em></span>
-        <span class="chip amber">Linux<em class="lvl">待开始</em></span>
-        <span class="chip green">Git / GitHub<em class="lvl">每天用</em></span>
-        <span class="chip">CMake</span>
-        <span class="chip">MySQL</span>
-      </div>
-    </section>
+  <section id="roadmap" class="reveal">
+    <div class="sec-head"><h2>路线图</h2><span>ROADMAP</span></div>
+    <div class="timeline">
+      <div class="tl"><div class="t">2026.11 – 2026.12</div>
+        <div><div class="title">地基：C++ / Qt / OpenCV</div><div class="desc">语法、信号槽、图像处理，产出视觉工具 v0.5</div></div>
+        <span class="tag doing">进行中</span></div>
+      <div class="tl"><div class="t">2027.01 – 2027.06</div>
+        <div><div class="title">核心：并发 / 数据库 / Linux / 网络</div><div class="desc">工业视觉补丁：海康 SDK、Modbus、相机标定</div></div>
+        <span class="tag todo">计划中</span></div>
+      <div class="tl"><div class="t">2027.07 – 2028.12</div>
+        <div><div class="title">项目 + 实习 + 秋招</div><div class="desc">工业检测系统 v1.0</div></div>
+        <span class="tag todo">计划中</span></div>
+    </div>
+  </section>
 
-    <section id="roadmap">
-      <div class="sec-head"><h2>学习路线</h2><span>ROADMAP</span></div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="time">2026.11 – 2026.12</div>
-          <div>
-            <div class="title">地基：C++ / Qt / OpenCV 入门</div>
-            <div class="desc">语法、类与对象、信号槽、图像处理，产出视觉工具 v0.5</div>
-          </div>
-          <span class="tag doing">进行中</span>
-        </div>
-        <div class="tl-item">
-          <div class="time">2027.01 – 2027.06</div>
-          <div>
-            <div class="title">核心：并发 / 数据库 / Linux / 网络</div>
-            <div class="desc">多线程、MySQL、工业视觉补丁（海康 SDK / Modbus / 标定）</div>
-          </div>
-          <span class="tag todo">计划中</span>
-        </div>
-        <div class="tl-item">
-          <div class="time">2027.07 – 2027.08</div>
-          <div>
-            <div class="title">项目：工业检测系统 v1.0 + 暑期实习</div>
-            <div class="desc">可演示、可讲 20 分钟的完整项目</div>
-          </div>
-          <span class="tag todo">计划中</span>
-        </div>
-        <div class="tl-item">
-          <div class="time">2027.09 – 2028.12</div>
-          <div>
-            <div class="title">冲刺：实习积累 / 秋招</div>
-            <div class="desc">目标岗位：C++/Qt 上位机、机器视觉应用、嵌入式 Linux 应用</div>
-          </div>
-          <span class="tag todo">计划中</span>
-        </div>
-      </div>
-    </section>
+  <section id="projects" class="reveal">
+    <div class="sec-head"><h2>项目</h2><span>PROJECTS</span></div>
+    <div class="grid">
+      <div class="card"><h3>视觉工具 v0.5</h3><p>Qt + OpenCV 图像查看与处理，参数实时联动。</p>
+        <div class="meta"><span>C++</span><span>Qt</span><span>OpenCV</span></div></div>
+      <div class="card"><h3>工业检测系统 v1.0</h3><p>海康相机采集 + 缺陷检测 + 尺寸测量 + Modbus 输出。</p>
+        <div class="meta"><span>2027 暑假</span><span>规划中</span></div></div>
+    </div>
+  </section>
 
-    <section id="projects">
-      <div class="sec-head"><h2>项目</h2><span>PROJECTS</span></div>
-      <div class="grid-2">
-        <a class="card" href="https://github.com/WMWWZS/learning-journey">
-          <h3>视觉工具 v0.5</h3>
-          <p>Qt + OpenCV 图像查看与处理：二值化、形态学、参数实时联动，为工业检测界面打底。</p>
-          <div class="meta"><span>C++</span><span>Qt</span><span>OpenCV</span><span>进行中</span></div>
-        </a>
-        <a class="card" href="https://github.com/WMWWZS/learning-journey">
-          <h3>Qt 计算器</h3>
-          <p>手写 UI 与逻辑，练习布局、信号槽、异常处理与 QSS 样式。</p>
-          <div class="meta"><span>C++</span><span>Qt</span><span>已完成</span></div>
-        </a>
-        <a class="card" href="https://github.com/WMWWZS/learning-journey">
-          <h3>登录注册系统</h3>
-          <p>QStackedWidget 页面切换、输入校验、用户数据文件持久化。</p>
-          <div class="meta"><span>C++</span><span>Qt</span><span>文件 IO</span><span>已完成</span></div>
-        </a>
-        <a class="card" href="https://github.com/WMWWZS/learning-journey">
-          <h3>工业检测系统 v1.0</h3>
-          <p>海康相机采集 + 缺陷检测 + 尺寸测量 + Qt 界面 + Modbus 输出。</p>
-          <div class="meta"><span>规划中</span><span>2027 暑假</span></div>
-        </a>
-      </div>
-    </section>
+  <footer><span>© 2026 风林火山 · 每天进步一点点</span><span>Canvas 粒子 · 鼠标可交互</span></footer>
+</div>
 
-    <section id="notes">
-      <div class="sec-head"><h2>最近记录</h2><span>NOTES</span></div>
-      <div class="notes">
-        <a class="note" href="https://github.com/WMWWZS/learning-journey/blob/main/notes/2026-11-12.md">
-          <span>GitHub Desktop 安装踩坑 & Git 基础</span><span class="date">2026-11-12</span>
-        </a>
-        <a class="note" href="https://github.com/WMWWZS/learning-journey/blob/main/notes/PLAN.md">
-          <span>4 周逐日学习计划</span><span class="date">2026-11-12</span>
-        </a>
-      </div>
-    </section>
+<script>
+  /* ===== 粒子星河（鼠标可交互） ===== */
+  (function () {
+    var canvas = document.getElementById('stars');
+    var ctx = canvas.getContext('2d');
+    var W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1);
+    var particles = [];
+    var mouse = { x: -9999, y: -9999 };
+    var colors = ['103,232,249', '196,181,253', '249,168,212', '167,139,250'];
 
-    <footer>
-      <span>© 2026 风林火山 · 每天进步一点点</span>
-      <span>Built with ❤️ &amp; GitHub Pages</span>
-    </footer>
-  </div>
+    function resize() {
+      W = canvas.width = Math.floor(innerWidth * dpr);
+      H = canvas.height = Math.floor(innerHeight * dpr);
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      var count = Math.min(110, Math.floor(innerWidth * innerHeight / 14000));
+      particles = [];
+      for (var i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - .5) * .35 * dpr, vy: (Math.random() - .5) * .35 * dpr,
+          r: (Math.random() * 1.8 + .7) * dpr,
+          c: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
 
-  <script>
-    // 学习天数：从 2026-11-12 开始计算
-    (function () {
-      var start = new Date(2026, 10, 12);
-      var now = new Date();
-      var days = Math.floor((now - start) / 86400000) + 1;
-      if (days < 1) days = 1;
-      document.getElementById('days').textContent = days;
+    window.addEventListener('mousemove', function (e) { mouse.x = e.clientX * dpr; mouse.y = e.clientY * dpr; });
+    window.addEventListener('mouseleave', function () { mouse.x = mouse.y = -9999; });
+
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+      var linkDist = 130 * dpr;
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+
+        // 鼠标排斥
+        var dx = p.x - mouse.x, dy = p.y - mouse.y;
+        var d2 = dx * dx + dy * dy;
+        if (d2 < (120 * dpr) * (120 * dpr) && d2 > 0.01) {
+          var f = (120 * dpr) / Math.sqrt(d2) - 1;
+          p.x += (dx / Math.sqrt(d2)) * f * 2.2;
+          p.y += (dy / Math.sqrt(d2)) * f * 2.2;
+        }
+
+        for (var j = i + 1; j < particles.length; j++) {
+          var q = particles[j];
+          var lx = p.x - q.x, ly = p.y - q.y;
+          var ld = lx * lx + ly * ly;
+          if (ld < linkDist * linkDist) {
+            var alpha = (1 - Math.sqrt(ld) / linkDist) * 0.35;
+            ctx.strokeStyle = 'rgba(' + p.c + ',' + alpha + ')';
+            ctx.lineWidth = 0.8 * dpr;
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+          }
+        }
+
+        // 鼠标连线
+        var mdx = p.x - mouse.x, mdy = p.y - mouse.y, md = mdx * mdx + mdy * mdy;
+        if (md < (160 * dpr) * (160 * dpr)) {
+          var a2 = (1 - Math.sqrt(md) / (160 * dpr)) * 0.5;
+          ctx.strokeStyle = 'rgba(103,232,249,' + a2 + ')';
+          ctx.lineWidth = 0.9 * dpr;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+        }
+
+        ctx.fillStyle = 'rgba(' + p.c + ',.85)';
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+      }
+      requestAnimationFrame(loop);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    loop();
+  })();
+
+  /* ===== 打字机 ===== */
+  (function () {
+    var text = '学习成长记录 · C++ / Qt / OpenCV 工业视觉';
+    var el = document.getElementById('typed');
+    var i = 0;
+    (function type() {
+      if (i <= text.length) { el.textContent = text.slice(0, i); i++; setTimeout(type, 90); }
+      else { setTimeout(function () { i = 0; type(); }, 2600); }
     })();
-  </script>
+  })();
+
+  /* ===== 数字滚动 ===== */
+  (function () {
+    function daysSinceStart() {
+      var s = new Date(2026, 10, 12);
+      return Math.max(1, Math.floor((new Date() - s) / 86400000) + 1);
+    }
+    function animate(el) {
+      var target = el.getAttribute('data-count') === 'days' ? daysSinceStart() : +el.getAttribute('data-count');
+      var start = performance.now(), dur = 1400;
+      function tick(now) {
+        var p = Math.min(1, (now - start) / dur);
+        el.textContent = Math.floor(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } });
+    }, { threshold: .4 });
+    document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ===== 滚动渐显 ===== */
+  (function () {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
