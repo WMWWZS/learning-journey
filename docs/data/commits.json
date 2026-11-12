@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T13:10:02.877Z",
-  "total": 37,
+  "updated": "2026-11-12T13:35:08.615Z",
+  "total": 39,
   "commits": [
+    {
+      "sha": "7b264b853ab10209e7423f10cb3ed65d53f15185",
+      "msg": "docs(projects): 智能监控系统目录与文档（7 天计划/环境工具链/验收清单）",
+      "date": "2026-11-12T13:34:55Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/7b264b853ab10209e7423f10cb3ed65d53f15185",
+      "author": "WMWWZS"
+    },
     {
       "sha": "1723670859c324b27f197c39613dede455bda92a",
       "msg": "feat(pages): 技能百分比改为 1% 连续拖动，生成器优先使用手填 pct",
