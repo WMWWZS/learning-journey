@@ -33,10 +33,12 @@ for (const skill of progress.skills) {
 }
 
 const stage = progress.stages.find(s => s.state === "now") || progress.stages[0] || {};
+const stageLabel = stage.short || (stage.items || []).join(" · ");
+const stageLabelFit = stageLabel.length > 24 ? stageLabel.slice(0, 23) + "…" : stageLabel;
 svg = svg
   .replaceAll("{{STAGE_NAME}}", stage.name || "—")
   .replaceAll("{{STAGE_WHEN}}", stage.when || "—")
-  .replaceAll("{{STAGE_ITEMS}}", (stage.items || []).join(" · "))
+  .replaceAll("{{STAGE_ITEMS}}", stageLabelFit)
   .replaceAll("{{TARGET_YEAR}}", String(progress.targetYear || "2027"));
 
 const left = svg.match(/\{\{[A-Z0-9_]+\}\}/g);
