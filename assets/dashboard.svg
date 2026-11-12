@@ -112,7 +112,7 @@
     <text x="760" y="100" font-size="13" fill="#8a5a42" letter-spacing="4">CURRENT STAGE</text>
     <text x="760" y="160" font-size="56" font-weight="800" fill="url(#big)" letter-spacing="2">地基</text>
     <text x="760" y="192" font-family="'JetBrains Mono','Cascadia Code','Consolas',monospace" font-size="15" fill="#c9a189" letter-spacing="1">2026.11 – 2026.12</text>
-    <text x="760" y="218" font-size="15" fill="#a88672" letter-spacing="1">C++ · Qt · OpenCV 入门</text>
+    <text x="760" y="218" font-size="15" fill="#a88672" letter-spacing="1">C++ 语法 · Qt 控件与信号槽 · OpenCV 入门</text>
 
     <text x="1010" y="100" font-size="13" fill="#8a5a42" letter-spacing="4">TARGET</text>
     <text x="1010" y="160" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,sans-serif" font-size="56" font-weight="800" fill="url(#big)" letter-spacing="-1">2027</text>

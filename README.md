@@ -74,7 +74,7 @@
 
 1. **每天一个 commit**，信息格式：`类型(模块): 内容`（如 `feat(qt): 登录界面布局`）
 2. **每天一篇笔记**：`notes/YYYY-MM-DD.md`，写学到什么、卡在哪、怎么解决
-3. **每周日复盘**：更新 `assets/dashboard.svg` 的技能温度和 `assets/roadmap.svg` 的熔岩进度，把这周最值钱的 1 个收获写进笔记
+3. **每周日复盘**：更新 `docs/data/progress.json`（技能温度 / 路线进度 / 项目功能都在这里，Actions 会自动生成页面数据和 README 用的 `assets/dashboard.svg`），把这周最值钱的 1 个收获写进笔记
 4. **代码放进对应目录**，每个小项目一个文件夹 + 一个 README
 5. **视频、安装包、构建产物不进仓库**（见 `.gitignore`）
 

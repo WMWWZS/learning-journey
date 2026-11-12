@@ -837,31 +837,35 @@
   </div>
 </footer>
 
+<script src="data/progress.js"></script>
 <script>
 /* =====================================================================
    每周日复盘时改这里就行
    ===================================================================== */
-var START = new Date(2026, 10, 12);           // 第一天：2026.11.12
-var INTERN = new Date(2027, 6, 1);            // 实习目标：2027.07
-var SKILLS = [   // subs: [子项, 是否搞懂 1/0]
+/* ---------- 数据：来自 docs/data/progress.js（只改 progress.json 即可） ---------- */
+var P = (typeof window !== 'undefined' && window.PROGRESS) || {};
+function dt3(a) { return a && a.length === 3 ? new Date(a[0], a[1] - 1, a[2]) : null; }
+var START = dt3(P.start) || new Date(2026, 10, 12);           // 第一天：2026.11.12
+var INTERN = dt3(P.intern) || new Date(2027, 6, 1);           // 实习目标：2027.07
+var SKILLS = P.skills || [
   { name: 'C++',    pct: 45, subs: [['类与对象', 1], ['引用 / 指针', 1], ['拷贝语义', 0], ['继承多态', 0], ['模板', 0], ['STL', 0]] },
   { name: 'Qt',     pct: 35, subs: [['控件', 1], ['布局', 1], ['信号槽', 0], ['事件', 0], ['QSS', 0]] },
   { name: 'OpenCV', pct: 15, subs: [['图像读写', 1], ['阈值', 0], ['形态学', 0], ['轮廓', 0]] },
   { name: 'Linux',  pct: 5,  subs: [['常用命令', 0], ['权限', 0], ['Shell', 0]] }
 ];
-var STAGES = [   // state: done / now / todo；progress 只对 now 生效（0 ~ 1）
+var STAGES = P.stages || [
   { name: '地基', when: '2026.11 – 2026.12', months: 2,  state: 'now',  progress: .3, items: ['C++ 语法', 'Qt 控件与信号槽', 'OpenCV 入门'], out: '视觉工具 v0.5' },
   { name: '核心', when: '2027.01 – 2027.06', months: 6,  state: 'todo', items: ['多线程 · MySQL', 'Linux · 网络', '海康 SDK · 标定'], out: '检测界面 + 后端联调' },
   { name: '项目', when: '2027.07 – 2027.08', months: 2,  state: 'todo', items: ['工业检测系统 v1.0', '暑期实习'], out: '能上产线的演示' },
   { name: '冲刺', when: '2027.09 – 2028.12', months: 16, state: 'todo', items: ['实习积累', '秋招'], out: '第一份 offer' }
 ];
-var WEEKS = [
+var WEEKS = P.weeks || [
   { w: 'W1', from: [11, 16], to: [11, 22], theme: '拷贝语义 + Qt 控件 / 信号槽', out: '计算器 v0 + 登录界面' },
   { w: 'W2', from: [11, 23], to: [11, 29], theme: '继承多态 + Qt 列表 / 文件',   out: '登录注册系统（持久化）' },
   { w: 'W3', from: [11, 30], to: [12, 6],  theme: '模板 STL + 自定义控件',       out: '检测界面骨架 v0' },
   { w: 'W4', from: [12, 7],  to: [12, 13], theme: 'OpenCV 图像处理',             out: '视觉工具 v0.5 + 演示视频' }
 ];
-var FEATURES = {
+var FEATURES = P.features || {
   vision:  [['打开 / 保存图片', 1], ['缩放与平移', 0], ['阈值分割', 0], ['形态学开闭', 0], ['参数实时联动', 0], ['处理历史', 0]],
   inspect: [['海康相机采集', 0], ['缺陷检测', 0], ['尺寸测量', 0], ['Modbus 输出', 0], ['多线程流水线', 0], ['结果数据库', 0]]
 };
