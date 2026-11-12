@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T07:12:02.434Z",
-  "total": 16,
+  "updated": "2026-11-12T07:14:31.591Z",
+  "total": 18,
   "commits": [
+    {
+      "sha": "8fae843ec6d9605204b20ce3821c7d1b35642e03",
+      "msg": "docs(pages): 更新日志区块说明文案",
+      "date": "2026-11-12T07:14:21Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/8fae843ec6d9605204b20ce3821c7d1b35642e03",
+      "author": "WMWWZS"
+    },
     {
       "sha": "c1d02099cd5e6bcf35ee8ab558e72a75ba75cf56",
       "msg": "fix(pages): 静态提交数据优先 + 统计真实初值 + 移动端导航 + noscript/a11y + 火山 og",
