@@ -1,95 +1,102 @@
 {
-  "updated": "2026-11-12T15:00:00Z",
-  "total": 15,
+  "updated": "2026-11-12T07:12:02.434Z",
+  "total": 16,
   "commits": [
+    {
+      "sha": "c1d02099cd5e6bcf35ee8ab558e72a75ba75cf56",
+      "msg": "fix(pages): 静态提交数据优先 + 统计真实初值 + 移动端导航 + noscript/a11y + 火山 og",
+      "date": "2026-11-12T07:11:50Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/c1d02099cd5e6bcf35ee8ab558e72a75ba75cf56",
+      "author": "WMWWZS"
+    },
     {
       "sha": "5000ba6c77c48f405214e16591325bd58b8966c2",
       "msg": "feat(pages): 个人主页改为火山主题",
-      "date": "2026-11-12T15:00:55+08:00",
+      "date": "2026-11-12T07:00:55Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/5000ba6c77c48f405214e16591325bd58b8966c2",
       "author": "WMWWZS"
     },
     {
       "sha": "b944a3798886a3e77c315b8bf6efee25d3879770",
       "msg": "feat(readme): 火山主题重新设计 README",
-      "date": "2026-11-12T14:01:21+08:00",
+      "date": "2026-11-12T06:01:21Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/b944a3798886a3e77c315b8bf6efee25d3879770",
       "author": "WMWWZS"
     },
     {
       "sha": "a8f6e9d6164cfb8ab4d2a07a233a993d213a5abc",
       "msg": "feat(readme): 换用火山喷发动态 hero",
-      "date": "2026-11-12T13:38:25+08:00",
+      "date": "2026-11-12T05:38:25Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/a8f6e9d6164cfb8ab4d2a07a233a993d213a5abc",
       "author": "WMWWZS"
     },
     {
       "sha": "ded405977bb8b2b52c7f481aedcc3a5e6d2b290a",
       "msg": "feat: 贡献蛇 Action + 社交分享图 og.png + favicon",
-      "date": "2026-11-12T12:25:17+08:00",
+      "date": "2026-11-12T04:25:17Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/ded405977bb8b2b52c7f481aedcc3a5e6d2b290a",
       "author": "WMWWZS"
     },
     {
       "sha": "5bfc56a6d20f2f6f865e4415f959b4ab9478869d",
       "msg": "feat(readme): 换用动态渐变 hero + 技能数据面板 + 页脚，删除素样式",
-      "date": "2026-11-12T12:21:23+08:00",
+      "date": "2026-11-12T04:21:23Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/5bfc56a6d20f2f6f865e4415f959b4ab9478869d",
       "author": "WMWWZS"
     },
     {
       "sha": "5483bd8d2b87b32b2f70e30867ecf500e2e160e3",
       "msg": "docs: 移除年级信息、修复 profile README 乱码、新增 3 套备选样式",
-      "date": "2026-11-12T12:18:40+08:00",
+      "date": "2026-11-12T04:18:40Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/5483bd8d2b87b32b2f70e30867ecf500e2e160e3",
       "author": "WMWWZS"
     },
     {
       "sha": "59e94814c7060fe299056e59516ea43d9a11018b",
       "msg": "Update README.md",
-      "date": "2026-11-12T12:15:59+08:00",
+      "date": "2026-11-12T04:15:59Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/59e94814c7060fe299056e59516ea43d9a11018b",
       "author": "WMWWZS"
     },
     {
       "sha": "d2ed34d5b979e8faf335084e360d8fad1b28442f",
       "msg": "docs: 修复国内无法加载的统计图，换成 streak-stats 卡",
-      "date": "2026-11-12T12:14:16+08:00",
+      "date": "2026-11-12T04:14:16Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/d2ed34d5b979e8faf335084e360d8fad1b28442f",
       "author": "WMWWZS"
     },
     {
       "sha": "72419cfb3983b0c2a2d97dc377b82b174fe2aba3",
       "msg": "chore(archive): 归档 2026 上半年 Qt/C++ 旧练习（29 个工程，仅源码）",
-      "date": "2026-11-12T12:08:33+08:00",
+      "date": "2026-11-12T04:08:33Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/72419cfb3983b0c2a2d97dc377b82b174fe2aba3",
       "author": "WMWWZS"
     },
     {
       "sha": "7e7c4ead405e327359004366a255183f1a65d202",
       "msg": "docs: README 补上线上主页链接",
-      "date": "2026-11-12T11:20:05+08:00",
+      "date": "2026-11-12T03:20:05Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/7e7c4ead405e327359004366a255183f1a65d202",
       "author": "WMWWZS"
     },
     {
       "sha": "31787a9335bd266ebe644618b6f6503078ae5439",
       "msg": "docs: 更新线上主页链接",
-      "date": "2026-11-12T11:19:47+08:00",
+      "date": "2026-11-12T03:19:47Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/31787a9335bd266ebe644618b6f6503078ae5439",
       "author": "WMWWZS"
     },
     {
       "sha": "1fe8ec62bcb150f5acaf06d3b483f31326d66a43",
       "msg": "feat(pages): 换成粒子星河动态主页（渐变背景 + 鼠标交互粒子）",
-      "date": "2026-11-12T11:19:26+08:00",
+      "date": "2026-11-12T03:19:26Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/1fe8ec62bcb150f5acaf06d3b483f31326d66a43",
       "author": "WMWWZS"
     },
     {
       "sha": "43f7fb186d0697b5063870376c82b307b01607b2",
       "msg": "init: 学习成长仓库（README 横幅 + 个人主页 + 目录规范）",
-      "date": "2026-11-12T00:23:51+08:00",
+      "date": "2026-11-11T16:23:51Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/43f7fb186d0697b5063870376c82b307b01607b2",
       "author": "WMWWZS"
     }
