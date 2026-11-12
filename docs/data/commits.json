@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-12T08:28:23.100Z",
-  "total": 31,
+  "updated": "2026-11-12T08:37:35.639Z",
+  "total": 33,
   "commits": [
+    {
+      "sha": "328df8e1ed38a5b32dd656259427e25438cc0de4",
+      "msg": "feat(pages): 路线图进度/项目功能也支持直接编辑，统一草稿与导出",
+      "date": "2026-11-12T08:37:24Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/328df8e1ed38a5b32dd656259427e25438cc0de4",
+      "author": "WMWWZS"
+    },
     {
       "sha": "6912ec7e2add82964684526157c0a3b6264a7cb2",
       "msg": "feat(pages): 技能进度条支持拖动模拟，可一键复制 progress.json",
