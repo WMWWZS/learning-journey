@@ -2,6 +2,7 @@
 
 这里放不是"练习"而是"能拿出去讲"的项目，例如：
 
+- `smart-monitor/`：智能监控系统（一周 MVP，2026.11，Qt + OpenCV + SQLite）
 - `vision-tool/`：Qt + OpenCV 视觉工具（W4 交付）
 - `industrial-inspection/`：工业检测系统 v1.0（2027 暑假）
 
