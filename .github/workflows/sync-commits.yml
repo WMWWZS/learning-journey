@@ -1,0 +1,64 @@
+name: Sync commits data
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/data/commits.json"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Count total commits
+        run: echo "TOTAL_COMMITS=$(git rev-list --count HEAD)" >> "$GITHUB_ENV"
+
+      - name: Generate commits data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p docs/data
+          curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/repos/${{ github.repository }}/commits?per_page=100" \
+               -o /tmp/commits.json
+          node - <<'NODE'
+          const fs = require('fs');
+          const raw = JSON.parse(fs.readFileSync('/tmp/commits.json', 'utf8'));
+          const commits = raw
+            .filter(c => !/\[skip ci\]/.test(c.commit.message))
+            .filter(c => !/\[bot\]$/.test((c.author && c.author.login) || ''))
+            .map(c => ({
+              sha: c.sha,
+              msg: c.commit.message.split('\n')[0],
+              date: c.commit.author.date,
+              url: c.html_url,
+              author: (c.author && c.author.login) || 'lin'
+            }));
+          const total = Number(process.env.TOTAL_COMMITS || commits.length);
+          const out = { updated: new Date().toISOString(), total, commits };
+          fs.writeFileSync('docs/data/commits.json', JSON.stringify(out, null, 2) + '\n');
+          console.log('wrote', commits.length, 'commits, total', total);
+          NODE
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/commits.json
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore: sync commits data [skip ci]"
+            git push
+          fi

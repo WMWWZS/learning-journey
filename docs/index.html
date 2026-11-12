@@ -419,13 +419,37 @@
     .reveal { opacity: 1; transform: none; }
     .boot { display: none; }
   }
+
+/* ===== mobile nav / contrast patch ===== */
+@media (max-width: 720px) {
+  nav .links {
+    display: flex; position: absolute; top: 64px; left: 0; right: 0;
+    gap: 0; padding: 0 12px; overflow-x: auto; z-index: 19;
+    background: rgba(12, 6, 5, .94); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line); font-size: 11px;
+  }
+  nav .links a { padding: 10px 10px; white-space: nowrap; opacity: .9; }
+  nav .links::-webkit-scrollbar { display: none; }
+  nav .links a span { margin-right: 2px; }
+  .hero .wrap { padding-top: 152px; }
+}
+:root { --dim: #8f6d54; }
 </style>
 </head>
 <body>
+<noscript>
+<div style="position:fixed;inset:0;z-index:999;background:#0c0605;color:#f5e6d3;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:system-ui,'Microsoft YaHei',sans-serif">
+  <div>
+    <h1 style="font-size:40px;letter-spacing:6px;margin:0 0 12px;background:linear-gradient(110deg,#fff7ed,#fdba74,#f97316);-webkit-background-clip:text;background-clip:text;color:transparent">Lin.</h1>
+    <p style="color:#c9a88c;letter-spacing:2px">C++ / Qt / OpenCV · 工业视觉 · 学习成长记录</p>
+    <p style="margin-top:18px"><a href="https://github.com/WMWWZS/learning-journey" style="color:#f97316">前往 GitHub 仓库 →</a></p>
+  </div>
+</div>
+</noscript>
 <div class="boot" id="boot"><pre id="bootText"></pre><div class="skip">点击跳过</div></div>
 <div class="progress" id="progress"></div>
 <div class="heat" id="heat"></div>
-<canvas id="embers"></canvas>
+<canvas id="embers" aria-hidden="true" role="presentation"></canvas>
 <div class="grain"></div>
 <div class="toast" id="toast"></div>
 <a class="toTop" id="toTop" href="#top" aria-label="回到顶部">↑</a>
@@ -623,10 +647,10 @@
 <!-- ================= STATS ================= -->
 <div class="strip">
   <div class="wrap">
-    <div class="stat"><div class="k">DAYS</div><div class="n"><span data-count="days">0</span><small>day</small></div><div class="l">持续喷发天数</div><div class="spark" id="spark"></div></div>
-    <div class="stat"><div class="k">HAND-WRITE</div><div class="n"><span data-count="30">0</span><small>min</small></div><div class="l">每天手写代码</div></div>
+    <div class="stat"><div class="k">DAYS</div><div class="n"><span data-count="days">1</span><small>day</small></div><div class="l">持续喷发天数</div><div class="spark" id="spark"></div></div>
+    <div class="stat"><div class="k">HAND-WRITE</div><div class="n"><span data-count="30">30</span><small>min</small></div><div class="l">每天手写代码</div></div>
     <div class="stat"><div class="k">COMMITS</div><div class="n"><span id="commitTotal">–</span><small>total</small></div><div class="l">仓库累计提交</div></div>
-    <div class="stat"><div class="k">TARGET</div><div class="n"><span data-count="2027">0</span></div><div class="l">第一份实习 · <span id="countdown">–</span></div></div>
+    <div class="stat"><div class="k">TARGET</div><div class="n"><span data-count="2027">2027</span></div><div class="l">第一份实习 · <span id="countdown">–</span></div></div>
   </div>
 </div>
 
@@ -994,25 +1018,12 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 })();
 
-/* ---------- 数字滚动 ---------- */
-function countUp(el, target) {
-  if (reduced) { el.textContent = target; return; }
-  var t0 = performance.now(), dur = 1500;
-  (function tick(now) {
-    var p = Math.min(1, (now - t0) / dur);
-    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-    if (p < 1) requestAnimationFrame(tick);
-  })(t0);
-}
+/* ---------- 数字：直接写真实值（避免截图/未滚动时显示 0） ---------- */
 (function () {
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var k = e.target.getAttribute('data-count');
-      countUp(e.target, k === 'days' ? dayNo() : +k); io.unobserve(e.target);
-    });
-  }, { threshold: .5 });
-  document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    var k = el.getAttribute('data-count');
+    el.textContent = k === 'days' ? dayNo() : k;
+  });
 })();
 
 /* ---------- 打字机 ---------- */
@@ -1173,25 +1184,45 @@ function countUp(el, target) {
     ol.innerHTML = '<li class="empty">地震仪暂时连不上 GitHub。直接去 <a href="https://github.com/' + REPO + '/commits/main">commits 页面</a> 看吧。</li>';
     document.getElementById('live').textContent = '○ OFFLINE'; document.getElementById('live').style.color = 'var(--dim)';
   }
+  function normalize(d) {
+    var out = [];
+    (d.commits || []).forEach(function (x) {
+      out.push({
+        sha: x.sha || '',
+        html_url: x.url || ('https://github.com/' + REPO + '/commit/' + (x.sha || '')),
+        commit: { message: x.msg || x.message || '', author: { date: x.date } },
+        author: { login: x.author || 'lin' }
+      });
+    });
+    return { list: out, total: d.total || out.length };
+  }
+
+  function render(list, total) {
+    var mine = list.filter(function (c) { return !isBot(c); });
+    if (!mine.length) return fail();
+    var counts = {};
+    mine.forEach(function (c) { var k = key(new Date(c.commit.author.date)); counts[k] = (counts[k] || 0) + 1; });
+    heatmap(counts);
+    document.getElementById('commitTotal').textContent = total || mine.length;
+    document.getElementById('updated').textContent = 'LAST ERUPTION · ' + ago(mine[0].commit.author.date);
+    ol.innerHTML = mine.slice(0, 8).map(function (c) {
+      var msg = c.commit.message.split('\n')[0], m = msg.match(/^(\w+)(\([^)]*\))?!?:\s*/), ty = m ? m[1].toLowerCase() : 'misc';
+      if (m) msg = (m[2] ? m[2].slice(1, -1) + ' · ' : '') + msg.slice(m[0].length);
+      return '<li><a href="' + c.html_url + '" target="_blank" rel="noopener"><span class="sha">' + c.sha.slice(0, 7) + '</span>' +
+             '<span class="ty t-' + ty + '">' + ty + '</span><span class="msg">' + esc(msg) + '</span><span class="ago">' + ago(c.commit.author.date) + '</span></a></li>';
+    }).join('');
+  }
+
   if (!window.fetch) return fail();
-  fetch('https://api.github.com/repos/' + REPO + '/commits?per_page=100')
+  fetch('data/commits.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-    .then(function (list) {
-      var mine = list.filter(function (c) { return !isBot(c); });
-      if (!mine.length) return fail();
-      var counts = {};
-      mine.forEach(function (c) { var k = key(new Date(c.commit.author.date)); counts[k] = (counts[k] || 0) + 1; });
-      heatmap(counts);
-      countUp(document.getElementById('commitTotal'), mine.length);
-      document.getElementById('updated').textContent = 'LAST ERUPTION · ' + ago(mine[0].commit.author.date);
-      ol.innerHTML = mine.slice(0, 8).map(function (c) {
-        var msg = c.commit.message.split('\n')[0], m = msg.match(/^(\w+)(\([^)]*\))?!?:\s*/), ty = m ? m[1].toLowerCase() : 'misc';
-        if (m) msg = (m[2] ? m[2].slice(1, -1) + ' · ' : '') + msg.slice(m[0].length);
-        return '<li><a href="' + c.html_url + '" target="_blank" rel="noopener"><span class="sha">' + c.sha.slice(0, 7) + '</span>' +
-               '<span class="ty t-' + ty + '">' + ty + '</span><span class="msg">' + esc(msg) + '</span><span class="ago">' + ago(c.commit.author.date) + '</span></a></li>';
-      }).join('');
-    })
-    .catch(fail);
+    .then(function (d) { var n = normalize(d); render(n.list, n.total); })
+    .catch(function () {
+      return fetch('https://api.github.com/repos/' + REPO + '/commits?per_page=100')
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (list) { render(list, list.length); })
+        .catch(fail);
+    });
 })();
 </script>
 </body>

@@ -17,7 +17,7 @@
 
 </div>
 
-<img src="assets/dashboard.svg" width="100%" alt="技能温度：C++ 45% · Qt 35% · OpenCV 15% · Linux 5%；当前阶段：地基；目标：2027 暑期实习" />
+<img src="assets/dashboard.svg" width="100%" alt="技能温度面板：当前阶段地基，目标 2027 暑期实习" />
 
 ## `01` 这是什么
 
@@ -47,6 +47,8 @@
 </picture>
 
 <sub>由 GitHub Actions 每天自动生成，格子越亮，那天喷发得越猛。</sub>
+
+> 首页的提交记录与热力图由 Actions 每天同步到 `docs/data/commits.json`，国内网络也能正常显示。
 
 ## `05` 参考
 
