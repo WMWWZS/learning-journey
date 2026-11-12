@@ -95,3 +95,4 @@ docs/data/progress.json  （唯一数据源：只勾子项，百分比自动算�
 - 本地改完想立刻预览：在仓库根目录运行 `node scripts/gen-assets.mjs`，再刷新本地页面即可
 - 404 页面：`docs/404.html`，访问不存在的路径时 GitHub Pages 会自动使用它
 - `.gitattributes`：统一 LF 换行，Windows 下提交不再刷 CRLF 警告
+- 页面上可以直接改进度：技能条拖动、点项目功能项、拖当前阶段进度、点「推进阶段」；改完点「复制 progress.json」粘贴到仓库提交，Actions 才会同步到全站
