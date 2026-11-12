@@ -44,6 +44,7 @@ learning-journey/
 ├── notes/                      # ✅ 每日记录
 │   ├── 2026-11-12.md           #    第一篇笔记（模板示例）
 │   ├── PLAN.md                 #    4 周逐日计划
+│   ├── 项目理解模板.md            #    时序图/对象表/状态表（每搞懂一个模块填一页）
 │   └── bagu/                   #    八股卡片（目前空）
 │
 ├── profile/README.md           # ✅ GitHub 个人主页 README 模板（复制到同名仓库）
