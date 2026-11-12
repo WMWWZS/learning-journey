@@ -14,11 +14,14 @@ const write = (p, s) => fs.writeFileSync(`${ROOT}/${p}`, s, "utf8");
 
 const progress = JSON.parse(read("docs/data/progress.json"));
 
-// 技能百分比 = 已勾选子项 / 子项总数（不再手填）
+// 技能百分比：写了 pct 就用（拖动可微调），没写才按子项自动算
 for (const skill of progress.skills || []) {
   const subs = skill.subs || [];
-  if (subs.length) {
+  if (typeof skill.pct !== "number" && subs.length) {
     skill.pct = Math.round(subs.filter(x => x[1]).length / subs.length * 100);
+  }
+  if (typeof skill.pct === "number") {
+    skill.pct = Math.max(0, Math.min(100, Math.round(skill.pct)));
   }
 }
 
