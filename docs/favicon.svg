@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="55%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b1020"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="url(#g)" stroke-opacity="0.7"/>
+  <text x="32" y="43" text-anchor="middle" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="url(#g)">风</text>
+</svg>

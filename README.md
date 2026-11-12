@@ -76,6 +76,16 @@
 - 🏠 [我的 GitHub 主页](https://github.com/WMWWZS)
 - 🌐 [线上个人主页](https://wmwwzs.github.io/learning-journey/)
 
+## 🐍 贡献蛇
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://wmwwzs.github.io/learning-journey/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://wmwwzs.github.io/learning-journey/snake-light.svg" />
+  <img alt="contribution snake" src="https://wmwwzs.github.io/learning-journey/snake-dark.svg" width="100%" />
+</picture>
+
+> 由 GitHub Actions 每天自动生成：蛇会把你的贡献格子吃掉。第一次需要 Actions 跑一次（见仓库 Actions 页），跑完这里就会变成动态图。
+
 <div align="center">
   <img src="assets/footer.svg" width="100%" alt="Stay hungry. Stay foolish." />
 </div>
