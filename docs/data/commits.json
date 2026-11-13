@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-13T01:13:18.828Z",
-  "total": 51,
+  "updated": "2026-11-13T01:17:46.776Z",
+  "total": 54,
   "commits": [
+    {
+      "sha": "c9d293d4500425a4533de5ecf8d1d70b93094db6",
+      "msg": "fix(snake): 动画时长按比例缩放（snk 时长随周数变化）",
+      "date": "2026-11-13T01:17:34Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/c9d293d4500425a4533de5ecf8d1d70b93094db6",
+      "author": "WMWWZS"
+    },
     {
       "sha": "89f328b2a3e9c3ea9c5e2747081a2eb26ee2bdac",
       "msg": "fix(actions): 贡献蛇工作流 push 前 rebase 并重试，避免与数据同步撞车",
