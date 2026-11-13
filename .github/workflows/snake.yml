@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/snake.yml"
+      - "scripts/snake_fx.py"
 
 concurrency:
   group: repo-data-writes
@@ -31,6 +32,9 @@ jobs:
           outputs: |
             docs/snake-light.svg?color_snake=#c2410c&color_dots=#ebedf0,#fed7aa,#fb923c,#ea580c,#9a3412
             docs/snake-dark.svg?palette=github-dark&color_snake=#fde68a&color_dots=#161b22,#4a1a0b,#9a3412,#ea580c,#fdba74
+
+      - name: Add volcano effects
+        run: python3 scripts/snake_fx.py
 
       - name: Commit and push
         run: |
