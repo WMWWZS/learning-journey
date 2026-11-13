@@ -120,7 +120,10 @@ def apply_fx(path: Path, c: dict) -> str:
     if 'id="volcano-glow"' in s:
         return "already"
 
-    s = s.replace("11500ms", "8500ms")  # 动画加快
+    # 动画加快：把所有 xxx ms 时长统一按 0.74 缩放（约 11.7s -> 8.6s）
+    def _faster(m):
+        return str(round(int(m.group(1)) * 0.74)) + "ms"
+    s = re.sub(r"(\d+)ms", _faster, s)
 
     m = re.match(r"<svg\b[^>]*>", s)
     if not m:
