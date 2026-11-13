@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-13T01:10:53.562Z",
-  "total": 49,
+  "updated": "2026-11-13T01:13:18.828Z",
+  "total": 51,
   "commits": [
+    {
+      "sha": "89f328b2a3e9c3ea9c5e2747081a2eb26ee2bdac",
+      "msg": "fix(actions): 贡献蛇工作流 push 前 rebase 并重试，避免与数据同步撞车",
+      "date": "2026-11-13T01:13:06Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/89f328b2a3e9c3ea9c5e2747081a2eb26ee2bdac",
+      "author": "WMWWZS"
+    },
     {
       "sha": "9ac476f3fe4eb0a31614700150ac3eed09ae7d04",
       "msg": "feat(readme): 贡献蛇加火山特效（熔岩渐变/光晕/火星/熔岩河）并接入每日 Action",
