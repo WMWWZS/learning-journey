@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T08:01:54.462Z",
-  "total": 77,
+  "updated": "2026-11-14T08:05:43.712Z",
+  "total": 79,
   "commits": [
+    {
+      "sha": "c4a044ccf0186556019ee2c153e04288a382b2e2",
+      "msg": "fix(pages): progress.js 加内容版本号，避免浏览器缓存旧计划数据",
+      "date": "2026-11-14T08:05:30Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/c4a044ccf0186556019ee2c153e04288a382b2e2",
+      "author": "WMWWZS"
+    },
     {
       "sha": "8ad84f8c2b6e23dbb7007462cccbfa0fddb928e6",
       "msg": "chore(pages): 7 天计划改为从周日 11.15 开始",
