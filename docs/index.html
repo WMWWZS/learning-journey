@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#170a07" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<meta name="description" content="Lin · 风林火山的学习成长记录：C++ / Qt / OpenCV 工业视觉方向，每天手写 30 分钟，每天至少 1 个 commit。" />
+<meta name="description" content="Lin · 学习成长记录：C++ / Qt / OpenCV 工业视觉方向，每天手写 30 分钟，每天至少 1 个 commit。" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Lin · Still Erupting" />
 <meta property="og:description" content="C++ / Qt / OpenCV 工业视觉方向 · 每天手写 30 分钟 · 每天至少 1 个 commit" />
@@ -563,6 +563,13 @@ footer .crust .c3 { animation-duration: 30s; animation-delay: -18s; }
 footer .meta2 { z-index: 2; }
 
 @media (prefers-reduced-motion: reduce) { .magma, section::after { animation: none; } }
+
+.brand img.avatar {
+  width: 26px; height: 26px; border-radius: 50%; object-fit: cover;
+  border: 1px solid rgba(249, 115, 22, .55);
+  box-shadow: 0 0 10px rgba(249, 115, 22, .35);
+}
+.brand img.avatar:hover { border-color: var(--gold); box-shadow: 0 0 16px rgba(249, 115, 22, .55); }
 </style>
 </head>
 <body>
@@ -588,7 +595,7 @@ footer .meta2 { z-index: 2; }
 
 <nav id="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="favicon.svg" alt="" /><span><b>$</b> lin<span class="cur"></span></span></a>
+    <a class="brand" href="#top"><img class="avatar" src="avatar.jpg" alt="Lin 的头像" /><span><b>$</b> lin<span class="cur"></span></span></a>
     <div class="links">
       <a href="#about"><span>01</span>关于</a><a href="#skills"><span>02</span>技能</a><a href="#roadmap"><span>03</span>路线</a>
       <a href="#plan"><span>04</span>计划</a><a href="#projects"><span>05</span>项目</a><a href="#log"><span>06</span>日志</a>
@@ -763,7 +770,7 @@ footer .meta2 { z-index: 2; }
   <div class="wrap">
     <div class="hero-text">
       <p class="prompt"><b>$</b> whoami<span class="ok">✓ 0.02s</span></p>
-      <h1>Lin<span class="caret"></span><span class="cn">风林火山</span></h1>
+      <h1>Lin<span class="caret"></span></h1>
       <div class="stack">C++ <i>/</i> Qt <i>/</i> OpenCV <span class="pill">工业视觉</span></div>
       <p class="typed" id="typed"></p>
       <div class="btns">
