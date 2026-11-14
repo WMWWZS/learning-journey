@@ -7,6 +7,7 @@
  * 用法：node scripts/gen-assets.mjs（在仓库根目录执行）
  */
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 
 const ROOT = process.cwd();
 const read = p => fs.readFileSync(`${ROOT}/${p}`, "utf8");
@@ -27,6 +28,16 @@ for (const skill of progress.skills || []) {
 
 // 1) progress.js —— 页面优先加载这份
 write("docs/data/progress.js", "window.PROGRESS = " + JSON.stringify(progress, null, 2) + ";\n");
+
+// 1.5) 给 index.html 里的 progress.js 引用加版本号（防浏览器缓存旧数据）
+{
+  const js = read("docs/data/progress.js");
+  const ver = createHash("sha256").update(js).digest("hex").slice(0, 8);
+  let html = read("docs/index.html");
+  html = html.replace(/<script src="data\/progress\.js(\?v=[^"]*)?"><\/script>/,
+    `<script src="data/progress.js?v=${ver}"></script>`);
+  write("docs/index.html", html);
+}
 
 // 2) dashboard.svg —— 用模板填值
 let svg = read("assets/dashboard.template.svg");
