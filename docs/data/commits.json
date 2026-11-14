@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T07:45:21.008Z",
-  "total": 69,
+  "updated": "2026-11-14T07:48:08.819Z",
+  "total": 71,
   "commits": [
+    {
+      "sha": "ea6787db2f4b71c8d7e57c7dcb7fa48382d808cd",
+      "msg": "feat(pages): 移除页面里剩余的名字字样（关于区 alias、页脚）",
+      "date": "2026-11-14T07:47:56Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/ea6787db2f4b71c8d7e57c7dcb7fa48382d808cd",
+      "author": "WMWWZS"
+    },
     {
       "sha": "86a13bbc94ad973a82148803ee2c2702470699fc",
       "msg": "feat(pages): 首屏去掉竖排文字，左上角改用个人头像",
