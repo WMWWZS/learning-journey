@@ -70,4 +70,4 @@ projects/smart-monitor/
 
 ## 参考
 
-- 需求文档：`智能监控系统项目实战指南 (1).pdf`（原文件在 `C:\Users\风林火山\Downloads\`，建议拷贝到 `assets/` 或 `docs/` 备份）
+- 需求文档：`智能监控系统项目实战指南 (1).pdf`（原文件在「下载」文件夹，建议拷贝到 `assets/` 或 `docs/` 备份）

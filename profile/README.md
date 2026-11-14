@@ -7,7 +7,7 @@
 
 <div align="center">
 
-# 风林火山 WMWWZS
+# Lin · WMWWZS
 
 **C++ / Qt / OpenCV · 工业视觉方向**
 
