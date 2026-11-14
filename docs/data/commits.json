@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T07:48:08.819Z",
-  "total": 71,
+  "updated": "2026-11-14T07:50:09.209Z",
+  "total": 73,
   "commits": [
+    {
+      "sha": "306510e30dce0c0e1c1ed960a5ff2c6f1d7947aa",
+      "msg": "chore: 统一去掉文档里的旧名字字样",
+      "date": "2026-11-14T07:49:53Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/306510e30dce0c0e1c1ed960a5ff2c6f1d7947aa",
+      "author": "WMWWZS"
+    },
     {
       "sha": "ea6787db2f4b71c8d7e57c7dcb7fa48382d808cd",
       "msg": "feat(pages): 移除页面里剩余的名字字样（关于区 alias、页脚）",
