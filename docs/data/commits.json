@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T07:35:32.985Z",
-  "total": 65,
+  "updated": "2026-11-14T07:37:27.019Z",
+  "total": 67,
   "commits": [
+    {
+      "sha": "a0f16c9c34f2b294abc5f70289f4b30a38f1b3ad",
+      "msg": "chore: 忽略 Python 缓存文件",
+      "date": "2026-11-14T07:37:13Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/a0f16c9c34f2b294abc5f70289f4b30a38f1b3ad",
+      "author": "WMWWZS"
+    },
     {
       "sha": "f72faeceed704eccd2382d25ed10a55ce2bacc26",
       "msg": "feat(pages): 换上 Claude 新版火山主页（星座网络 + 全新布局）",
