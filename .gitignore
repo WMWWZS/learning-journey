@@ -37,3 +37,7 @@ Thumbs.db
 *.zip
 *.7z
 *.iso
+
+# === Python ===
+__pycache__/
+*.pyc
