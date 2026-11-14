@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T07:56:17.015Z",
-  "total": 75,
+  "updated": "2026-11-14T08:01:54.462Z",
+  "total": 77,
   "commits": [
+    {
+      "sha": "8ad84f8c2b6e23dbb7007462cccbfa0fddb928e6",
+      "msg": "chore(pages): 7 天计划改为从周日 11.15 开始",
+      "date": "2026-11-14T08:01:41Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/8ad84f8c2b6e23dbb7007462cccbfa0fddb928e6",
+      "author": "WMWWZS"
+    },
     {
       "sha": "96cf979ba75a5250802d8e66ab5ade420dd5db5f",
       "msg": "feat(pages): 4 周计划改为按需求文档的 7 天计划，同步项目文档",
