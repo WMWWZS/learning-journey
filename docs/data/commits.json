@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T04:59:24.357Z",
-  "total": 63,
+  "updated": "2026-11-14T07:35:32.985Z",
+  "total": 65,
   "commits": [
+    {
+      "sha": "f72faeceed704eccd2382d25ed10a55ce2bacc26",
+      "msg": "feat(pages): 换上 Claude 新版火山主页（星座网络 + 全新布局）",
+      "date": "2026-11-14T07:35:21Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/f72faeceed704eccd2382d25ed10a55ce2bacc26",
+      "author": "WMWWZS"
+    },
     {
       "sha": "5f2b2f327c5a1e6aa034125429b996f92559e6f9",
       "msg": "notes(qt): 归档 Qt 核心机制问答复盘（12+11 题）",
