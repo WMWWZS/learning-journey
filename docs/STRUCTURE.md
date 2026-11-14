@@ -43,7 +43,7 @@ learning-journey/
 │
 ├── notes/                      # ✅ 每日记录
 │   ├── 2026-11-12.md           #    第一篇笔记（模板示例）
-│   ├── PLAN.md                 #    4 周逐日计划
+│   ├── PLAN.md                 #    旧 4 周逐日学习计划（保留参考）
 │   ├── 项目理解模板.md            #    时序图/对象表/状态表（每搞懂一个模块填一页）
 │   └── bagu/                   #    八股卡片（目前空）
 │
@@ -60,7 +60,7 @@ learning-journey/
 | :-- | :-- | :-- |
 | **技能进度**（勾选子项，百分比自动算） | `docs/data/progress.json` → `skills` 的 `subs` | Actions 自动生成，约 1 分钟上线 |
 | **当前阶段 / 阶段进度** | `docs/data/progress.json` → `stages` | 同上 |
-| **4 周计划** | `docs/data/progress.json` → `weeks` | 同上 |
+| **7 天计划** | `docs/data/progress.json` → `days` | 同上 |
 | **项目功能清单** | `docs/data/progress.json` → `features` | 同上 |
 | **主页文案 / 配色 / 动效** | `docs/index.html` | push 后 Pages 重建 |
 | **README 文案** | `README.md` | push 后立即显示 |
