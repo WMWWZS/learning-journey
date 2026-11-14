@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#0c0605" />
+<meta name="theme-color" content="#170a07" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <meta name="description" content="Lin · 风林火山的学习成长记录：C++ / Qt / OpenCV 工业视觉方向，每天手写 30 分钟，每天至少 1 个 commit。" />
 <meta property="og:type" content="website" />
@@ -475,6 +475,94 @@
 }
 .skills .track:hover .knob { transform: scale(1.15); }
 .skills .bar.active .knob { transform: scale(1.25); }
+
+/* ===== 熔岩星河 · 提亮 + 火山细节 ===== */
+:root {
+  --bg: #170a07; --ink: #fff5ec; --text: #f4ddcb; --muted: #d2a98f; --dim: #a57c64; --dark: #3a1a10;
+  --line: rgba(249,115,22,.24); --line2: rgba(249,115,22,.45);
+}
+body { background: radial-gradient(120% 70% at 50% 0%, #2a0f08 0%, var(--bg) 62%) fixed, var(--bg); }
+::-webkit-scrollbar-track { background: #1a0b07; }
+.magma { position: fixed; inset: -20%; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(34% 38% at 16% 24%, rgba(249,115,22,.22), transparent 62%),
+    radial-gradient(30% 34% at 84% 16%, rgba(220,38,38,.20), transparent 62%),
+    radial-gradient(36% 40% at 74% 82%, rgba(251,146,60,.20), transparent 64%),
+    radial-gradient(28% 32% at 22% 86%, rgba(253,230,138,.12), transparent 60%);
+  filter: blur(40px); animation: breathe 18s ease-in-out infinite alternate; }
+@keyframes breathe { 0% { transform: scale(1); opacity: .75 } 100% { transform: scale(1.08) translate3d(1%,2%,0); opacity: 1 } }
+#net { position: fixed; inset: 0; z-index: 3; pointer-events: none; }
+.heat { background: radial-gradient(circle, rgba(249,115,22,.14), transparent 62%); }
+
+.hero { background:
+  radial-gradient(60% 55% at 72% 62%, rgba(249,115,22,.42), transparent 70%),
+  radial-gradient(45% 35% at 72% 100%, rgba(234,88,12,.5), transparent 70%),
+  radial-gradient(40% 40% at 12% 30%, rgba(190,60,30,.2), transparent 70%),
+  linear-gradient(180deg, #1c0a10 0%, #2e1009 50%, #4a1607 100%); }
+.boot { background: #140806; }
+nav.solid { background: rgba(26,11,8,.8); }
+.ticker { background: #2a0f08; border-bottom: 1px solid var(--line); }
+.strip { background: linear-gradient(180deg, rgba(42,16,9,.92), rgba(23,10,7,.55)); backdrop-filter: blur(6px); }
+.hud { background: rgba(26,11,8,.6); }
+
+.rule, .week, .stage .box, .legend, .heatbox { background: linear-gradient(160deg, rgba(249,115,22,.11), rgba(40,16,10,.55) 60%); backdrop-filter: blur(10px); }
+.card { background: linear-gradient(170deg, rgba(56,22,12,.88), rgba(28,12,8,.82) 70%); backdrop-filter: blur(12px); }
+.card .shot { background: #160906; }
+.mock { background: #1c0c08; border-color: #4a2516; }
+.profile, .log { background: rgba(24,10,7,.84); backdrop-filter: blur(10px); }
+.chip { background: rgba(70,26,14,.35); }
+.track, .prog div, .stage .mini, .days i { background: #3a1a10; }
+.hm i { background: #2e140c; }
+.toTop { background: rgba(26,11,8,.85); }
+
+/* 熔融描边 + 卡片内热点 */
+@property --ang { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+.molten { position: relative; }
+.molten::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; z-index: 2;
+  background: conic-gradient(from var(--ang), transparent 0 55%, rgba(249,115,22,.95) 70%, #fde68a 78%, rgba(249,115,22,.95) 86%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .35s; animation: ang 3.2s linear infinite; }
+.molten:hover::after { opacity: 1; }
+@keyframes ang { to { --ang: 360deg } }
+.molten::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 1;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(249,115,22,.16), transparent 62%); opacity: 0; transition: opacity .3s; }
+.molten:hover::before { opacity: 1; }
+
+/* 板块之间的熔岩缝 */
+section::before { content: ""; position: absolute; top: 46px; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(249,115,22,.35) 18%, rgba(253,230,138,.55) 50%, rgba(249,115,22,.35) 82%, transparent); }
+section::after { content: ""; position: absolute; top: 44px; left: -10%; width: 140px; height: 5px; border-radius: 5px; pointer-events: none;
+  background: radial-gradient(closest-side, #fffbeb, rgba(249,115,22,.85), transparent); filter: blur(.6px); animation: seam 7s linear infinite; }
+section:nth-of-type(2n)::after { animation-duration: 9s; animation-delay: -3s; }
+@keyframes seam { from { left: -12% } to { left: 100% } }
+.head .file b { color: var(--ember); font-weight: 400; margin-right: 6px; }
+
+/* 深度计 */
+.depth { position: fixed; left: 26px; top: 50%; transform: translateY(-50%); z-index: 15; height: 52vh; width: 110px; font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: 1px; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.depth.show { opacity: 1; }
+.depth .rail { position: absolute; left: 0; top: 0; bottom: 0; width: 2px; border-radius: 2px; background: #3a1a10; overflow: hidden; }
+.depth .rail i { position: absolute; left: 0; right: 0; top: 0; height: 0; background: linear-gradient(#7f1d1d, #ea580c, #fde68a); box-shadow: 0 0 8px var(--lava); }
+.depth .tick { position: absolute; left: 0; width: 6px; height: 1px; background: rgba(249,115,22,.45); }
+.depth .tick.big { width: 10px; background: rgba(249,115,22,.75); }
+.depth .tick span { position: absolute; left: 14px; top: -6px; white-space: nowrap; }
+.depth .mk { position: absolute; left: -4px; top: 0; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: #fffbeb; box-shadow: 0 0 10px 3px var(--lava); }
+.depth .rd { position: absolute; left: 16px; top: 0; margin-top: -10px; color: var(--gold); font-size: 10px; white-space: nowrap; background: rgba(23,10,7,.85); padding: 1px 6px; border: 1px solid var(--line2); border-radius: 4px; }
+.depth .cap { position: absolute; left: -4px; top: -22px; letter-spacing: 3px; color: var(--muted); }
+@media (max-width: 1360px) { .depth { display: none; } }
+
+/* 页脚熔岩湖 */
+footer { padding-bottom: 150px; background: radial-gradient(60% 120% at 50% 130%, rgba(234,88,12,.5), transparent 70%); }
+footer .lake { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 110px; pointer-events: none; overflow: visible; }
+footer .wave { animation: wave 14s linear infinite; }
+footer .wave.w1 { animation-duration: 22s; animation-direction: reverse; }
+@keyframes wave { to { transform: translateX(-1280px) } }
+footer .crust path { animation: crust 26s linear infinite; }
+footer .crust .c2 { animation-duration: 34s; animation-delay: -10s; }
+footer .crust .c3 { animation-duration: 30s; animation-delay: -18s; }
+@keyframes crust { from { transform: translateX(-200px) } to { transform: translateX(1400px) } }
+footer .meta2 { z-index: 2; }
+
+@media (prefers-reduced-motion: reduce) { .magma, section::after { animation: none; } }
 </style>
 </head>
 <body>
@@ -489,7 +577,10 @@
 </noscript>
 <div class="boot" id="boot"><pre id="bootText"></pre><div class="skip">点击跳过</div></div>
 <div class="progress" id="progress"></div>
+<div class="magma" aria-hidden="true"></div>
 <div class="heat" id="heat"></div>
+<canvas id="net" aria-hidden="true" role="presentation"></canvas>
+<div class="depth" id="depth" aria-hidden="true"><div class="rail"><i id="dFill"></i></div><div id="dTicks"></div><i class="mk" id="dMk"></i><span class="rd" id="dRd"></span><span class="cap">DEPTH</span></div>
 <canvas id="embers" aria-hidden="true" role="presentation"></canvas>
 <div class="grain"></div>
 <div class="toast" id="toast"></div>
@@ -524,8 +615,8 @@
     <defs>
       <linearGradient id="ash" x1="0" y1="-240" x2="0" y2="234" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#120b0a" stop-opacity="0"/><stop offset="35%" stop-color="#2e1711"/><stop offset="75%" stop-color="#7c2d12"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
       <linearGradient id="ash2" x1="0" y1="150" x2="0" y2="322" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#140c0a" stop-opacity="0"/><stop offset="55%" stop-color="#3a1c14"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
-      <linearGradient id="cone" x1="0" y1="232" x2="0" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5a200d"/><stop offset="22%" stop-color="#1f0c07"/><stop offset="100%" stop-color="#0c0605"/></linearGradient>
-      <linearGradient id="cone2" x1="0" y1="318" x2="0" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4a1a0b"/><stop offset="30%" stop-color="#1c0a06"/><stop offset="100%" stop-color="#0c0605"/></linearGradient>
+      <linearGradient id="cone" x1="0" y1="232" x2="0" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#7a2a10"/><stop offset="24%" stop-color="#2e120a"/><stop offset="100%" stop-color="#170a07"/></linearGradient>
+      <linearGradient id="cone2" x1="0" y1="318" x2="0" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#6a240e"/><stop offset="30%" stop-color="#2a1009"/><stop offset="100%" stop-color="#170a07"/></linearGradient>
       <linearGradient id="lava" x1="0" y1="236" x2="0" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#fff3b0"/><stop offset="30%" stop-color="#fb923c"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
       <linearGradient id="rim" x1="0" y1="232" x2="0" y2="340" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#fed7aa"/><stop offset="100%" stop-color="#c2410c" stop-opacity="0"/></linearGradient>
       <linearGradient id="jetg" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#fff"/><stop offset="20%" stop-color="#fef08a"/><stop offset="55%" stop-color="#fb923c" stop-opacity=".8"/><stop offset="100%" stop-color="#dc2626" stop-opacity="0"/></linearGradient>
@@ -535,12 +626,13 @@
       <filter id="b9" x="-40%" y="-80%" width="180%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
       <filter id="b20" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="20"/></filter>
       <filter id="cloud" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="8" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="26" result="d"/><feGaussianBlur in="d" stdDeviation="2.5"/></filter>
+      <filter id="haze" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.09" numOctaves="2" seed="3" result="n"><animate attributeName="baseFrequency" values="0.02 0.09;0.026 0.11;0.02 0.09" dur="4s" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="8"/></filter>
       <filter id="rock"><feTurbulence type="fractalNoise" baseFrequency="0.06 0.18" numOctaves="3" seed="5" result="n"/><feColorMatrix in="n" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.1" result="m"/><feComposite in="m" in2="SourceGraphic" operator="in"/></filter>
     </defs>
 
     <!-- 远山 -->
-    <path d="M0 440 L0 360 C 80 344 160 352 240 336 C 320 322 400 340 480 334 C 560 328 620 350 700 360 L 700 440 Z" fill="#1c0a07"/>
-    <path d="M0 440 L0 390 C 120 378 220 390 340 380 C 460 372 560 388 680 396 L 680 440 Z" fill="#120605"/>
+    <path d="M0 440 L0 360 C 80 344 160 352 240 336 C 320 322 400 340 480 334 C 560 328 620 350 700 360 L 700 440 Z" fill="#2e120a"/>
+    <path d="M0 440 L0 390 C 120 378 220 390 340 380 C 460 372 560 388 680 396 L 680 440 Z" fill="#22100a"/>
 
     <!-- 小火山：烟柱 + 喷泉 + 山体 -->
     <ellipse cx="1214" cy="318" rx="80" ry="40" fill="#f97316" opacity=".3" filter="url(#b20)" class="throb"/>
@@ -594,13 +686,13 @@
 
     <!-- 背光 + 喷泉 -->
     <ellipse cx="900" cy="226" rx="190" ry="90" fill="#f97316" opacity=".4" filter="url(#b20)" class="throb"/>
-    <g filter="url(#g2)"><g class="jet">
+    <g filter="url(#haze)"><g filter="url(#g2)"><g class="jet">
       <path d="M884 234 C 888 184 894 124 900 58 C 906 124 912 184 916 234 Z" fill="url(#jetg)"/>
       <path d="M888 234 C 878 198 860 162 834 122 C 858 152 878 188 897 234 Z" fill="url(#jetg)" opacity=".85"/>
       <path d="M912 234 C 922 196 942 164 970 130 C 946 156 924 190 903 234 Z" fill="url(#jetg)" opacity=".85"/>
       <path d="M892 234 C 886 184 880 138 870 88 C 882 130 890 178 899 234 Z" fill="url(#jetg)" opacity=".7"/>
       <path d="M908 234 C 914 182 922 134 934 84 C 920 128 912 176 901 234 Z" fill="url(#jetg)" opacity=".7"/>
-    </g></g>
+    </g></g></g>
 
     <!-- 主山体 -->
     <path d="M520 440 C 650 404 756 336 844 248 L 856 240 L 866 242 L 876 236 L 888 238 L 900 233 L 914 236 L 926 232 L 938 238 L 948 244 C 1034 334 1136 404 1260 440 Z" fill="url(#cone)"/>
@@ -647,9 +739,9 @@
     <circle cx="780" cy="270" r="14" fill="none" stroke="#fb923c" stroke-width="1" opacity=".18"/>
     <circle cx="640" cy="312" r="22" fill="none" stroke="#fdba74" stroke-width=".8" opacity=".1"/>
     <!-- 前景 -->
-    <path d="M0 440 L0 422 C 120 416 260 426 400 420 C 520 416 600 428 700 434 L 700 440 Z" fill="#0c0605"/>
-    <path d="M1160 440 C 1200 428 1244 422 1280 420 L1280 440 Z" fill="#0c0605"/>
-    <path d="M30 440 L 46 426 L 62 430 L 74 418 L 92 424 L 104 440 Z" fill="#070303"/>
+    <path d="M0 440 L0 422 C 120 416 260 426 400 420 C 520 416 600 428 700 434 L 700 440 Z" fill="#170a07"/>
+    <path d="M1160 440 C 1200 428 1244 422 1280 420 L1280 440 Z" fill="#170a07"/>
+    <path d="M30 440 L 46 426 L 62 430 L 74 418 L 92 424 L 104 440 Z" fill="#100604"/>
     <g stroke="#f97316" stroke-width="1.2" fill="none" filter="url(#g1)" class="throb">
       <path d="M120 436 L 150 428 L 172 432 L 200 424 L 214 428"/><path d="M420 438 L 450 430 L 468 434 L 486 428"/><path d="M600 438 L 624 432 L 640 436"/>
     </g>
@@ -680,7 +772,7 @@
       </div>
     </div>
   </div>
-  <div class="hint">点击任意处 · 喷发一次</div>
+  <div class="hint">移动鼠标拨开熔岩星河 · 点击释放冲击波</div>
 </header>
 
 <div class="ticker" aria-hidden="true"><div class="run" id="ticker"></div></div>
@@ -861,11 +953,20 @@
 </main>
 
 <footer>
-  <svg class="cracks" viewBox="0 0 1280 60" preserveAspectRatio="none" aria-hidden="true">
-    <g fill="none" stroke="#f97316" stroke-width="1.2" class="throb">
-      <path d="M0 52 L 60 46 L 96 54 L 150 44 L 210 50 L 262 42 L 300 48"/><path d="M420 58 L 470 50 L 504 56 L 560 48"/>
-      <path d="M720 56 L 770 48 L 806 54 L 860 46 L 900 52"/><path d="M1000 50 L 1050 56 L 1100 46 L 1160 52 L 1220 44 L 1280 50"/>
+  <svg class="lake" viewBox="0 0 1280 120" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="lakeG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fde68a"/><stop offset="18%" stop-color="#fb923c"/><stop offset="60%" stop-color="#c2410c"/><stop offset="100%" stop-color="#7f1d1d"/></linearGradient>
+      <linearGradient id="lakeB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f97316" stop-opacity=".55"/><stop offset="100%" stop-color="#7f1d1d" stop-opacity=".2"/></linearGradient>
+      <filter id="lakeGlow" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <g class="wave w1"><path id="waveBack" fill="url(#lakeB)"/></g>
+    <g class="wave w2" filter="url(#lakeGlow)"><path id="waveFront" fill="url(#lakeG)"/></g>
+    <g class="crust" fill="#2a1009" stroke="#5a200d" stroke-width="1">
+      <path class="c1" d="M140 78 l 26 -6 l 34 4 l 10 8 l -28 6 l -36 -2 z"/>
+      <path class="c2" d="M520 86 l 40 -8 l 30 6 l 6 8 l -40 4 l -30 -2 z"/>
+      <path class="c3" d="M930 80 l 22 -5 l 28 3 l 8 7 l -26 5 l -28 -2 z"/>
     </g>
+    <g fill="#fff3b0" id="bubbles"></g>
   </svg>
   <div class="wrap">
     <div class="big">Stay hungry. Stay foolish.</div>
@@ -1368,6 +1469,7 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
     if (c.visible) spawn(c.x, c.y, 120, 11 * Math.max(.6, c.s), 1.9);
     else spawn(innerWidth / 2 * dpr, H, 120, 13, 1.2);
     document.body.animate && document.body.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(-3px,2px)' }, { transform: 'translate(3px,-2px)' }, { transform: 'translate(0,0)' }], { duration: 260 });
+    if (window.netShock) { var cc = c.visible ? { x: c.x / dpr, y: c.y / dpr } : { x: innerWidth / 2, y: innerHeight }; window.netShock(cc.x, cc.y, 1.6); }
     toast('第 ' + erupts + ' 次喷发 · 今天也要 commit');
   }
   addEventListener('mousemove', function (e) { mouse.x = e.clientX * dpr; mouse.y = e.clientY * dpr; });
@@ -1383,7 +1485,7 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
     ctx.clearRect(0, 0, W, H);
     var c = crater();
     if (c.visible) { spawn(c.x, c.y, Math.random() < .5 ? 2 : 1, 6.5 * Math.max(.6, c.s)); if (tk % 140 === 0) spawn(c.x, c.y, 30, 8 * Math.max(.6, c.s)); }
-    if (tk % 3 === 0) ambient();
+    if (tk % 10 === 0) ambient();
     ctx.globalCompositeOperation = 'lighter';
     for (var i = P.length - 1; i >= 0; i--) {
       var p = P[i], ox = p.x, oy = p.y;
@@ -1403,6 +1505,205 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
     ctx.globalCompositeOperation = 'source-over';
     requestAnimationFrame(loop);
   })();
+})();
+
+/* ---------- 熔岩星河：背景粒子网络（鼠标排斥 + 连线 + 点击冲击波） ---------- */
+(function () {
+  var cv = document.getElementById('net'), ctx = cv.getContext('2d');
+  var dpr = Math.min(2, devicePixelRatio || 1), W, H, N = [], ash = [], pulses = [], rings = [];
+  var mouse = { x: -1e4, y: -1e4, on: false };
+  var PAL = ['253,230,138', '251,146,60', '249,115,22', '239,68,68', '254,215,170'];
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function node() {
+    var core = Math.random() < .08;
+    return { x: rnd(0, W), y: rnd(0, H), vx: rnd(-.2, .2) * dpr, vy: rnd(-.3, .1) * dpr,
+             r: (core ? rnd(2.2, 3.4) : rnd(.8, 2)) * dpr, c: PAL[core ? 0 : (Math.random() * PAL.length) | 0],
+             core: core, ph: rnd(0, 6.28), heat: 0 };
+  }
+  function resize() {
+    W = cv.width = Math.floor(innerWidth * dpr); H = cv.height = Math.floor(innerHeight * dpr);
+    cv.style.width = innerWidth + 'px'; cv.style.height = innerHeight + 'px';
+    var count = Math.min(140, Math.floor(innerWidth * innerHeight / 11000));
+    N = []; for (var i = 0; i < count; i++) N.push(node());
+    ash = []; for (var j = 0; j < Math.floor(count / 3); j++)
+      ash.push({ x: rnd(0, W), y: rnd(0, H), s: rnd(.8, 2.2) * dpr, vy: rnd(.15, .45) * dpr, vx: rnd(-.18, .04) * dpr, rot: rnd(0, 6.28), vr: rnd(-.02, .02) });
+    pulses = [];
+  }
+  window.netShock = function (x, y, power) {
+    power = power || 1; x *= dpr; y *= dpr;
+    rings.push({ x: x, y: y, r: 0, a: 1, p: power });
+    var R = 320 * dpr * power;
+    N.forEach(function (p) {
+      var dx = p.x - x, dy = p.y - y, dd = Math.sqrt(dx * dx + dy * dy) || 1;
+      if (dd < R) { var f = (1 - dd / R) * 8 * power * dpr; p.vx += dx / dd * f; p.vy += dy / dd * f; p.heat = 1; }
+    });
+  };
+  addEventListener('pointermove', function (e) { mouse.x = e.clientX * dpr; mouse.y = e.clientY * dpr; mouse.on = true; }, { passive: true });
+  document.addEventListener('mouseleave', function () { mouse.on = false; mouse.x = mouse.y = -1e4; });
+  addEventListener('blur', function () { mouse.on = false; });
+  addEventListener('click', function (e) {
+    if (e.target.closest('a, button, .boot, .track, .mini, .subs, [data-feat]')) return;
+    window.netShock(e.clientX, e.clientY, .8);
+  });
+  addEventListener('resize', function () { clearTimeout(resize.t); resize.t = setTimeout(resize, 150); });
+  resize();
+
+  function frame(t) {
+    ctx.clearRect(0, 0, W, H);
+    var L = 140 * dpr, L2 = L * L, MR = 120 * dpr, ML = 180 * dpr, i, j, p, q, dx, dy, dd;
+
+    ctx.fillStyle = 'rgba(80,46,34,.5)';
+    for (i = 0; i < ash.length; i++) {
+      var a = ash[i];
+      a.x += a.vx; a.y += a.vy; a.rot += a.vr;
+      if (a.y > H + 10) { a.y = -10; a.x = rnd(0, W); }
+      if (a.x < -10) a.x = W + 10;
+      ctx.save(); ctx.translate(a.x, a.y); ctx.rotate(a.rot); ctx.fillRect(-a.s, -a.s * .45, a.s * 2, a.s * .9); ctx.restore();
+    }
+
+    ctx.globalCompositeOperation = 'lighter';
+    for (i = 0; i < N.length; i++) {
+      p = N[i];
+      p.vx = p.vx * .985 + Math.sin(t * .0006 + p.ph) * .004 * dpr;
+      p.vy = p.vy * .985 - .0026 * dpr;
+      if (mouse.on) {
+        dx = p.x - mouse.x; dy = p.y - mouse.y; dd = dx * dx + dy * dy;
+        if (dd < MR * MR && dd > .01) {
+          dd = Math.sqrt(dd);
+          var f = Math.min(3, MR / dd - 1) * 1.6;
+          p.x += dx / dd * f; p.y += dy / dd * f;
+          p.heat = Math.min(1, p.heat + .06);
+        }
+      }
+      p.x += p.vx; p.y += p.vy; p.heat *= .975;
+      if (p.y < -20) { p.y = H + 20; p.x = rnd(0, W); }
+      else if (p.y > H + 20) p.y = -20;
+      if (p.x < -20) p.x = W + 20; else if (p.x > W + 20) p.x = -20;
+    }
+
+    ctx.lineWidth = .8 * dpr;
+    for (i = 0; i < N.length; i++) {
+      p = N[i];
+      for (j = i + 1; j < N.length; j++) {
+        q = N[j]; dx = p.x - q.x; dy = p.y - q.y; dd = dx * dx + dy * dy;
+        if (dd < L2) {
+          var k = 1 - Math.sqrt(dd) / L, h = Math.max(p.heat, q.heat);
+          ctx.strokeStyle = 'rgba(' + (h > .3 ? PAL[0] : p.c) + ',' + (k * (.3 + h * .45)) + ')';
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+          if (pulses.length < 16 && Math.random() < .0008) pulses.push({ a: p, b: q, t: 0, s: rnd(.012, .028) });
+        }
+      }
+      if (mouse.on) {
+        dx = p.x - mouse.x; dy = p.y - mouse.y; dd = dx * dx + dy * dy;
+        if (dd < ML * ML) {
+          ctx.strokeStyle = 'rgba(253,230,138,' + ((1 - Math.sqrt(dd) / ML) * .55) + ')';
+          ctx.lineWidth = .9 * dpr;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+          ctx.lineWidth = .8 * dpr;
+        }
+      }
+    }
+
+    for (i = pulses.length - 1; i >= 0; i--) {
+      var u = pulses[i]; u.t += u.s;
+      dx = u.a.x - u.b.x; dy = u.a.y - u.b.y;
+      if (u.t >= 1 || dx * dx + dy * dy > L2 * 1.4) { pulses.splice(i, 1); continue; }
+      var px = u.a.x + (u.b.x - u.a.x) * u.t, py = u.a.y + (u.b.y - u.a.y) * u.t, fa = Math.sin(u.t * Math.PI);
+      ctx.fillStyle = 'rgba(253,230,138,' + (fa * .25) + ')';
+      ctx.beginPath(); ctx.arc(px, py, 5 * dpr, 0, 6.283); ctx.fill();
+      ctx.fillStyle = 'rgba(255,251,235,' + fa + ')';
+      ctx.beginPath(); ctx.arc(px, py, 1.6 * dpr, 0, 6.283); ctx.fill();
+    }
+
+    for (i = 0; i < N.length; i++) {
+      p = N[i];
+      var rr = p.core ? p.r * (1 + .25 * Math.sin(t * .003 + p.ph)) : p.r;
+      if (p.core || p.heat > .05) {
+        ctx.fillStyle = 'rgba(' + p.c + ',' + (.1 + p.heat * .25) + ')';
+        ctx.beginPath(); ctx.arc(p.x, p.y, rr * (p.core ? 4.5 : 3.5), 0, 6.283); ctx.fill();
+      }
+      ctx.fillStyle = 'rgba(' + (p.heat > .5 ? PAL[0] : p.c) + ',.9)';
+      ctx.beginPath(); ctx.arc(p.x, p.y, rr, 0, 6.283); ctx.fill();
+    }
+
+    for (i = rings.length - 1; i >= 0; i--) {
+      var g = rings[i]; g.r += 9 * dpr * g.p; g.a -= .018;
+      if (g.a <= 0) { rings.splice(i, 1); continue; }
+      ctx.strokeStyle = 'rgba(253,186,116,' + (g.a * .7) + ')'; ctx.lineWidth = 1.6 * dpr;
+      ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.283); ctx.stroke();
+      ctx.strokeStyle = 'rgba(249,115,22,' + (g.a * .35) + ')'; ctx.lineWidth = 6 * dpr;
+      ctx.beginPath(); ctx.arc(g.x, g.y, g.r * .82, 0, 6.283); ctx.stroke();
+    }
+
+    if (mouse.on) {
+      ctx.setLineDash([4 * dpr, 10 * dpr]); ctx.lineDashOffset = -t * .02;
+      ctx.strokeStyle = 'rgba(249,115,22,.22)'; ctx.lineWidth = 1 * dpr;
+      ctx.beginPath(); ctx.arc(mouse.x, mouse.y, MR, 0, 6.283); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    if (!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ---------- 卡片：熔融描边 + 跟随鼠标的热点 ---------- */
+(function () {
+  var els = document.querySelectorAll('.rule, .week, .card, .stage .box, .heatbox, .log, .profile, .legend');
+  Array.prototype.forEach.call(els, function (el) {
+    el.classList.add('molten');
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();
+
+/* ---------- 板块温度 + 深度计 ---------- */
+(function () {
+  var heads = document.querySelectorAll('section .head');
+  Array.prototype.forEach.call(heads, function (h, i) {
+    var f = h.querySelector('.file');
+    if (f) f.innerHTML = '<b>' + (640 + i * 110) + ' °C</b>' + f.innerHTML;
+  });
+
+  var box = document.getElementById('depth'), ticks = document.getElementById('dTicks');
+  var mk = document.getElementById('dMk'), rd = document.getElementById('dRd'), fill = document.getElementById('dFill');
+  var html = '';
+  for (var m = 0; m <= 1200; m += 100) {
+    var big = m % 400 === 0;
+    html += '<i class="tick' + (big ? ' big' : '') + '" style="top:' + (m / 1200 * 100) + '%">' + (big ? '<span>' + m + ' m</span>' : '') + '</i>';
+  }
+  ticks.innerHTML = html;
+  function on() {
+    var h = document.documentElement.scrollHeight - innerHeight, k = h > 0 ? Math.min(1, scrollY / h) : 0;
+    box.classList.toggle('show', scrollY > innerHeight * .6);
+    mk.style.top = rd.style.top = (k * 100) + '%';
+    fill.style.height = (k * 100) + '%';
+    rd.textContent = Math.round(k * 1200) + ' m · ' + Math.round(600 + k * 600) + ' °C';
+  }
+  addEventListener('scroll', on, { passive: true }); addEventListener('resize', on); on();
+})();
+
+/* ---------- 页脚熔岩湖：波浪 + 气泡 ---------- */
+(function () {
+  function wave(y, amp, seg) {
+    var s = 'M0 ' + y + ' Q ' + (seg / 2) + ' ' + (y - amp) + ' ' + seg + ' ' + y;
+    for (var x = seg * 2; x <= 2560; x += seg) s += ' T ' + x + ' ' + y;
+    return s + ' V 130 H 0 Z';
+  }
+  document.getElementById('waveBack').setAttribute('d', wave(46, 12, 140));
+  document.getElementById('waveFront').setAttribute('d', wave(62, 9, 100));
+  var g = document.getElementById('bubbles'), NS = 'http://www.w3.org/2000/svg';
+  for (var i = 0; i < 9; i++) {
+    var c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', 60 + Math.random() * 1160); c.setAttribute('cy', 74 + Math.random() * 20); c.setAttribute('r', 0);
+    var dur = (2.2 + Math.random() * 2.6).toFixed(1) + 's', beg = (Math.random() * 4).toFixed(1) + 's';
+    c.innerHTML = '<animate attributeName="r" values="0;' + (2 + Math.random() * 3).toFixed(1) + ';0" dur="' + dur + '" begin="' + beg + '" repeatCount="indefinite"/>' +
+                  '<animate attributeName="opacity" values="0;1;0" dur="' + dur + '" begin="' + beg + '" repeatCount="indefinite"/>';
+    g.appendChild(c);
+  }
 })();
 
 /* ---------- 最近喷发 + 热力图：GitHub API ---------- */
