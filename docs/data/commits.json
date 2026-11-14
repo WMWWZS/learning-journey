@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T07:50:09.209Z",
-  "total": 73,
+  "updated": "2026-11-14T07:56:17.015Z",
+  "total": 75,
   "commits": [
+    {
+      "sha": "96cf979ba75a5250802d8e66ab5ade420dd5db5f",
+      "msg": "feat(pages): 4 周计划改为按需求文档的 7 天计划，同步项目文档",
+      "date": "2026-11-14T07:56:03Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/96cf979ba75a5250802d8e66ab5ade420dd5db5f",
+      "author": "WMWWZS"
+    },
     {
       "sha": "306510e30dce0c0e1c1ed960a5ff2c6f1d7947aa",
       "msg": "chore: 统一去掉文档里的旧名字字样",
