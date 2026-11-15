@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-14T09:38:29.276Z",
-  "total": 81,
+  "updated": "2026-11-15T08:17:05.158Z",
+  "total": 83,
   "commits": [
+    {
+      "sha": "aeea5ea67c2bce984d594125a6249a955c553fd4",
+      "msg": "notes(qt): 归档 Model/View 基础与 Q23 复盘",
+      "date": "2026-11-15T08:16:50Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/aeea5ea67c2bce984d594125a6249a955c553fd4",
+      "author": "WMWWZS"
+    },
     {
       "sha": "c4a044ccf0186556019ee2c153e04288a382b2e2",
       "msg": "fix(pages): progress.js 加内容版本号，避免浏览器缓存旧计划数据",
