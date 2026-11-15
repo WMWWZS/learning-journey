@@ -184,3 +184,58 @@ $env:Path = 'E:\Qt\6.10.1\mingw_64\bin;' + $env:Path
 > 如果我想让第二行**按隐藏的 ID 排序**，又该用哪个 role？
 
 提示：看看第 3 节那张 role 表。
+
+---
+
+## 9. 补充：3 个 role / 通知问题（讲解版）
+
+> ⚠️ 这三题出题超纲（当时还没讲 `QSortFilterProxyModel` 和范围通知），改为直接讲解，**不计入答题记录**。
+
+### Q2｜让第二行文字变红 → `Qt::ForegroundRole`
+
+```cpp
+QVariant StringListModel::data(const QModelIndex &index, int role) const
+{
+    if (role == Qt::ForegroundRole && index.row() == 1)
+        return QColor(Qt::red);        // 返回 QColor 或 QBrush
+    if (role == Qt::DisplayRole)
+        return m_items.at(index.row());
+    return {};
+}
+```
+
+- 专业：颜色属于 `Qt::ForegroundRole`，返回 `QColor` / `QBrush`。
+- 人话：View 换了个问法——“这行字什么颜色？”——你在这个 role 里回答。
+
+### Q3｜隐藏 ID 排序 → 自定义 role + 代理的 `sortRole`
+
+```cpp
+enum ItemRole { IdRole = Qt::UserRole + 1 };
+
+// data() 里为 IdRole 返回编号
+if (role == IdRole)
+    return m_items.at(index.row()).id;
+
+// 排序交给代理：告诉它按 IdRole 排，而不是按显示文字排
+auto *proxy = new QSortFilterProxyModel(this);
+proxy->setSourceModel(model);
+proxy->setSortRole(IdRole);
+view->setModel(proxy);
+```
+
+- 专业：`Qt::UserRole + n` 之后都是自定义 role，用来携带业务数据；`QSortFilterProxyModel::setSortRole()` 指定排序依据。
+- 人话：给每行发一张“隐藏身份证”，排序时按身份证号排，不按显示文字排。
+
+### Q4｜一次改 2~5 行怎么通知 → `dataChanged` 的 topLeft / bottomRight
+
+```cpp
+// 0 基索引：第 2~5 行 = index(1) .. index(4)
+emit dataChanged(index(1), index(4), {Qt::DisplayRole});
+```
+
+- 专业：`topLeft` 是左上角索引、`bottomRight` 是右下角索引，两端都包含；`roles` 指明哪些 role 变了，只传 `DisplayRole` 就只重画文字。
+- 人话：告诉 View“第 1 到第 4 行（含）变了，只重画这几行”。
+
+---
+
+> 📌 出题复盘：上面三题需要「自己推理 + 没学过的 API」，不是当天能答的。以后每天 4 题只考“看笔记能复述”的级别；答不上就回“不会”，我直接讲，不追问、不扣分。
