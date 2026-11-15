@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-15T13:19:12.160Z",
-  "total": 87,
+  "updated": "2026-11-15T15:13:09.998Z",
+  "total": 89,
   "commits": [
+    {
+      "sha": "04fb03f27b0f174ff046c4042d23dc140c80122f",
+      "msg": "fix(pages): 技能数据回落真实值，编辑器仅 ?edit=1 显示，统一计划文档",
+      "date": "2026-11-15T15:12:44Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/04fb03f27b0f174ff046c4042d23dc140c80122f",
+      "author": "WMWWZS"
+    },
     {
       "sha": "6943e01a70503c0d7cdfc7eaedb55872f985d7ea",
       "msg": "notes(qt): 补充 Model/View role 与 dataChanged 讲解",
