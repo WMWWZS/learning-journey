@@ -1,3 +1,5 @@
+> ⚠️ 当前执行的是「智能监控系统 7 天计划」→ [projects/smart-monitor/docs/PLAN.md](../projects/smart-monitor/docs/PLAN.md)；本文件是 4 周学习路线，保留作参考。
+
 # 📅 学习计划（4 周逐日，2026.11.16 – 2026.12.13）
 
 > 每天三块：**新知识 → 手写 → 收尾（卡片 + commit）**

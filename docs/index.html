@@ -574,6 +574,9 @@ footer .meta2 { z-index: 2; }
 .week .dchip { margin-top: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: 1px; color: var(--dim); }
 .week.now .dchip { color: var(--gold); }
 .week.done .dchip { color: var(--ember); }
+
+/* 编辑器只在 ?edit=1 时显示（防止访客看到内部工具） */
+#skillEdit { display: none; }
 </style>
 </head>
 <body>
@@ -1794,6 +1797,16 @@ function toast(msg) { var t = document.getElementById('toast'); t.textContent = 
         .then(function (list) { render(list, list.length); })
         .catch(fail);
     });
+})();
+
+/* ---------- 编辑器开关：?edit=1 ---------- */
+(function () {
+  try {
+    if (/[?&]edit=1\b/.test(location.search)) {
+      var el = document.getElementById('skillEdit');
+      if (el) el.style.display = 'flex';
+    }
+  } catch (e) {}
 })();
 </script>
 </body>

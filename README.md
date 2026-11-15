@@ -12,11 +12,11 @@
 [![Git](https://img.shields.io/badge/Git-1a0c08?style=for-the-badge&logo=git&logoColor=f97316)](https://github.com/WMWWZS/learning-journey/commits/main)
 
 <!-- PROGRESS:BEGIN -->
-**当前进度**：C++ 100% · Qt 100% · OpenCV 50% · Linux 0% · [看详情 →](https://wmwwzs.github.io/learning-journey/#skills)
+**当前进度**：C++ 33% · Qt 60% · OpenCV 25% · Linux 0% · [看详情 →](https://wmwwzs.github.io/learning-journey/#skills)
 <!-- PROGRESS:END -->
 
 [![个人主页](https://img.shields.io/badge/个人主页-GitHub%20Pages-c2410c?style=flat-square&labelColor=1a0c08)](https://wmwwzs.github.io/learning-journey/)
-[![学习计划](https://img.shields.io/badge/学习计划-4%20周逐日-c2410c?style=flat-square&labelColor=1a0c08)](notes/PLAN.md)
+[![7 天计划](https://img.shields.io/badge/7%20天计划-智能监控-c2410c?style=flat-square&labelColor=1a0c08)](projects/smart-monitor/docs/PLAN.md)
 [![八股卡片](https://img.shields.io/badge/八股卡片-notes%2Fbagu-c2410c?style=flat-square&labelColor=1a0c08)](notes/bagu/)
 
 </div>
@@ -35,8 +35,9 @@
 | :-- | :-- | :-- |
 | **C++** | 类与对象、拷贝语义、继承多态、模板 STL | 每日练习 → [`cpp/`](cpp/) |
 | **Qt** | 控件、布局、信号槽、事件、QSS | 计算器、登录界面 → [`qt/`](qt/) |
-| **OpenCV** | 图像读写、阈值、形态学、参数联动 | 视觉工具 v0.5 → [`projects/`](projects/) |
-| **工程** | Git、CMake、Linux 基础 | 每天 1 个 commit |
+| **OpenCV** | 图像读写、阈值、形态学、参数联动 | 智能监控系统 → [`projects/smart-monitor/`](projects/smart-monitor/) |
+| **工程** | Git、CMake、Linux 基础 | 每天 1 个 commit
+| **综合项目** | Qt + OpenCV + MySQL 实战 | [智能监控系统 7 天 MVP](projects/smart-monitor/docs/PLAN.md) |
 
 ## `03` 路线图
 
