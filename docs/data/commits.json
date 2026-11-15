@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-15T10:10:03.310Z",
-  "total": 85,
+  "updated": "2026-11-15T13:19:12.160Z",
+  "total": 87,
   "commits": [
+    {
+      "sha": "6943e01a70503c0d7cdfc7eaedb55872f985d7ea",
+      "msg": "notes(qt): 补充 Model/View role 与 dataChanged 讲解",
+      "date": "2026-11-15T13:18:59Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/6943e01a70503c0d7cdfc7eaedb55872f985d7ea",
+      "author": "WMWWZS"
+    },
     {
       "sha": "aeea5ea67c2bce984d594125a6249a955c553fd4",
       "msg": "notes(qt): 归档 Model/View 基础与 Q23 复盘",
