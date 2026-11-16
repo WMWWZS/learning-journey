@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-16T15:50:40.260Z",
-  "total": 98,
+  "updated": "2026-11-16T15:54:41.875Z",
+  "total": 100,
   "commits": [
+    {
+      "sha": "8aa869480b5c2a7078404c8e3519ba650473bd92",
+      "msg": "notes(qt): 新增 Qt 学习主线（把问答复盘串成一条线）",
+      "date": "2026-11-16T15:54:22Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/8aa869480b5c2a7078404c8e3519ba650473bd92",
+      "author": "WMWWZS"
+    },
     {
       "sha": "833c5da2ead8391e036405fb5525e489a7163a62",
       "msg": "notes(qt): 每日复习记录 2026-11-16（Model/View 4 题）",
