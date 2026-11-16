@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-15T15:13:09.998Z",
-  "total": 89,
+  "updated": "2026-11-16T03:00:45.198Z",
+  "total": 92,
   "commits": [
+    {
+      "sha": "243572874aa79c31ebbcc867b74b74ce5e451647",
+      "msg": "feat(pages): 去掉技能百分比与路线图板块，精简 README 与生成器",
+      "date": "2026-11-16T02:58:05Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/243572874aa79c31ebbcc867b74b74ce5e451647",
+      "author": "WMWWZS"
+    },
     {
       "sha": "04fb03f27b0f174ff046c4042d23dc140c80122f",
       "msg": "fix(pages): 技能数据回落真实值，编辑器仅 ?edit=1 显示，统一计划文档",
