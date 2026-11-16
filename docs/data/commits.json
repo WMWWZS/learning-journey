@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-16T15:34:06.799Z",
-  "total": 96,
+  "updated": "2026-11-16T15:50:40.260Z",
+  "total": 98,
   "commits": [
+    {
+      "sha": "833c5da2ead8391e036405fb5525e489a7163a62",
+      "msg": "notes(qt): 每日复习记录 2026-11-16（Model/View 4 题）",
+      "date": "2026-11-16T15:44:54Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/833c5da2ead8391e036405fb5525e489a7163a62",
+      "author": "WMWWZS"
+    },
     {
       "sha": "5ac0185a94d770389dcab29abbc517500fe2c400",
       "msg": "docs(smart-monitor): 回看模块 4 个 Bug 与修复方案（暂停/倍速/seek/抓拍）",
