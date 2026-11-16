@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-16T10:22:18.374Z",
-  "total": 94,
+  "updated": "2026-11-16T15:34:06.799Z",
+  "total": 96,
   "commits": [
+    {
+      "sha": "5ac0185a94d770389dcab29abbc517500fe2c400",
+      "msg": "docs(smart-monitor): 回看模块 4 个 Bug 与修复方案（暂停/倍速/seek/抓拍）",
+      "date": "2026-11-16T15:33:45Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/5ac0185a94d770389dcab29abbc517500fe2c400",
+      "author": "WMWWZS"
+    },
     {
       "sha": "243572874aa79c31ebbcc867b74b74ce5e451647",
       "msg": "feat(pages): 去掉技能百分比与路线图板块，精简 README 与生成器",
