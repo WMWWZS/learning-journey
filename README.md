@@ -4,24 +4,18 @@
 
 <div align="center">
 
-[![C++](https://img.shields.io/badge/C%2B%2B-1a0c08?style=for-the-badge&logo=cplusplus&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
-[![Qt](https://img.shields.io/badge/Qt-1a0c08?style=for-the-badge&logo=qt&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
-[![OpenCV](https://img.shields.io/badge/OpenCV-1a0c08?style=for-the-badge&logo=opencv&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
+[![C++](https://img.shields.io/badge/C%2B%2B-1a0c08?style=for-the-badge&logo=cplusplus&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/)
+[![Qt](https://img.shields.io/badge/Qt-1a0c08?style=for-the-badge&logo=qt&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-1a0c08?style=for-the-badge&logo=opencv&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/)
 [![CMake](https://img.shields.io/badge/CMake-1a0c08?style=for-the-badge&logo=cmake&logoColor=f97316)](docs/STRUCTURE.md)
-[![Linux](https://img.shields.io/badge/Linux-1a0c08?style=for-the-badge&logo=linux&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/#skills)
+[![Linux](https://img.shields.io/badge/Linux-1a0c08?style=for-the-badge&logo=linux&logoColor=f97316)](https://wmwwzs.github.io/learning-journey/)
 [![Git](https://img.shields.io/badge/Git-1a0c08?style=for-the-badge&logo=git&logoColor=f97316)](https://github.com/WMWWZS/learning-journey/commits/main)
-
-<!-- PROGRESS:BEGIN -->
-**当前进度**：C++ 33% · Qt 60% · OpenCV 25% · Linux 0% · [看详情 →](https://wmwwzs.github.io/learning-journey/#skills)
-<!-- PROGRESS:END -->
 
 [![个人主页](https://img.shields.io/badge/个人主页-GitHub%20Pages-c2410c?style=flat-square&labelColor=1a0c08)](https://wmwwzs.github.io/learning-journey/)
 [![7 天计划](https://img.shields.io/badge/7%20天计划-智能监控-c2410c?style=flat-square&labelColor=1a0c08)](projects/smart-monitor/docs/PLAN.md)
 [![八股卡片](https://img.shields.io/badge/八股卡片-notes%2Fbagu-c2410c?style=flat-square&labelColor=1a0c08)](notes/bagu/)
 
 </div>
-
-<img src="assets/dashboard.svg" width="100%" alt="技能温度面板：当前阶段地基，目标 2027 暑期实习" />
 
 ## `01` 这是什么
 
@@ -39,11 +33,7 @@
 | **工程** | Git、CMake、Linux 基础 | 每天 1 个 commit
 | **综合项目** | Qt + OpenCV + MySQL 实战 | [智能监控系统 7 天 MVP](projects/smart-monitor/docs/PLAN.md) |
 
-## `03` 路线图
-
-<img src="assets/roadmap.svg" width="100%" alt="路线图：01 地基 2026.11–2026.12（进行中）→ 02 核心 2027.01–2027.06 → 03 项目 2027.07–2027.08 → 04 冲刺 2027.09–2028.12" />
-
-## `04` 贡献记录
+## `03` 贡献记录
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://wmwwzs.github.io/learning-journey/snake-dark.svg" />
@@ -55,7 +45,7 @@
 
 > 首页的提交记录与热力图由 Actions 每天同步到 `docs/data/commits.json`，国内网络也能正常显示。
 
-## `05` 参考
+## `04` 参考
 
 <details>
 <summary><b>仓库结构</b></summary>
@@ -69,7 +59,7 @@
 ├── docs/         # GitHub Pages 个人主页
 ├── profile/      # GitHub 个人主页 README 模板
 ├── archive/      # 2026 上半年旧练习归档（只含源码）
-└── assets/       # 横幅、数据面板、路线图、页脚
+└── assets/       # 横幅、页脚
 ```
 
 **每个文件干嘛的、要不要手改 → [docs/STRUCTURE.md](docs/STRUCTURE.md)**
@@ -81,7 +71,7 @@
 
 1. **每天一个 commit**，信息格式：`类型(模块): 内容`（如 `feat(qt): 登录界面布局`）
 2. **每天一篇笔记**：`notes/YYYY-MM-DD.md`，写学到什么、卡在哪、怎么解决
-3. **每周日复盘**：更新 `docs/data/progress.json`（技能温度 / 路线进度 / 项目功能都在这里，Actions 会自动生成页面数据和 README 用的 `assets/dashboard.svg`），把这周最值钱的 1 个收获写进笔记
+3. **每周日复盘**：更新 `docs/data/progress.json`（7 天计划 / 项目功能都在这里，Actions 会自动生成页面数据），把这周最值钱的 1 个收获写进笔记
 4. **代码放进对应目录**，每个小项目一个文件夹 + 一个 README
 5. **视频、安装包、构建产物不进仓库**（见 `.gitignore`）
 
