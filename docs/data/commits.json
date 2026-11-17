@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-17T14:48:22.137Z",
-  "total": 104,
+  "updated": "2026-11-17T15:40:22.935Z",
+  "total": 106,
   "commits": [
+    {
+      "sha": "516981dda500cdfbe560e69d2d1e77b71e6d4f64",
+      "msg": "feat(smart-monitor): 同步 Qt20 工程源码（回看模块修复 + 移动侦测骨架）",
+      "date": "2026-11-17T15:40:09Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/516981dda500cdfbe560e69d2d1e77b71e6d4f64",
+      "author": "WMWWZS"
+    },
     {
       "sha": "450216cfbf25466594d353506c102b98fa00fd44",
       "msg": "notes(qt): 每日复习记录 2026-11-17（4 题）",
@@ -322,20 +329,6 @@
       "msg": "Update README.md",
       "date": "2026-11-12T04:15:59Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/59e94814c7060fe299056e59516ea43d9a11018b",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "d2ed34d5b979e8faf335084e360d8fad1b28442f",
-      "msg": "docs: 修复国内无法加载的统计图，换成 streak-stats 卡",
-      "date": "2026-11-12T04:14:16Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/d2ed34d5b979e8faf335084e360d8fad1b28442f",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "72419cfb3983b0c2a2d97dc377b82b174fe2aba3",
-      "msg": "chore(archive): 归档 2026 上半年 Qt/C++ 旧练习（29 个工程，仅源码）",
-      "date": "2026-11-12T04:08:33Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/72419cfb3983b0c2a2d97dc377b82b174fe2aba3",
       "author": "WMWWZS"
     }
   ]
