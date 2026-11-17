@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-17T11:20:43.998Z",
-  "total": 102,
+  "updated": "2026-11-17T14:48:22.137Z",
+  "total": 104,
   "commits": [
+    {
+      "sha": "450216cfbf25466594d353506c102b98fa00fd44",
+      "msg": "notes(qt): 每日复习记录 2026-11-17（4 题）",
+      "date": "2026-11-17T14:41:18Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/450216cfbf25466594d353506c102b98fa00fd44",
+      "author": "WMWWZS"
+    },
     {
       "sha": "8aa869480b5c2a7078404c8e3519ba650473bd92",
       "msg": "notes(qt): 新增 Qt 学习主线（把问答复盘串成一条线）",
@@ -329,20 +336,6 @@
       "msg": "chore(archive): 归档 2026 上半年 Qt/C++ 旧练习（29 个工程，仅源码）",
       "date": "2026-11-12T04:08:33Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/72419cfb3983b0c2a2d97dc377b82b174fe2aba3",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "7e7c4ead405e327359004366a255183f1a65d202",
-      "msg": "docs: README 补上线上主页链接",
-      "date": "2026-11-12T03:20:05Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/7e7c4ead405e327359004366a255183f1a65d202",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "31787a9335bd266ebe644618b6f6503078ae5439",
-      "msg": "docs: 更新线上主页链接",
-      "date": "2026-11-12T03:19:47Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/31787a9335bd266ebe644618b6f6503078ae5439",
       "author": "WMWWZS"
     }
   ]
