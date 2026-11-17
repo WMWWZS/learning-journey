@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T15:54:41.875Z",
-  "total": 100,
+  "updated": "2026-11-17T11:20:43.998Z",
+  "total": 102,
   "commits": [
     {
       "sha": "8aa869480b5c2a7078404c8e3519ba650473bd92",
@@ -343,20 +343,6 @@
       "msg": "docs: 更新线上主页链接",
       "date": "2026-11-12T03:19:47Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/31787a9335bd266ebe644618b6f6503078ae5439",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "1fe8ec62bcb150f5acaf06d3b483f31326d66a43",
-      "msg": "feat(pages): 换成粒子星河动态主页（渐变背景 + 鼠标交互粒子）",
-      "date": "2026-11-12T03:19:26Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/1fe8ec62bcb150f5acaf06d3b483f31326d66a43",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "43f7fb186d0697b5063870376c82b307b01607b2",
-      "msg": "init: 学习成长仓库（README 横幅 + 个人主页 + 目录规范）",
-      "date": "2026-11-11T16:23:51Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/43f7fb186d0697b5063870376c82b307b01607b2",
       "author": "WMWWZS"
     }
   ]
