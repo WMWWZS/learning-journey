@@ -1,0 +1,84 @@
+/* 注意：不要用 *{margin:0;padding:0}，它会把表格/表头内部的间距一起清掉 */
+
+#left_box{
+    border-right: 2px solid white;
+    min-width: 200px;
+}
+
+#device_list{
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+    /* 清除默认边框 */
+    border: none;
+    border-bottom: 2px solid white; /* 粗细 样式 颜色 */
+    padding-bottom: 10px; /* 增加文本与下划线的距离 */
+}
+
+/* 基础样式：设置列表整体外观 */
+QListWidget {
+    background-color: #f5f5f5;
+    border: none;
+    padding: 5px;
+    outline: none;
+    /* 列表整体字体大小（影响条目继承） */
+    font-size: 14pt;
+}
+
+/* 列表条目基础样式 */
+QListWidget::item {
+    height: 42px; /* 配合字体增大，适当增加条目高度 */
+    padding: 0 12px; /* 增加内边距，避免文字拥挤 */
+    color: black;
+    text-align: left;
+    /* 条目单独设置字体大小（优先级高于列表） */
+    font-size: 14pt;
+}
+
+/* 鼠标悬浮状态 */
+QListWidget::item:hover {
+    background-color: #D9D9D9;
+    color: #404244;
+}
+
+/* 选中状态 */
+QListWidget::item:selected {
+    background-color: #CCE8FF;
+    color: #404244;
+    border-left: 3px solid #1a73e8;
+}
+
+/* 选中且鼠标悬浮状态 */
+QListWidget::item:selected:hover {
+    background-color: #c7dafc;
+}
+
+/* 禁用状态样式 */
+QListWidget:disabled {
+    background-color: #f0f0f0;
+    border-color: #e0e0e0;
+}
+
+QListWidget:disabled::item {
+    color: #b0b0b0;
+    background-color: transparent;
+}
+
+/* 隐藏垂直滚动条 */
+QListWidget QScrollBar:vertical {
+    width: 0px; /* 宽度设为0 */
+}
+
+/* 隐藏水平滚动条（如果需要） */
+QListWidget QScrollBar:horizontal {
+    height: 0px; /* 高度设为0 */
+}
+
+/* 彻底隐藏滚动条的所有部件（滑块、箭头等） */
+QListWidget QScrollBar::handle,
+QListWidget QScrollBar::add-line,
+QListWidget QScrollBar::sub-line,
+QListWidget QScrollBar::add-page,
+QListWidget QScrollBar::sub-page {
+    background: transparent; /* 背景透明 */
+}

@@ -1,0 +1,138 @@
+/* 登录界面 QSS - 深色科技风 */
+
+QWidget {
+        /* 顶层窗口背景由代码里的 QPalette + BG3.jpg 提供；
+       这里绝不能给 QWidget 写全局背景图规则，它会污染每一个子控件 */
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: 14px;
+    color: #e6f7ff;
+}
+
+/* 如果某些子部件不想继承背景，可以在具体控件再覆盖 */
+/* 想要卡片式面板：给容器控件 setObjectName("formPanel")，下面已有对应样式 */
+
+QLabel {
+    color: #ffffff;
+    background: transparent;
+    font-size: 14px;
+}
+
+#lab_title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    background: transparent;
+    padding: 6px 0;
+}
+
+/* 输入框 */
+QLineEdit {
+    background-color: rgba(255, 255, 255, 0.88);
+    color: #102a36;
+    border: 1px solid rgba(102, 153, 255, 0.85);
+    border-radius: 8px;
+    padding: 7px 10px;
+    min-height: 24px;
+    font-size: 14px;
+    selection-background-color: #4088ee;
+    selection-color: white;
+}
+
+QLineEdit:focus {
+    border: 2px solid #4cc9ff;
+    background-color: #ffffff;
+}
+
+QLineEdit:hover {
+    border: 1px solid #66ccff;
+}
+
+/* 按钮 */
+QPushButton {
+    background-color: #4088ee;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    min-width: 72px;
+    font-size: 15px;
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #2b70d8;
+}
+
+QPushButton:pressed {
+    background-color: #1e59b3;
+}
+
+QPushButton:disabled {
+    background-color: #555c66;
+    color: #b8c4cc;
+}
+
+/* QMessageBox 弹窗适配，避免被全局背景影响太重 */
+QMessageBox {
+    background-color: #1e2a33;
+    color: #e6f7ff;
+}
+
+QMessageBox QPushButton {
+    background-color: #4088ee;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 18px;
+    min-width: 64px;
+}
+
+QMessageBox QPushButton:hover {
+    background-color: #2b70d8;
+}
+
+QMessageBox QLabel {
+    color: #e6f7ff;
+    background: transparent;
+    font-size: 14px;
+}
+
+/* 验证码 label/自定义验证码控件区域，保持透明 */
+VerifyCodeLabel {
+    background: transparent;
+}
+
+/* 如果验证码是 QLabel 显示图片/文字，可增强一点 */
+QLabel#pic_vcode, QLabel#lab_vcode {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    color: #ffffff;
+}
+
+/* 表单区域如果想半透明，可以给对应 QWidget 设置 objectName 后单独写 */
+/* 例如 ui->formPanel->setObjectName("formPanel"); */
+QWidget#formPanel {
+    background-color: rgba(10, 22, 35, 0.55);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* QCheckBox / 其他以后扩展 */
+QCheckBox {
+    color: #ffffff;
+    background: transparent;
+    spacing: 6px;
+}
+
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #66aaff;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.15);
+}
+
+QCheckBox::indicator:checked {
+    background-color: #4088ee;
+    border-color: #4cc9ff;
+}

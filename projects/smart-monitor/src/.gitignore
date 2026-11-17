@@ -1,0 +1,19 @@
+# ===== 构建产物 =====
+build/
+build-*/
+debug/
+release/
+*.o
+*.obj
+Makefile*
+.qmake.stash
+*.user
+*.pro.user
+.qtcreator/
+
+# ===== 运行产物（exe/dll/录像/截图/模型）=====
+bin/
+
+# ===== 大文件 =====
+*.onnx
+*.mp4

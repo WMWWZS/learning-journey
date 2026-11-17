@@ -1,0 +1,38 @@
+MainWidget{
+    background-color: #3B3F48;
+}
+
+#lab_login,#title,#ctime{
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+    margin: 10px;
+}
+
+#lab_login{
+    font-size: 14pt;
+}
+
+
+#title{
+    font-size: 36pt;
+}
+
+QPushButton{
+    color: white;
+    background-color: black;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 16pt;
+    font-family: "Microsoft YaHei";
+}
+
+/* 悬浮状态：浅灰背景 */
+QPushButton:hover {
+    background-color: #222222;
+}
+
+/* 按下状态：深灰背景 */
+QPushButton:pressed {
+    background-color: #444444;
+}
