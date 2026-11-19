@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-19T04:21:00.449Z",
-  "total": 110,
+  "updated": "2026-11-19T10:55:15.792Z",
+  "total": 112,
   "commits": [
     {
       "sha": "b8de001730faa158bab2a36ef6c9310ab4050b03",
@@ -301,13 +301,6 @@
       "msg": "feat(readme): 火山主题重新设计 README",
       "date": "2026-11-12T06:01:21Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/b944a3798886a3e77c315b8bf6efee25d3879770",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "a8f6e9d6164cfb8ab4d2a07a233a993d213a5abc",
-      "msg": "feat(readme): 换用火山喷发动态 hero",
-      "date": "2026-11-12T05:38:25Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/a8f6e9d6164cfb8ab4d2a07a233a993d213a5abc",
       "author": "WMWWZS"
     }
   ]
