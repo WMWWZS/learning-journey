@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-18T10:53:58.207Z",
-  "total": 108,
+  "updated": "2026-11-19T04:21:00.449Z",
+  "total": 110,
   "commits": [
+    {
+      "sha": "b8de001730faa158bab2a36ef6c9310ab4050b03",
+      "msg": "notes(qt): 补记 11-18 日复习 + 2026-11-19 日记录（8 题）",
+      "date": "2026-11-19T04:20:45Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/b8de001730faa158bab2a36ef6c9310ab4050b03",
+      "author": "WMWWZS"
+    },
     {
       "sha": "516981dda500cdfbe560e69d2d1e77b71e6d4f64",
       "msg": "feat(smart-monitor): 同步 Qt20 工程源码（回看模块修复 + 移动侦测骨架）",
@@ -301,20 +308,6 @@
       "msg": "feat(readme): 换用火山喷发动态 hero",
       "date": "2026-11-12T05:38:25Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/a8f6e9d6164cfb8ab4d2a07a233a993d213a5abc",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "ded405977bb8b2b52c7f481aedcc3a5e6d2b290a",
-      "msg": "feat: 贡献蛇 Action + 社交分享图 og.png + favicon",
-      "date": "2026-11-12T04:25:17Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/ded405977bb8b2b52c7f481aedcc3a5e6d2b290a",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "5bfc56a6d20f2f6f865e4415f959b4ab9478869d",
-      "msg": "feat(readme): 换用动态渐变 hero + 技能数据面板 + 页脚，删除素样式",
-      "date": "2026-11-12T04:21:23Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/5bfc56a6d20f2f6f865e4415f959b4ab9478869d",
       "author": "WMWWZS"
     }
   ]
