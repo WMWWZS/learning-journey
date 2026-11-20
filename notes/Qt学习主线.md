@@ -69,6 +69,7 @@ C++ 基础（类、虚函数、RAII）
   emit sender.valueChanged(1);   // emit 本质就是普通函数调用
   ```
 - **连接类型**：Auto（默认：发射线程 vs receiver 所属线程）、Direct、Queued、BlockingQueued（有死锁风险）、Unique（去重）
+- **为什么不是“sender 对象的线程”**：`QThread::started` 从新线程发出，但 QThread 对象户籍在创建它的线程；按“sender 户籍”会误判成 Queued，实际是 Direct。判断依据永远是“**emit 执行线程** vs **receiver 所属线程**”。
 - **常见坑**：同一槽连两次会执行两次；lambda 记得传 context object；Queued 依赖接收线程有事件循环
 - **对应**：问答 Q3、Q4、Q13、Q17、Q22 ｜ 实验 `trace01`、`trace03`
 
