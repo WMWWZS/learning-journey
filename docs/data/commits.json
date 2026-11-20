@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-20T10:44:03.271Z",
-  "total": 114,
+  "updated": "2026-11-20T15:11:44.489Z",
+  "total": 116,
   "commits": [
+    {
+      "sha": "36d906bcdd797e05764ff8a3ff55ed2918d97a38",
+      "msg": "notes(qt): 2026-11-20 日记录（4 题）并修正主线措辞",
+      "date": "2026-11-20T15:11:27Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/36d906bcdd797e05764ff8a3ff55ed2918d97a38",
+      "author": "WMWWZS"
+    },
     {
       "sha": "b8de001730faa158bab2a36ef6c9310ab4050b03",
       "msg": "notes(qt): 补记 11-18 日复习 + 2026-11-19 日记录（8 题）",
@@ -280,20 +287,6 @@
       "msg": "docs(pages): 更新日志区块说明文案",
       "date": "2026-11-12T07:14:21Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/8fae843ec6d9605204b20ce3821c7d1b35642e03",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "c1d02099cd5e6bcf35ee8ab558e72a75ba75cf56",
-      "msg": "fix(pages): 静态提交数据优先 + 统计真实初值 + 移动端导航 + noscript/a11y + 火山 og",
-      "date": "2026-11-12T07:11:50Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/c1d02099cd5e6bcf35ee8ab558e72a75ba75cf56",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "5000ba6c77c48f405214e16591325bd58b8966c2",
-      "msg": "feat(pages): 个人主页改为火山主题",
-      "date": "2026-11-12T07:00:55Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/5000ba6c77c48f405214e16591325bd58b8966c2",
       "author": "WMWWZS"
     }
   ]
