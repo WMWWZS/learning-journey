@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-19T10:55:15.792Z",
-  "total": 112,
+  "updated": "2026-11-20T10:44:03.271Z",
+  "total": 114,
   "commits": [
     {
       "sha": "b8de001730faa158bab2a36ef6c9310ab4050b03",
@@ -294,13 +294,6 @@
       "msg": "feat(pages): 个人主页改为火山主题",
       "date": "2026-11-12T07:00:55Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/5000ba6c77c48f405214e16591325bd58b8966c2",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "b944a3798886a3e77c315b8bf6efee25d3879770",
-      "msg": "feat(readme): 火山主题重新设计 README",
-      "date": "2026-11-12T06:01:21Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/b944a3798886a3e77c315b8bf6efee25d3879770",
       "author": "WMWWZS"
     }
   ]
