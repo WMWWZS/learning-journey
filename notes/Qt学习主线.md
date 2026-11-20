@@ -62,13 +62,13 @@ C++ 基础（类、虚函数、RAII）
 - **流程**：
   1. `connect` 把“谁收、槽是哪个、怎么送”登记到 sender 的连接表
   2. `emit` = 调用 moc 生成的函数 → `QMetaObject::activate`
-  3. `activate` 查表：Direct 当场调槽；Queued 投事件到 receiver 线程；Auto 看两边户籍
+  3. `activate` 查表：Direct 当场调槽；Queued 投事件到 receiver 线程；Auto 在 **emit 时**比较“执行 emit 的线程”与“receiver 所属线程”
 - **关键代码**：
   ```cpp
   connect(&sender, &Sender::valueChanged, &receiver, &Receiver::onValue);
   emit sender.valueChanged(1);   // emit 本质就是普通函数调用
   ```
-- **连接类型**：Auto（默认，看两边线程）、Direct、Queued、BlockingQueued（有死锁风险）、Unique（去重）
+- **连接类型**：Auto（默认：发射线程 vs receiver 所属线程）、Direct、Queued、BlockingQueued（有死锁风险）、Unique（去重）
 - **常见坑**：同一槽连两次会执行两次；lambda 记得传 context object；Queued 依赖接收线程有事件循环
 - **对应**：问答 Q3、Q4、Q13、Q17、Q22 ｜ 实验 `trace01`、`trace03`
 
@@ -90,6 +90,7 @@ C++ 基础（类、虚函数、RAII）
 - **三条关键结论**：
   - 事件属于**线程**的队列，不属于对象
   - `update()` 只记账，paint 结账时读当前状态，中间状态会被跳过
+  - 槽里 `msleep` → 事件循环停摆 → 重绘请求没人处理；睡眠期间的状态变化会被合并，中间帧不出现
   - 界面卡 = 槽占住事件循环线程；`processEvents()` 只是插队且会重入
 - **常见坑**：在槽里 `QThread::msleep`；把 `processEvents()` 当解药
 - **对应**：问答 Q5、Q6、Q14 ｜ 实验 `trace02_events`
@@ -142,7 +143,7 @@ C++ 基础（类、虚函数、RAII）
 - **三个角色**：Model（`rowCount()` / `data()`）、View（`QListView` / `QTableView`）、Delegate（默认 `QStyledItemDelegate`）
 - **数据流**：`View → rowCount() → data(index(row), role) → delegate 画`
 - **三条通知规则**：
-  1. 改数据：`emit dataChanged(topLeft, bottomRight, roles)`
+  1. 改数据：`emit dataChanged(topLeft, bottomRight, roles)` —— topLeft / bottomRight 是变化范围（两端都包含），列表里同一 index 传两次；roles 是变化的 role 列表（如 `{Qt::DisplayRole}`）
   2. 插入 / 删除行：`beginInsertRows / endInsertRows` 成对，中间改数据
   3. 整体重建：`beginResetModel / endResetModel`（会丢选择 / 滚动位置）
 - **role**：`DisplayRole` 文字、`DecorationRole` 图标、`ForegroundRole` 颜色、`Qt::UserRole + n` 自定义
