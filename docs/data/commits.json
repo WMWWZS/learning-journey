@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-21T10:27:52.028Z",
-  "total": 118,
+  "updated": "2026-11-22T10:30:27.639Z",
+  "total": 120,
   "commits": [
     {
       "sha": "36d906bcdd797e05764ff8a3ff55ed2918d97a38",
@@ -273,13 +273,6 @@
       "msg": "docs: 新增仓库结构说明（每个文件的作用与修改指引）",
       "date": "2026-11-12T07:53:16Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/7d1ca8a7e8d68987e9dd6bab8d8423cda55efce7",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "dac73d1c3a5ab1d42d7f3c2d4f25106146f88f80",
-      "msg": "feat(data): 进度数据收敛到 docs/data/progress.json，自动生成页面数据和 README 图",
-      "date": "2026-11-12T07:36:25Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/dac73d1c3a5ab1d42d7f3c2d4f25106146f88f80",
       "author": "WMWWZS"
     }
   ]
