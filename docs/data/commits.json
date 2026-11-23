@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-22T10:30:27.639Z",
-  "total": 120,
+  "updated": "2026-11-23T11:31:14.305Z",
+  "total": 122,
   "commits": [
     {
       "sha": "36d906bcdd797e05764ff8a3ff55ed2918d97a38",
@@ -266,13 +266,6 @@
       "msg": "fix(assets): 阶段标签改用 short 短名，修复 dashboard.svg 文字重合",
       "date": "2026-11-12T07:54:08Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/6c35f7b49591f636989611220863e23d9294a7ce",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "7d1ca8a7e8d68987e9dd6bab8d8423cda55efce7",
-      "msg": "docs: 新增仓库结构说明（每个文件的作用与修改指引）",
-      "date": "2026-11-12T07:53:16Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/7d1ca8a7e8d68987e9dd6bab8d8423cda55efce7",
       "author": "WMWWZS"
     }
   ]
