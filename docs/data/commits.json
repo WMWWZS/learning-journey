@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-23T11:31:14.305Z",
-  "total": 122,
+  "updated": "2026-11-24T13:04:48.733Z",
+  "total": 124,
   "commits": [
     {
       "sha": "36d906bcdd797e05764ff8a3ff55ed2918d97a38",
@@ -259,13 +259,6 @@
       "msg": "feat(readme): 技能徽章改为可点击链接，新增自动同步的当前进度行",
       "date": "2026-11-12T07:58:50Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/ad2e776d22549eef1663a574cabbb360726b0f1e",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "6c35f7b49591f636989611220863e23d9294a7ce",
-      "msg": "fix(assets): 阶段标签改用 short 短名，修复 dashboard.svg 文字重合",
-      "date": "2026-11-12T07:54:08Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/6c35f7b49591f636989611220863e23d9294a7ce",
       "author": "WMWWZS"
     }
   ]
