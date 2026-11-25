@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-25T07:10:19.066Z",
-  "total": 127,
+  "updated": "2026-11-25T11:53:22.565Z",
+  "total": 129,
   "commits": [
     {
       "sha": "a86f1d61cb9a8881b660b627803eb1b88528937b",
@@ -252,13 +252,6 @@
       "msg": "feat(pages): 技能进度条支持拖动模拟，可一键复制 progress.json",
       "date": "2026-11-12T08:28:12Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/6912ec7e2add82964684526157c0a3b6264a7cb2",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "861a9c52589cd8204728bb6eef1d39e4dc2995e7",
-      "msg": "content: 11.13 练习骨架与笔记模板，新增 og.jpg 备用分享图",
-      "date": "2026-11-12T08:17:20Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/861a9c52589cd8204728bb6eef1d39e4dc2995e7",
       "author": "WMWWZS"
     }
   ]
