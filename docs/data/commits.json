@@ -1,7 +1,21 @@
 {
-  "updated": "2026-11-24T13:04:48.733Z",
-  "total": 124,
+  "updated": "2026-11-25T07:10:19.066Z",
+  "total": 127,
   "commits": [
+    {
+      "sha": "a86f1d61cb9a8881b660b627803eb1b88528937b",
+      "msg": "notes(qt): 补齐 11-21~11-25 五日复习记录（20 题）",
+      "date": "2026-11-25T07:10:00Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/a86f1d61cb9a8881b660b627803eb1b88528937b",
+      "author": "WMWWZS"
+    },
+    {
+      "sha": "7a38322aeca84f823090b26920fa45474c6a2a44",
+      "msg": "notes(qt): 主线补充 Auto 判定反例（QThread::started）",
+      "date": "2026-11-20T15:13:53Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/7a38322aeca84f823090b26920fa45474c6a2a44",
+      "author": "WMWWZS"
+    },
     {
       "sha": "36d906bcdd797e05764ff8a3ff55ed2918d97a38",
       "msg": "notes(qt): 2026-11-20 日记录（4 题）并修正主线措辞",
@@ -245,20 +259,6 @@
       "msg": "content: 11.13 练习骨架与笔记模板，新增 og.jpg 备用分享图",
       "date": "2026-11-12T08:17:20Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/861a9c52589cd8204728bb6eef1d39e4dc2995e7",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "482767bc6f59a2594cd349103b0506eaf4ac9f8c",
-      "msg": "chore: P3 收尾（404 页、gitattributes、清理冗余资源、技能百分比自动计算）",
-      "date": "2026-11-12T08:10:14Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/482767bc6f59a2594cd349103b0506eaf4ac9f8c",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "ad2e776d22549eef1663a574cabbb360726b0f1e",
-      "msg": "feat(readme): 技能徽章改为可点击链接，新增自动同步的当前进度行",
-      "date": "2026-11-12T07:58:50Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/ad2e776d22549eef1663a574cabbb360726b0f1e",
       "author": "WMWWZS"
     }
   ]
