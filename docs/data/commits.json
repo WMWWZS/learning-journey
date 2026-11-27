@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-26T11:41:55.436Z",
-  "total": 131,
+  "updated": "2026-11-27T11:35:39.239Z",
+  "total": 133,
   "commits": [
     {
       "sha": "a86f1d61cb9a8881b660b627803eb1b88528937b",
@@ -238,13 +238,6 @@
       "msg": "fix(pages): 技能条改为整行可拖 + 可视手柄，提升拖动成功率",
       "date": "2026-11-12T13:05:05Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/e8655b77351dda0861dad37d48b5bf354a6105b7",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "328df8e1ed38a5b32dd656259427e25438cc0de4",
-      "msg": "feat(pages): 路线图进度/项目功能也支持直接编辑，统一草稿与导出",
-      "date": "2026-11-12T08:37:24Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/328df8e1ed38a5b32dd656259427e25438cc0de4",
       "author": "WMWWZS"
     }
   ]
