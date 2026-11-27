@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-27T11:35:39.239Z",
-  "total": 133,
+  "updated": "2026-11-27T15:53:39.263Z",
+  "total": 135,
   "commits": [
+    {
+      "sha": "98a6e168f1e6d65433551c0af4795196062eb636",
+      "msg": "notes(qt): 补记 11-26 复习（4 题）",
+      "date": "2026-11-27T15:53:25Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/98a6e168f1e6d65433551c0af4795196062eb636",
+      "author": "WMWWZS"
+    },
     {
       "sha": "a86f1d61cb9a8881b660b627803eb1b88528937b",
       "msg": "notes(qt): 补齐 11-21~11-25 五日复习记录（20 题）",
@@ -231,13 +238,6 @@
       "msg": "feat(pages): 技能百分比改为 1% 连续拖动，生成器优先使用手填 pct",
       "date": "2026-11-12T13:09:49Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/1723670859c324b27f197c39613dede455bda92a",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "e8655b77351dda0861dad37d48b5bf354a6105b7",
-      "msg": "fix(pages): 技能条改为整行可拖 + 可视手柄，提升拖动成功率",
-      "date": "2026-11-12T13:05:05Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/e8655b77351dda0861dad37d48b5bf354a6105b7",
       "author": "WMWWZS"
     }
   ]
