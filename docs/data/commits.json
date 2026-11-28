@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-27T15:53:39.263Z",
-  "total": 135,
+  "updated": "2026-11-28T02:03:51.358Z",
+  "total": 137,
   "commits": [
+    {
+      "sha": "16b507c7adcc49afe1eb1ba7c35821475ccc8d74",
+      "msg": "notes(qt): 更正 AUTORCC 说明（qt_standard_project_setup 只开 MOC/UIC）",
+      "date": "2026-11-28T02:03:39Z",
+      "url": "https://github.com/WMWWZS/learning-journey/commit/16b507c7adcc49afe1eb1ba7c35821475ccc8d74",
+      "author": "WMWWZS"
+    },
     {
       "sha": "98a6e168f1e6d65433551c0af4795196062eb636",
       "msg": "notes(qt): 补记 11-26 复习（4 题）",
@@ -231,13 +238,6 @@
       "msg": "docs(projects): 智能监控系统目录与文档（7 天计划/环境工具链/验收清单）",
       "date": "2026-11-12T13:34:55Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/7b264b853ab10209e7423f10cb3ed65d53f15185",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "1723670859c324b27f197c39613dede455bda92a",
-      "msg": "feat(pages): 技能百分比改为 1% 连续拖动，生成器优先使用手填 pct",
-      "date": "2026-11-12T13:09:49Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/1723670859c324b27f197c39613dede455bda92a",
       "author": "WMWWZS"
     }
   ]
