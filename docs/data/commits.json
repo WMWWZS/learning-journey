@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-28T02:03:51.358Z",
-  "total": 137,
+  "updated": "2026-11-28T11:07:45.920Z",
+  "total": 139,
   "commits": [
     {
       "sha": "16b507c7adcc49afe1eb1ba7c35821475ccc8d74",
@@ -231,13 +231,6 @@
       "msg": "docs(notes): 新增项目理解模板（时序图/对象表/状态表）",
       "date": "2026-11-12T14:38:46Z",
       "url": "https://github.com/WMWWZS/learning-journey/commit/059092b3db026c97aa2c8d1480eeaeb01743af25",
-      "author": "WMWWZS"
-    },
-    {
-      "sha": "7b264b853ab10209e7423f10cb3ed65d53f15185",
-      "msg": "docs(projects): 智能监控系统目录与文档（7 天计划/环境工具链/验收清单）",
-      "date": "2026-11-12T13:34:55Z",
-      "url": "https://github.com/WMWWZS/learning-journey/commit/7b264b853ab10209e7423f10cb3ed65d53f15185",
       "author": "WMWWZS"
     }
   ]
