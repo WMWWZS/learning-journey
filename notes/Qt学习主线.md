@@ -158,11 +158,12 @@ C++ 基础（类、虚函数、RAII）
 - **最小 CMake**：
   ```cmake
   find_package(Qt6 REQUIRED COMPONENTS Widgets)
-  qt_standard_project_setup()            # 打开 AUTOMOC/AUTOUIC/AUTORCC
+  qt_standard_project_setup()            # 只打开 AUTOMOC/AUTOUIC
+  set(CMAKE_AUTORCC ON)                  # AUTORCC 要单独开（或 qt_add_resources）
   qt_add_executable(app main.cpp)
   target_link_libraries(app PRIVATE Qt6::Widgets)
   ```
-- **moc/uic/rcc 去哪看**：构建目录 `<target>_autogen/include/`
+- **moc/uic/rcc 去哪看**：构建目录 `<target>_autogen/` 下——`moc_*.cpp` 在 `EWIEGA46WW/` 之类子目录，`ui_*.h` 在 `include/`，`qrc_*.cpp` 在同一个 hash 子目录
 - **发布**：`windeployqt` 复制 DLL / 插件 / 翻译；缺 `platforms/qwindows.dll` 会报“no Qt platform plugin could be initialized”
 - **对应**：问答 Q12（首轮空白，待学）
 
